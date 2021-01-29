@@ -122,6 +122,39 @@ public class UtenteDAO {
 		return res;
 
 	}
+	
+	
+	public Utente completaUtente(Utente u) {
+		String query = "SELECT * FROM hr.Utente WHERE Username = ? AND Password = ?";
+		Utente res = new Utente();
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			System.out.println("Ci sono1");
+			ps.setString(1, u.getUsername());
+			System.out.println("Ci sono2");
+			ps.setString(2, u.getPassword());
+			System.out.println("Ci sono3");
+			ResultSet rs = ps.executeQuery();
+			System.out.println("Ci sono4");
+			System.out.println("rs=" + rs.toString());
+			if(rs.next()) {
+				res=recordToUtente(rs);
+				System.out.println("Ci sono5");
+				System.out.println("res=" + res.toString());
+			}
+		}
+			catch
+			(SQLException e) {
+					e.printStackTrace();
+			}
+		DBManager.closeConnection();
+		return res;
+		
+	}
+	
+	
+	
 	public boolean login(Utente u) {
 		String query="SELECT * FROM hr.Utente WHERE Username = ? AND Password = ?";
 		boolean esito=false;
@@ -148,9 +181,10 @@ public class UtenteDAO {
 	
 	public boolean LoginUtente(Utente utente) {
 		boolean esito=false;
-		String query="SELECT * FROM utente where nome=? and password =? ";
+		String query="SELECT * FROM utente where username= ? and password = ?";
 		PreparedStatement ps;
 		Connection conn=DBManager.startConnection();
+		System.out.println(conn);
 		try {
 		ps = conn.prepareStatement(query);
 		

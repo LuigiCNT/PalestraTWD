@@ -17,7 +17,7 @@ import it.unirc.twd.beans.UtenteDAO;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private UtenteDAO uDAO;
+    private UtenteDAO uDAO = new UtenteDAO();;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -42,10 +42,13 @@ public class Login extends HttpServlet {
 		doGet(request, response);
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println("username="+username + " " + "password=" + password);
         Utente utente = new Utente();
         utente.setUsername(username);
         utente.setPassword(password);
-        
+        System.out.println(utente.toString());
+        utente = uDAO.completaUtente(utente);
+        System.out.println(utente.toString());
         if (uDAO.LoginUtente(utente)) {
 		    HttpSession session = request.getSession();
 		    session.setAttribute("username",username);
@@ -53,7 +56,7 @@ public class Login extends HttpServlet {
 		} else {
 		    HttpSession session = request.getSession();
 		   session.setAttribute("user", username);
-		    response.sendRedirect("Login.jsp");
+		    response.sendRedirect("indexerrore.html");
 		}
 	}
 
