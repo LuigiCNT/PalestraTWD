@@ -49,11 +49,19 @@ public class Login extends HttpServlet {
         System.out.println(utente.toString());
         utente = uDAO.completaUtente(utente);
         System.out.println(utente.toString());
-        if (uDAO.LoginUtente(utente)) {
+        if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Cliente")) {
 		    HttpSession session = request.getSession();
 		    session.setAttribute("username",username);
 		    response.sendRedirect("AreaRiservataUtente.jsp");
-		} else {
+        }
+        
+        else if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Admin")) {
+        	   HttpSession session = request.getSession();
+   		    session.setAttribute("username",username);
+   		    response.sendRedirect("AreaRiservataAdmin.jsp");
+        }
+        
+        else {
 		    HttpSession session = request.getSession();
 		   session.setAttribute("user", username);
 		    response.sendRedirect("indexerrore.html");

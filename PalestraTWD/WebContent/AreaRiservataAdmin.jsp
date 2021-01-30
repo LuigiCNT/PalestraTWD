@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Gymso Fitness HTML Template</title>
+     <title>Area Riservata Admin</title>
 
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -43,7 +43,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
           
                     <li class="nav-item">
-                        <a href="#class" class="nav-link smoothScroll">Servizi</a>
+                        <a href="#class" class="nav-link smoothScroll">Dati Personali</a>
                     </li>
 
 
@@ -69,60 +69,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <div class="bg-overlay"></div>
 
                <div class="container">
-                    <div class="row">
+                    
 
                          <div class="col-lg-8 col-md-10 mx-auto col-12">
                               <div class="hero-text mt-5 text-center">
 
 									
-                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Migliora con Spartan Gym!</h1>
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO ADMIN!</h1>
 
-                                    <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600" style="color:#ffffff !important;">Inizia</a>
-
-                                    <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700" style="color:#f13a11 !important;border:1px solid #f13a11 !important">Scopri di più</a>
                                    
                               </div>
                          </div>
 
                     </div>
-               </div>
+            
      </section>
 
 
-     <section class="feature" id="feature">
-        <div class="container">
-            <div class="row">
-
-                <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
-                
-                    <p data-aos="fade-up" data-aos-delay="200" style="color:#ffffff !important">Sei già un abbonato?</p>
-
-                    <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm" style="background-color:#f13a11 !important">Login</a>
-                </div>
-
-                <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
-                     <div class="about-working-hours">
-                          <div>
-
-                                <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Ore Lavorative</h2>
-
-                               <strong class="d-block" data-aos="fade-up" data-aos-delay="600">Domenica : Chiuso</strong>
-
-                               <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">Lunedì - Venerdi</strong>
-
-                                <p data-aos="fade-up" data-aos-delay="800">7:00 AM - 10:00 PM</p>
-
-                                <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">Sabato</strong>
-
-                                <p data-aos="fade-up" data-aos-delay="800">6:00 AM - 4:00 PM</p>
-                               </div>
-                          </div>
-                     </div>
-                </div>
-
-            </div>
-      
-    </section>
+   
 
 
      <!-- ABOUT -->
@@ -134,53 +98,55 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     <div class="row">
 
                             <div class="col-lg-12 col-12 text-center mb-5">
-                                <h6 data-aos="fade-up">Migliora il tuo corpo</h6>
+                                
 
-                                <h2 data-aos="fade-up" data-aos-delay="200">I nostri Servizi</h2>
+                                <h2 data-aos="fade-up" data-aos-delay="200">Spartan Gym</h2>
                              </div>
 
                             <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
                                 <div class="class-thumb">
-                                    <img src="images/class/yoga-class.jpg" class="img-fluid" alt="Class">
+                                  
 
                                     <div class="class-info">
-                                        <h3 class="mb-1">Allenamento Funzionale</h3>
+                                        <h3 class="mb-1">Dati Palestra</h3>
+                                  <ul class="list-group list-group-flush">
+ 												 <li class="list-group-item"> Iscrizioni totali=??? </li>
+ 												 <li class="list-group-item"> Numero Clienti=???</li>
+ 												 <li class="list-group-item"> Numero Amministratori=???</li>
+ 												 </ul>
 
-                                        <span><strong>Preparatore</strong> - Giuseppe</span>
-
-                                        
-
-                                        <p class="mt-3">Tipologia di allenamento strutturato su esercizi che mirano a sviluppare la cosiddetta forza funzionale ossia la forza in funziona di un determinato movimento o azione specifica</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
                                 <div class="class-thumb">
-                                    <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
+                                
 
                                     <div class="class-info">
-                                        <h3 class="mb-1">Preparazione Atletica</h3>
+                                        <h3 class="mb-1">Iscrizioni</h3>
 
-                                        <span><strong>Preparatore</strong> - Luigi</span>
 
-                                     
+											<ul class="list-group list-group-flush">
+ 												 <li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#membershipForm" style="background-color:transparent; color:black !important">Nuovo Membro</a></li>
+ 												 </ul>
+                                                           
 
-                                        <p class="mt-3">Preparazione per ogni tipo di sport o concorso nazionale (carabinieri/polizia/militari ecc.)</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
                                 <div class="class-thumb">
-                                    <img src="images/class/cardio-class.jpg" class="img-fluid" alt="Class">
 
                                     <div class="class-info">
-                                        <h3 class="mb-1">Bodybuilding</h3>
+                                        <h3 class="mb-1">Storico Pagamenti</h3>
+                                        <ul class="list-group list-group-flush">
+ 												 <li class="list-group-item"><a href="#" target="_blank">Da pagare</a></li>
+  												<li class="list-group-item"><a href="#" target="_blank">Gi� pagati</a></li>
+</ul>
 
-                                        <span><strong>Preparatore</strong> - Demetrio</span>
-
-                                        <p class="mt-3">Allenamento mirato alla costruzione di un corpo ideale ispirato all'ideale fisico dell'antica Grecia</p>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +160,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     
 
 
-     <!-- CONTACT -->
+      <!-- CONTACT -->
      <section class="contact section" id="contact">
           <div class="container">
                <div class="row">
@@ -224,7 +190,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	4. Copy only URL and paste it within the src="" field below
 -->
                         <div class="google-map" data-aos="fade-up" data-aos-delay="900">
-                           <iframe src="https://maps.google.com/maps?q=Av.+Lúcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="1920" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.358998308237!2d15.645384115285838!3d38.108581679700094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13145085e41620c7%3A0x2f7ea858302d53ea!2sVia%20dei%20Filippini%2C%2089125%20Reggio%20Calabria%20RC%2C%20Italia!5e0!3m2!1sit!2sus!4v1611770411115!5m2!1sit!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
                     </div>
                     
@@ -257,14 +223,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
      </footer>
 
-    <!-- Modal -->
+
+     <!-- Modal -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
         <div class="modal-content">
           <div class="modal-header">
 
-            <h2 class="modal-title" id="membershipFormLabel">Login</h2>
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Membro</h2>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -272,15 +239,20 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
 
           <div class="modal-body">
-            <form class="membership-form webform" name="Login" action="Login" onsubmit="document.required()" method="post" role="form">
+            <form class="membership-form webform" name="CreaUtente" action="CreaUtente" onsubmit="document.required()" method="post" role="form">
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
 
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
-
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Accedi</button>
                 
-                <div class="alert alert-info" role="alert">
-  <center>Facendo il login accetti automaticamente i <a href="#">Termini &amp; Condizioni</a></center>
+                <input type="text" class="form-control" name="autorita" placeholder="Cliente/Admin" required>
+                
+                <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                
+                <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
+
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	
 </div>
                 
 <!--  
@@ -298,8 +270,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
       </div>
     </div>
-
      <!-- SCRIPTS -->
+     <script src="js/scripts.js"></script>
      <script src="js/jquery.min.js"></script>
      <script src="js/bootstrap.min.js"></script>
      <script src="js/aos.js"></script>
@@ -307,4 +279,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
      <script src="js/custom.js"></script>
 
 </body>
+
+
+<!--  
+Funzione required()
+ -->
+
 </html>
