@@ -75,7 +75,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                               <div class="hero-text mt-5 text-center">
 
 									<div class="alert alert-success" role="alert">
-  <strong>Utente creato con Successo!</strong>
+  <strong>Inserimento effettuato con Successo!</strong>
 </div>
                                     <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO ADMIN!</h1>
 

@@ -4,6 +4,7 @@ public class Attrezzi {
 	private String  nome;
 	private int id;
 	private String gruppo_muscolare;
+	
 	public String getNome() {
 		return nome;
 	}
