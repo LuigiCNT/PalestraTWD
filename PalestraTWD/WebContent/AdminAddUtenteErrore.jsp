@@ -75,6 +75,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
                               <div class="hero-text mt-5 text-center">
 
 									
+									<div class="alert alert-danger" role="alert">
+ <strong>Si è verificato un errore nella creazione dell'utente, riprova!</strong>
+</div>
+									
+									
                                     <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO ADMIN!</h1>
 
                                    
