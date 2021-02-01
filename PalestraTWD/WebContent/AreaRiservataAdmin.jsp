@@ -136,6 +136,22 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                 </div>
                             </div>
 
+  <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="class-thumb">
+
+                                    <div class="class-info">
+                                        <h3 class="mb-1">Attrezzatura</h3>
+                                        <ul class="list-group list-group-flush">
+ 												 
+  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Attrezzo</a></li>
+</ul>
+
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                                    
                             <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
                                 <div class="class-thumb">
 
@@ -144,6 +160,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <ul class="list-group list-group-flush">
  												 <li class="list-group-item"><a href="#" target="_blank">Da pagare</a></li>
   												<li class="list-group-item"><a href="#" target="_blank">Già pagati</a></li>
+  												
 </ul>
 
                                        
@@ -256,6 +273,32 @@ https://www.tooplate.com/view/2119-gymso-fitness
   <strong>Info:</strong> Tutti i campi sono obbligatori!
 </div>
 </div>
+            
+        <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Attrezzo</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="addAttrezziForm webform" name="InserisciAttrezzo" action="InserisciAttrezzo" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="nome" placeholder="Nome Attrezzo" required>
+
+                <input type="text" class="form-control" name="gruppo_muscolare" placeholder="Gruppo Muscolare" required>
+
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	<div class="alert alert-danger" role="alert">
+  <strong>Info:</strong> Tutti i campi sono obbligatori!
+</div>
+</div>
                 
 <!--  
                 <div class="custom-control custom-checkbox">
@@ -263,12 +306,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-                </div>
-            </form>
-          </div>
+                </div>          </div>
 
           <div class="modal-footer"></div>
 
+        </div>
+    
         </div>
       </div>
     </div>

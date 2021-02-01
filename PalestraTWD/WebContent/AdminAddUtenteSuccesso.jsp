@@ -146,7 +146,21 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <ul class="list-group list-group-flush">
  												 <li class="list-group-item"><a href="#" target="_blank">Da pagare</a></li>
   												<li class="list-group-item"><a href="#" target="_blank">Già pagati</a></li>
-  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Membro</a></li>
+  												</ul>
+
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+ <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="class-thumb">
+
+                                    <div class="class-info">
+                                        <h3 class="mb-1">Attrezzatura</h3>
+                                        <ul class="list-group list-group-flush">
+ 												 
+  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Attrezzo</a></li>
 </ul>
 
                                        
@@ -273,9 +287,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
           <div class="modal-footer"></div>
 
         </div>
-      </div>
-    </div>
-    
+      
+      
     
     <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -291,16 +304,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
 
           <div class="modal-body">
-            <form class="membership-form webform" name="CreaUtente" action="CreaUtente" onsubmit="document.required()" method="post" role="form">
-                <input type="text" class="form-control" name="username" placeholder="Username" required>
+            <form class="addAttrezziForm webform" name="InserisciAttrezzo" action="InserisciAttrezzo" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="nome" placeholder="Nome Attrezzo" required>
 
-                <input type="password" class="form-control" name="password" placeholder="Password" required>
-                
-                <input type="text" class="form-control" name="autorita" placeholder="Cliente/Admin" required>
-                
-                <input type="text" class="form-control" name="nome" placeholder="Nome" required>
-                
-                <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
+                <input type="text" class="form-control" name="gruppo_muscolare" placeholder="Gruppo Muscolare" required>
 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
                 
@@ -315,15 +322,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-                </div>
-            </form>
-          </div>
+                </div>          </div>
 
           <div class="modal-footer"></div>
 
         </div>
-      </div>
-    </div>
+    
     
      <!-- SCRIPTS -->
      <script src="js/scripts.js"></script>

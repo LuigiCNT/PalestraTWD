@@ -34,7 +34,7 @@ public class AttrezziDAO {
 		return res;
 	}
 	public boolean SalvaAttrezzi( Attrezzi a) {
-		String query = "INSERT INTO id VALUES (?, ?, ?)";
+		String query = "INSERT INTO Attrezzi VALUES (?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
