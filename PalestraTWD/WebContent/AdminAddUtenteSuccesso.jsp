@@ -146,6 +146,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <ul class="list-group list-group-flush">
  												 <li class="list-group-item"><a href="#" target="_blank">Da pagare</a></li>
   												<li class="list-group-item"><a href="#" target="_blank">Già pagati</a></li>
+  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Membro</a></li>
 </ul>
 
                                        
@@ -226,7 +227,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
      </footer>
 
 
-     <!-- Modal -->
+     <!-- Modal AddUtente -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
@@ -274,6 +275,56 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
       </div>
     </div>
+    
+    
+    <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Attrezzo</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="membership-form webform" name="CreaUtente" action="CreaUtente" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
+
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                
+                <input type="text" class="form-control" name="autorita" placeholder="Cliente/Admin" required>
+                
+                <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                
+                <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
+
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	<div class="alert alert-danger" role="alert">
+  <strong>Info:</strong> Tutti i campi sono obbligatori!
+</div>
+</div>
+                
+<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
+    
      <!-- SCRIPTS -->
      <script src="js/scripts.js"></script>
      <script src="js/jquery.min.js"></script>
