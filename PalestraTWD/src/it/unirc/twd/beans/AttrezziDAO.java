@@ -34,14 +34,13 @@ public class AttrezziDAO {
 		return res;
 	}
 	public boolean SalvaAttrezzi( Attrezzi a) {
-		String query = "INSERT INTO Attrezzi VALUES (?, ?)";
+		String query = "INSERT INTO Attrezzi(NOME, GRUPPO_MUSCOLARE) VALUES (?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, a.getNome());
-			ps.setInt(2, a.getId());
-			ps.setString(3, a.getGruppo_muscolare());
+			ps.setString(2, a.getGruppo_muscolare());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;

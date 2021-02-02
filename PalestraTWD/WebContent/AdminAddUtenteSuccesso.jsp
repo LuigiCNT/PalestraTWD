@@ -241,14 +241,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
      </footer>
 
 
-     <!-- Modal AddUtente -->
+       <!-- Modal -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
         <div class="modal-content">
           <div class="modal-header">
 
-            <h2 class="modal-title" id="membershipFormLabel">Nuovo Membro</h2>
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Cliente</h2>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -269,9 +269,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
                 
-               	<div class="alert alert-danger" role="alert">
-  <strong>Info:</strong> Tutti i campi sono obbligatori!
-</div>
+                <div class="alert alert-info" role="alert">
+  <center>Facendo il login accetti automaticamente i <a href="#">Termini &amp; Condizioni</a></center>
 </div>
                 
 <!--  
@@ -287,9 +286,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
           <div class="modal-footer"></div>
 
         </div>
-      
-      
+      </div>
+    </div>
     
+    
+       <!-- Modal -->
     <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
@@ -304,16 +305,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
 
           <div class="modal-body">
-            <form class="addAttrezziForm webform" name="InserisciAttrezzo" action="InserisciAttrezzo" onsubmit="document.required()" method="post" role="form">
+            <form class="membership-form webform" name="CreaAttrezzo" action="CreaAttrezzo" onsubmit="document.required()" method="post" role="form">
                 <input type="text" class="form-control" name="nome" placeholder="Nome Attrezzo" required>
 
                 <input type="text" class="form-control" name="gruppo_muscolare" placeholder="Gruppo Muscolare" required>
 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
                 
-               	<div class="alert alert-danger" role="alert">
-  <strong>Info:</strong> Tutti i campi sono obbligatori!
-</div>
+                <div class="alert alert-info" role="alert">
+  <center>Facendo il login accetti automaticamente i <a href="#">Termini &amp; Condizioni</a></center>
 </div>
                 
 <!--  
@@ -322,11 +322,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-                </div>          </div>
+                </div>
+            </form>
+          </div>
 
           <div class="modal-footer"></div>
 
         </div>
+      </div>
+    </div>
     
     
      <!-- SCRIPTS -->

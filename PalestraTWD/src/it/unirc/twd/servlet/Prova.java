@@ -1,29 +1,23 @@
 package it.unirc.twd.servlet;
 
 import java.io.IOException;
-import java.net.URLEncoder;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import it.unirc.twd.beans.Utente;
-import it.unirc.twd.beans.UtenteDAO;
 
 /**
- * Servlet implementation class CreaUtente
+ * Servlet implementation class Prova
  */
-@WebServlet("/CreaUtente")
-public class CreaUtente extends HttpServlet {
+@WebServlet("/Prova")
+public class Prova extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       UtenteDAO uDAO = new UtenteDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreaUtente() {
+    public Prova() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,6 +27,7 @@ public class CreaUtente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,20 +36,6 @@ public class CreaUtente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		Utente u = new Utente();
-		u.setUsername(request.getParameter("username"));
-		u.setPassword(request.getParameter("password"));
-		u.setAutorita(request.getParameter("autorita"));
-		u.setNome(request.getParameter("nome"));
-		u.setCognome(request.getParameter("cognome"));
-		System.out.println(u.toString());
-		if(uDAO.SalvaUtente(u)) {
-		    response.sendRedirect("AreaRiservataAdmin.jsp" + URLEncoder.encode("Aggiunto con successo"));
-		   
-		}
-		else {
-			response.sendRedirect("AdminAddUtenteErrore.jsp");
-		}
 	}
 
 }
