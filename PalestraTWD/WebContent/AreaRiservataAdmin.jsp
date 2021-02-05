@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+ <%@ page import = "it.unirc.twd.beans.*" %>
+  <%@ page import = "java.util.*" %>
 <html lang="en">
 <head>
 
@@ -62,7 +64,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </nav>
 
-
+<%
+Vector<Utente> v = new Vector<Utente>();
+v = (Vector) session.getAttribute("listautenti");
+System.out.print(v.toString());
+%>
      <!-- HERO -->
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
 
@@ -129,6 +135,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 											<ul class="list-group list-group-flush">
  												 <li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#membershipForm" style="background-color:transparent; color:black !important">Nuovo Membro</a></li>
+ 												 <li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#mostraUtentiForm" style="background-color:transparent; color:black !important">Lista Membri</a></li>
  												 </ul>
                                                            
 
@@ -332,6 +339,50 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
       </div>
     </div>
+    
+    
+      <!-- Modal -->
+    <div class="modal fade" id="mostraUtentiForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Lista utenti</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+           <ul class="list-group">
+           <% for(int i=0; i<v.size(); i++) { %>
+           
+           <li class="list-group-item" style="font-size:14px !important"> <b>Username: </b> <%= v.elementAt(i).getUsername().toString() %>  | <b>Nome: </b><%= v.elementAt(i).getNome().toString() %> | <b>Cognome: </b> <%= v.elementAt(i).getCognome().toString() %></li>
+           
+        	<%   
+           }
+        	   %>     
+           </ul>
+<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
+    
+    
+    
      <!-- SCRIPTS -->
      <script src="js/scripts.js"></script>
      <script src="js/jquery.min.js"></script>

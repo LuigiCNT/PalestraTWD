@@ -1,6 +1,8 @@
 package it.unirc.twd.servlet;
 
 import java.io.IOException;
+import java.util.Vector;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +61,9 @@ public class Login extends HttpServlet {
         else if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Admin")) {
         	   HttpSession session = request.getSession();
    		    session.setAttribute("username",username);
+   		    Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
+   		    session.setAttribute("listautenti", list);
+   		    
    		    response.sendRedirect("AreaRiservataAdmin.jsp");
         }
         
