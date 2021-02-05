@@ -27,7 +27,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <!-- MENU BAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-
+	
             <a class="navbar-brand" href="index.html">Spartan Gym</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"

@@ -2,7 +2,6 @@ package it.unirc.twd.beans;
 
 public class Attrezzi {
 	private String  nome;
-	private int id;
 	private String gruppo_muscolare;
 	
 	public String getNome() {
@@ -10,12 +9,6 @@ public class Attrezzi {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getGruppo_muscolare() {
 		return gruppo_muscolare;
@@ -28,7 +21,6 @@ public class Attrezzi {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((gruppo_muscolare == null) ? 0 : gruppo_muscolare.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -46,8 +38,6 @@ public class Attrezzi {
 				return false;
 		} else if (!gruppo_muscolare.equals(other.gruppo_muscolare))
 			return false;
-		if (id != other.id)
-			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
@@ -57,12 +47,11 @@ public class Attrezzi {
 	}
 	@Override
 	public String toString() {
-		return "Attrezzi [nome=" + nome + ", id=" + id + ", gruppo_muscolare=" + gruppo_muscolare + "]";
+		return "Attrezzi [nome=" + nome + ", gruppo_muscolare=" + gruppo_muscolare + "]";
 	}
 	public Attrezzi(String nome, int id, String gruppo_muscolare) {
 		super();
 		this.nome = nome;
-		this.id = id;
 		this.gruppo_muscolare = gruppo_muscolare;
 	}
 	public Attrezzi() {

@@ -13,18 +13,17 @@ public class AttrezziDAO {
 	private static Connection conn = null;
 
 	public Attrezzi getAttrezzi(Attrezzi a) {
-		String query = "Select * FROM Attrezzi where id = ?";
+		String query = "Select * FROM Attrezzi where nome = ?";
 		Attrezzi res = null;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, a.getId());
+			ps.setString(1, a.getNome());
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				res=new Attrezzi();
 				res.setNome(rs.getString("Nome"));
-				res.setId(rs.getInt("Id"));
 				res.setGruppo_muscolare(rs.getString("Gruppo_muscolare"));
 			}
 		}catch(Exception e) {
@@ -52,12 +51,12 @@ public class AttrezziDAO {
 		return esito;
 	}
 	public boolean EliminaAttrezzi(Attrezzi a) {
-		String query = "DELETE * FROM Attrezzi WHERE id = ?";
+		String query = "DELETE * FROM Attrezzi WHERE nome = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setInt(1, a.getId());
+			ps.setString(1, a.getNome());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -69,14 +68,13 @@ public class AttrezziDAO {
 		return esito;
 	}
 	public boolean AggiornaAttrezzi(Attrezzi a) {
-		String query = "UPDATE Attrezzi SET nome = ?, gruppo muscolare = ? WHERE id = ?";
+		String query = "UPDATE Attrezzi SET gruppo muscolare = ? WHERE nome = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, a.getNome());
-			ps.setString(2, a.getGruppo_muscolare());
-			ps.setInt(3, a.getId());
+			ps.setString(1, a.getGruppo_muscolare());
+			ps.setString(2, a.getNome());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -108,7 +106,6 @@ public class AttrezziDAO {
 	protected Attrezzi recordToAttrezzi(ResultSet rs) throws SQLException {
 		Attrezzi res=new Attrezzi();
 		res.setNome(rs.getString("Nome"));
-		res.setId(rs.getInt("Id"));
 		res.setGruppo_muscolare(rs.getString("Gruppo_muscolare"));
 		return res;
 

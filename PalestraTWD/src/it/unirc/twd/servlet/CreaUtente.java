@@ -49,7 +49,9 @@ public class CreaUtente extends HttpServlet {
 		u.setCognome(request.getParameter("cognome"));
 		System.out.println(u.toString());
 		if(uDAO.SalvaUtente(u)) {
-		    response.sendRedirect("AreaRiservataAdmin.jsp" + URLEncoder.encode("Aggiunto con successo"));
+			HttpSession session = request.getSession();
+			session.setAttribute("successo", true);
+		    response.sendRedirect("AreaRiservataAdmin.jsp");
 		   
 		}
 		else {

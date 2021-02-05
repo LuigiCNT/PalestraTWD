@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
         if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Cliente")) {
 		    HttpSession session = request.getSession();
 		    session.setAttribute("username",username);
+		    session.setAttribute("successo", false);
 		    response.sendRedirect("AreaRiservataUtente.jsp");
         }
         
