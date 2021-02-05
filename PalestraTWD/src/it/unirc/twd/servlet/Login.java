@@ -1,6 +1,7 @@
 package it.unirc.twd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Vector;
 
 import javax.servlet.ServletException;
@@ -63,14 +64,16 @@ public class Login extends HttpServlet {
    		    session.setAttribute("username",username);
    		    Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
    		    session.setAttribute("listautenti", list);
-   		    
+   		    session.setAttribute("successo", false);
    		    response.sendRedirect("AreaRiservataAdmin.jsp");
         }
         
         else {
-		    HttpSession session = request.getSession();
-		   session.setAttribute("user", username);
-		    response.sendRedirect("indexerrore.html");
+        	PrintWriter out = response.getWriter();
+		    HttpSession session = request.getSession();out.println("<script type=\"text/javascript\">");
+		    out.println("location='index.html';");
+		    out.println("alert('User or password incorrect');");
+		    out.println("</script>"); 
 		}
 	}
 

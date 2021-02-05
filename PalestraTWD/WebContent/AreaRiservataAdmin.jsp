@@ -65,6 +65,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
     </nav>
 
 <%
+String username = (String) session.getAttribute("username");
+Boolean successo = (Boolean) session.getAttribute("successo");
+username = username.toUpperCase();
 Vector<Utente> v = new Vector<Utente>();
 v = (Vector) session.getAttribute("listautenti");
 System.out.print(v.toString());
@@ -79,9 +82,19 @@ System.out.print(v.toString());
 
                          <div class="col-lg-8 col-md-10 mx-auto col-12">
                               <div class="hero-text mt-5 text-center">
-
-									
-                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO ADMIN!</h1>
+						
+						
+						<%
+						if(!successo || successo == null) {
+							
+						}else {
+						%>
+							<div class="alert alert-success" role="alert">
+  Utente aggiunto con successo!
+</div>
+						<% }
+						%>			
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO <%= username %> !</h1>
 
                                    
                               </div>
