@@ -68,9 +68,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 String username = (String) session.getAttribute("username");
 String stato = (String) session.getAttribute("stato");
 username = username.toUpperCase();
-Vector<Utente> v = new Vector<Utente>();
-v = (Vector) session.getAttribute("listautenti");
-System.out.print(v.toString());
+Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
+
+Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
+
 %>
      <!-- HERO -->
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
@@ -173,8 +174,8 @@ System.out.print(v.toString());
                                     <div class="class-info">
                                         <h3 class="mb-1">Attrezzatura</h3>
                                         <ul class="list-group list-group-flush">
- 												 
-  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Attrezzo</a></li>
+ 												 <li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#addAttrezziForm" style="background-color:transparent; color:black !important">Nuovo Attrezzo</a></li>
+  												<li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#getAllAttrezziForm" style="background-color:transparent; color:black !important">Mostra tutti</a></li>
 </ul>
 
                                        
@@ -384,6 +385,46 @@ System.out.print(v.toString());
            <% for(int i=0; i<v.size(); i++) { %>
            
            <li class="list-group-item" style="font-size:14px !important"> <b>Username: </b> <%= v.elementAt(i).getUsername().toString() %>  | <b>Nome: </b><%= v.elementAt(i).getNome().toString() %> | <b>Cognome: </b> <%= v.elementAt(i).getCognome().toString() %></li>
+           
+        	<%   
+           }
+        	   %>     
+           </ul>
+<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="modal fade" id="getAllAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Lista attrezzi</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+           <ul class="list-group">
+           <% for(int i=0; i<la.size(); i++) { %>
+           
+           <li class="list-group-item" style="font-size:14px !important"> <b>Nome: </b> <%= la.elementAt(i).getNome().toString() %>  | <b>Gruppo Muscolare: </b><%= la.elementAt(i).getGruppo_muscolare().toString() %> </li>
            
         	<%   
            }

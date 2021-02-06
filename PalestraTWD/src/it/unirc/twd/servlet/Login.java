@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.unirc.twd.beans.Attrezzi;
+import it.unirc.twd.beans.AttrezziDAO;
 import it.unirc.twd.beans.Dati_fisici;
 import it.unirc.twd.beans.Dati_fisiciDAO;
 import it.unirc.twd.beans.Utente;
@@ -22,7 +24,8 @@ import it.unirc.twd.beans.UtenteDAO;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private UtenteDAO uDAO = new UtenteDAO();;
+    private UtenteDAO uDAO = new UtenteDAO();
+    private AttrezziDAO aDAO = new AttrezziDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -69,6 +72,8 @@ public class Login extends HttpServlet {
         	   HttpSession session = request.getSession();
    		    session.setAttribute("username",username);
    		    Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
+   		    Vector<Attrezzi> listaattrezzi = aDAO.getAll();
+   		    session.setAttribute("lista_attrezzi", listaattrezzi);
    		    session.setAttribute("listautenti", list);
    		    session.setAttribute("stato", "login");
    		    response.sendRedirect("AreaRiservataAdmin.jsp");
