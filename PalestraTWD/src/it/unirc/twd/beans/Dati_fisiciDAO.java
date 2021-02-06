@@ -34,6 +34,31 @@ public class Dati_fisiciDAO {
 		DBManager.closeConnection();
 		return res;
 	}
+	
+	public Dati_fisici getDFByString(String da) {
+		String query = "Select * FROM Dati_fisici where username = ?";
+		Dati_fisici res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, da);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				res=new Dati_fisici();
+				res.setUsername(rs.getString("username"));
+				res.setAltezza(rs.getDouble("Altezza"));
+				res.setPeso(rs.getDouble("Peso"));
+				res.setPlicometria(rs.getDouble("Plicometria"));
+			}
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return res;
+	}
+	
+	
 	public boolean SalvaDati_Fisici(Dati_fisici da) {
 		String query = "INSERT INTO Username VALUES (?, ?, ?)";
 		boolean esito=false;

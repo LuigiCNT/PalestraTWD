@@ -50,12 +50,14 @@ public class CreaUtente extends HttpServlet {
 		System.out.println(u.toString());
 		if(uDAO.SalvaUtente(u)) {
 			HttpSession session = request.getSession();
-			session.setAttribute("successo", true);
+			session.setAttribute("stato", "aggiunto utente");
 		    response.sendRedirect("AreaRiservataAdmin.jsp");
 		   
 		}
 		else {
-			response.sendRedirect("AdminAddUtenteErrore.jsp");
+			HttpSession session = request.getSession();
+			session.setAttribute("stato", "errore aggiunta utente");
+			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
 

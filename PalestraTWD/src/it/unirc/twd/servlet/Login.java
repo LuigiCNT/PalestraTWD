@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.unirc.twd.beans.Dati_fisici;
+import it.unirc.twd.beans.Dati_fisiciDAO;
 import it.unirc.twd.beans.Utente;
 import it.unirc.twd.beans.UtenteDAO;
 
@@ -56,6 +58,10 @@ public class Login extends HttpServlet {
 		    HttpSession session = request.getSession();
 		    session.setAttribute("username",username);
 		    session.setAttribute("successo", false);
+		    Dati_fisiciDAO dfDAO = new Dati_fisiciDAO();
+		    Dati_fisici df = dfDAO.getDFByString(utente.getUsername());
+		    session.setAttribute("dati_fisici", df);
+		    session.setAttribute("utente", utente);
 		    response.sendRedirect("AreaRiservataUtente.jsp");
         }
         
@@ -64,7 +70,7 @@ public class Login extends HttpServlet {
    		    session.setAttribute("username",username);
    		    Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
    		    session.setAttribute("listautenti", list);
-   		    session.setAttribute("successo", false);
+   		    session.setAttribute("stato", "login");
    		    response.sendRedirect("AreaRiservataAdmin.jsp");
         }
         

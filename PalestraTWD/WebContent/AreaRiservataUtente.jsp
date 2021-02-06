@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<%@ page import = "it.unirc.twd.beans.*" %>
+  <%@ page import = "java.util.*" %>
+
 <html lang="en">
 <head>
 
@@ -62,6 +66,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </nav>
 
+<%
+Utente u = (Utente) session.getAttribute("utente");
+Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
+String username = u.getUsername().toUpperCase();
+%>
+
+
 
      <!-- HERO -->
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
@@ -75,7 +86,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                               <div class="hero-text mt-5 text-center">
 
 									
-                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO!</h1>
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO <%= username %> !</h1>
 
                                    
                               </div>
@@ -110,9 +121,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                     <div class="class-info">
                                         <h3 class="mb-1">Dati fisici</h3>
                                   <ul class="list-group list-group-flush">
- 												 <li class="list-group-item"> Altezza=??? </li>
- 												 <li class="list-group-item"> Peso=???</li>
- 												 <li class="list-group-item"> Valore Plicometrico=???</li>
+ 												 <li class="list-group-item"> Altezza= <%= df.getAltezza() %> cm</li>
+ 												 <li class="list-group-item"> Peso= <%= df.getPeso() %> kg</li>
+ 												 <li class="list-group-item"> Valore Plicometrico= <%= df.getPlicometria() %> mm</li>
  												 </ul>
 
                                     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <%@ page import = "it.unirc.twd.beans.*" %>
+<%@ page import = "it.unirc.twd.beans.*" %>
   <%@ page import = "java.util.*" %>
 <html lang="en">
 <head>
@@ -66,7 +66,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 <%
 String username = (String) session.getAttribute("username");
-Boolean successo = (Boolean) session.getAttribute("successo");
+String stato = (String) session.getAttribute("stato");
 username = username.toUpperCase();
 Vector<Utente> v = new Vector<Utente>();
 v = (Vector) session.getAttribute("listautenti");
@@ -85,15 +85,26 @@ System.out.print(v.toString());
 						
 						
 						<%
-						if(!successo || successo == null) {
+						if(stato == null || stato.equals("login")) {
 							
-						}else {
+						}else if (stato.equals("aggiunto utente")){
 						%>
 							<div class="alert alert-success" role="alert">
   Utente aggiunto con successo!
 </div>
-						<% }
+						<% } else if (stato.equals("errore aggiunta utente")){
+							
 						%>			
+						
+						<div class="alert alert-danger" role="alert">
+  C'è stato un errore con l'aggiunta dell'utente!
+</div>
+<%
+}else {
+	
+}
+%>
+						
                                     <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">BENTORNATO <%= username %> !</h1>
 
                                    
