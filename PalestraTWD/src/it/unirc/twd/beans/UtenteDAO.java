@@ -200,4 +200,42 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
+	
+	public int ContaClienti() {
+		String query = "SELECT COUNT(*) FROM utente WHERE AUTORITÀ='Cliente'";
+		int numero = 0;
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				numero=rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		System.out.println(numero);
+		return numero;
+	}
+	
+	public int ContaAdmin() {
+		String query = "SELECT COUNT(*) FROM utente WHERE AUTORITÀ='Admin'";
+		int numero = 0;
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				numero=rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		System.out.println(numero);
+		return numero;
+	}
+		
+	
 }

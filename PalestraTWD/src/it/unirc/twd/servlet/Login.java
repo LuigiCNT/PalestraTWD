@@ -73,6 +73,8 @@ public class Login extends HttpServlet {
    		    session.setAttribute("username",username);
    		    Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
    		    Vector<Attrezzi> listaattrezzi = aDAO.getAll();
+   		    session.setAttribute("numeroClienti", uDAO.ContaClienti());
+   		    session.setAttribute("numeroAdmin", uDAO.ContaAdmin());
    		    session.setAttribute("lista_attrezzi", listaattrezzi);
    		    session.setAttribute("listautenti", list);
    		    session.setAttribute("stato", "login");
