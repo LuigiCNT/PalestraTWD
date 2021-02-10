@@ -75,6 +75,7 @@ public class Login extends HttpServlet {
    		    Vector<Attrezzi> listaattrezzi = aDAO.getAll();
    		    session.setAttribute("numeroClienti", uDAO.ContaClienti());
    		    session.setAttribute("numeroAdmin", uDAO.ContaAdmin());
+   		    session.setAttribute("numeroAttrezzi", aDAO.contaAttrezzi());
    		    session.setAttribute("lista_attrezzi", listaattrezzi);
    		    session.setAttribute("listautenti", list);
    		    session.setAttribute("stato", "login");

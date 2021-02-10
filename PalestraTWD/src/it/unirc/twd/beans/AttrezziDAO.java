@@ -110,4 +110,22 @@ public class AttrezziDAO {
 		return res;
 
 	}
+	
+	public int contaAttrezzi() {
+		String query = "SELECT COUNT (*) FROM Attrezzi";
+		int numero=0;
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				numero=rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		System.out.println(numero);
+		return numero;
+	}
 }

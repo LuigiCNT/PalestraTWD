@@ -40,10 +40,14 @@ public class CreaAttrezzo extends HttpServlet {
 		boolean res = aDAO.SalvaAttrezzi(a);
 		System.out.println(res);
 		if(res) {
-			response.sendRedirect("AdminAddUtenteSuccesso.jsp");
+			HttpSession session = request.getSession();
+			session.setAttribute("stato", "aggiunto utente");
+			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 		else {
-			response.sendRedirect("AdminAddUtenteErrore.jsp");
+			HttpSession session = request.getSession();
+			session.setAttribute("stato", "errore aggiunta utente");
+			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
 

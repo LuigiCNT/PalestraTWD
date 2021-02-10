@@ -65,14 +65,17 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 	<%
 String username = (String) session.getAttribute("username");
-String stato = (String) session.getAttribute("stato");
-username = username.toUpperCase();
-Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
 
+String stato = (String) session.getAttribute("stato");
+
+username = username.toUpperCase();
+
+Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
 Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
  
 int numeroClienti = (int) session.getAttribute("numeroClienti");
 int numeroAdmin = (int) session.getAttribute("numeroAdmin");
+int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 %>
 	<!-- HERO -->
 	<section
@@ -488,6 +491,7 @@ int numeroAdmin = (int) session.getAttribute("numeroAdmin");
 				</div>
 
 				<div class="modal-body">
+					<ul> Totale Attrezzi = <%= numeroAttrezzi %></ul>
 					<ul class="list-group">
 						<% for(int i=0; i<la.size(); i++) { %>
 
