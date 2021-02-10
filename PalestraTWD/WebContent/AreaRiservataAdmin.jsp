@@ -151,7 +151,8 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 							<h3 class="mb-1">Dati Palestra</h3>
 							<ul class="list-group list-group-flush">
 
-								<li class="list-group-item">Numero Clienti = <%= numeroClienti %> </li>
+								<li class="list-group-item">Numero Clienti = <%= numeroClienti %>
+								</li>
 								<li class="list-group-item">Numero Amministratori = <%= numeroAdmin %></li>
 							</ul>
 
@@ -173,10 +174,16 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 									data-target="#membershipForm"
 									style="background-color: transparent; color: black !important">Nuovo
 										Membro</a></li>
+
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#mostraUtentiForm"
 									style="background-color: transparent; color: black !important">Lista
 										Membri</a></li>
+
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#updateUtenteForm"
+									style="background-color: transparent; color: black !important">Modifica
+										Valori Membri</a></li>
 							</ul>
 
 
@@ -335,41 +342,83 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 				<div class="modal-body">
 					<form class="membership-form webform" name="CreaUtente"
 						action="CreaUtente" onsubmit="document.required()" method="post"
-						role="form">
-						<input type="text" class="form-control" name="username"
-							placeholder="Username" required> <input type="password"
-							class="form-control" name="password" placeholder="Password"
-							required> <input type="text" class="form-control"
-							name="autorita" placeholder="Cliente/Admin" required> <input
-							type="text" class="form-control" name="nome" placeholder="Nome"
-							required> <input type="text" class="form-control"
-							name="cognome" placeholder="Cognome" required>
+						role="form"></form>
+					<input type="text" class="form-control" name="username"
+						placeholder="Username" required> <input type="password"
+						class="form-control" name="password" placeholder="Password"
+						required> <input type="text" class="form-control"
+						name="autorita" placeholder="Cliente/Admin" required> <input
+						type="text" class="form-control" name="nome" placeholder="Nome"
+						required> <input type="text" class="form-control"
+						name="cognome" placeholder="Cognome" required>
 
-						<button type="submit" class="form-control" id="submit-button"
-							name="Accedi"
-							style="background-color: #343a40 !important; color: white !important">Crea</button>
+					<button type="submit" class="form-control" id="submit-button"
+						name="Accedi"
+						style="background-color: #343a40 !important; color: white !important">Crea</button>
 
-						<div class="alert alert-info" role="alert">
-							<center>
-								Facendo il login accetti automaticamente i <a href="#">Termini
-									&amp; Condizioni</a>
-							</center>
-						</div>
+					<div class="alert alert-info" role="alert">
+						<center>
+							Facendo il login accetti automaticamente i <a href="#">Termini
+								&amp; Condizioni</a>
+						</center>
+					</div>
 
+
+
+
+<div class="modal fade" id="updateUtenteForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Modifica
+						Valori utente</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+					<div class="modal-body">
+						<form class="membership-form webform" name="ModificaUtente"
+							action="ModificaUtente" onsubmit="document.required()" method="post"
+							role="form"></form>
+							<input type="text" class="form-control" name="username"
+						placeholder="Username" required> 
+						 <input type="text" class="form-control"
+						name="altezza" placeholder="Altezza" required>
+						 <input type="text" class="form-control" name="peso" placeholder="Peso"
+						required> 
+						<input type="text" class="form-control"
+						name="plicometria" placeholder="Plicometria" required>
+
+					<button type="submit" class="form-control" id="submit-button"
+						name="Accedi"
+						style="background-color: #343a40 !important; color: white !important">Aggiorna</button>
+
+					<div class="alert alert-info" role="alert">
+						<center>
+							Facendo il login accetti automaticamente i <a href="#">Termini
+								&amp; Condizioni</a>
+						</center>
+					</div>
+							
 						<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
+					</div>
+
 				</div>
-				</form>
+
+				<div class="modal-footer"></div>
+
 			</div>
-
-			<div class="modal-footer"></div>
-
 		</div>
-	</div>
 	</div>
 
 
@@ -393,38 +442,38 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 				<div class="modal-body">
 					<form class="membership-form webform" name="CreaAttrezzo"
 						action="CreaAttrezzo" onsubmit="document.required()" method="post"
-						role="form">
-						<input type="text" class="form-control" name="nome"
-							placeholder="Nome Attrezzo" required> <input type="text"
-							class="form-control" name="gruppo_muscolare"
-							placeholder="Gruppo Muscolare" required>
+						role="form"></form>
+					<input type="text" class="form-control" name="nome"
+						placeholder="Nome Attrezzo" required> <input type="text"
+						class="form-control" name="gruppo_muscolare"
+						placeholder="Gruppo Muscolare" required>
 
-						<button type="submit" class="form-control" id="submit-button"
-							name="Accedi"
-							style="background-color: #343a40 !important; color: white !important">Crea</button>
+					<button type="submit" class="form-control" id="submit-button"
+						name="Accedi"
+						style="background-color: #343a40 !important; color: white !important">Crea</button>
 
-						<div class="alert alert-info" role="alert">
-							<center>
-								Facendo il login accetti automaticamente i <a href="#">Termini
-									&amp; Condizioni</a>
-							</center>
-						</div>
+					<div class="alert alert-info" role="alert">
+						<center>
+							Facendo il login accetti automaticamente i <a href="#">Termini
+								&amp; Condizioni</a>
+						</center>
+					</div>
 
-						<!--  
+					<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
 				</div>
-				</form>
+
 			</div>
 
 			<div class="modal-footer"></div>
 
 		</div>
 	</div>
-	</div>
+
 
 
 	<!-- Modal -->
@@ -449,8 +498,9 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Username: </b> <%= v.elementAt(i).getUsername().toString() %>
-							| <b>Nome: </b><%= v.elementAt(i).getNome().toString() %> 
-						 <%= v.elementAt(i).getCognome().toString() %> <b>Autorità: </b> <%= v.elementAt(i).getAutorita().toString() %> </b>
+							| <b>Nome: </b><%= v.elementAt(i).getNome().toString() %> <%= v.elementAt(i).getCognome().toString() %>
+							<b>Autorità: </b> <%= v.elementAt(i).getAutorita().toString() %>
+							</b>
 						</li>
 
 						<%   
@@ -491,7 +541,9 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 				</div>
 
 				<div class="modal-body">
-					<ul> Totale Attrezzi = <%= numeroAttrezzi %></ul>
+					<ul>
+						Totale Attrezzi =
+						<%= numeroAttrezzi %></ul>
 					<ul class="list-group">
 						<% for(int i=0; i<la.size(); i++) { %>
 
