@@ -64,19 +64,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	</nav>
 
 	<%
-String username = (String) session.getAttribute("username");
+	String username = (String) session.getAttribute("username");
 
-String stato = (String) session.getAttribute("stato");
+	String stato = (String) session.getAttribute("stato");
 
-username = username.toUpperCase();
+	username = username.toUpperCase();
 
-Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
-Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
- 
-int numeroClienti = (int) session.getAttribute("numeroClienti");
-int numeroAdmin = (int) session.getAttribute("numeroAdmin");
-int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
-%>
+	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
+	Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
+
+	int numeroClienti = (int) session.getAttribute("numeroClienti");
+	int numeroAdmin = (int) session.getAttribute("numeroAdmin");
+	int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
+	%>
 	<!-- HERO -->
 	<section
 		class="hero d-flex flex-column justify-content-center align-items-center"
@@ -92,27 +92,27 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 
 
 					<%
-						if(stato == null || stato.equals("login")) {
-							
-						}else if (stato.equals("aggiunto utente")){
-						%>
+					if (stato == null || stato.equals("login")) {
+
+					} else if (stato.equals("aggiunto utente")) {
+					%>
 					<div class="alert alert-success" role="alert">Utente aggiunto
 						con successo!</div>
-					<% } else if (stato.equals("errore aggiunta utente")){
-							
-						%>
+					<%
+					} else if (stato.equals("errore aggiunta utente")) {
+					%>
 
 					<div class="alert alert-danger" role="alert">C'è stato un
 						errore con l'aggiunta dell'utente!</div>
 					<%
-}else {
-	
-}
-%>
+					} else {
+
+					}
+					%>
 
 					<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
 						BENTORNATO
-						<%= username %>
+						<%=username%>
 						!
 					</h1>
 
@@ -151,9 +151,9 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 							<h3 class="mb-1">Dati Palestra</h3>
 							<ul class="list-group list-group-flush">
 
-								<li class="list-group-item">Numero Clienti = <%= numeroClienti %>
+								<li class="list-group-item">Numero Clienti = <%=numeroClienti%>
 								</li>
-								<li class="list-group-item">Numero Amministratori = <%= numeroAdmin %></li>
+								<li class="list-group-item">Numero Amministratori = <%=numeroAdmin%></li>
 							</ul>
 
 						</div>
@@ -362,11 +362,12 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 								&amp; Condizioni</a>
 						</center>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-
-
-
-<div class="modal fade" id="updateUtenteForm" tabindex="-1"
+	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
@@ -381,18 +382,17 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-					<div class="modal-body">
-						<form class="membership-form webform" name="ModificaUtente"
-							action="ModificaUtente" onsubmit="document.required()" method="post"
-							role="form"></form>
-							<input type="text" class="form-control" name="username"
-						placeholder="Username" required> 
-						 <input type="text" class="form-control"
-						name="altezza" placeholder="Altezza" required>
-						 <input type="text" class="form-control" name="peso" placeholder="Peso"
-						required> 
-						<input type="text" class="form-control"
-						name="plicometria" placeholder="Plicometria" required>
+				<div class="modal-body">
+					<form class="membership-form webform" name="ModificaUtente"
+						action="ModificaUtente" onsubmit="document.required()"
+						method="post" role="form"></form>
+					<input type="text" class="form-control" name="username"
+						placeholder="Username" required> <input type="text"
+						class="form-control" name="altezza" placeholder="Altezza" required>
+					<input type="text" class="form-control" name="peso"
+						placeholder="Peso" required> <input type="text"
+						class="form-control" name="plicometria" placeholder="Plicometria"
+						required>
 
 					<button type="submit" class="form-control" id="submit-button"
 						name="Accedi"
@@ -404,14 +404,14 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 								&amp; Condizioni</a>
 						</center>
 					</div>
-							
-						<!--  
+
+					<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-					</div>
+
 
 				</div>
 
@@ -494,18 +494,20 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 
 				<div class="modal-body">
 					<ul class="list-group">
-						<% for(int i=0; i<v.size(); i++) { %>
+						<%
+								for (int i = 0; i < v.size(); i++) {
+								%>
 
 						<li class="list-group-item" style="font-size: 14px !important">
-							<b>Username: </b> <%= v.elementAt(i).getUsername().toString() %>
-							| <b>Nome: </b><%= v.elementAt(i).getNome().toString() %> <%= v.elementAt(i).getCognome().toString() %>
-							<b>Autorità: </b> <%= v.elementAt(i).getAutorita().toString() %>
-							</b>
+							<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
+							<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
+							<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
+
 						</li>
 
-						<%   
-           }
-        	   %>
+						<%
+								}
+								%>
 					</ul>
 					<!--  
                 <div class="custom-control custom-checkbox">
@@ -513,8 +515,9 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
+
 				</div>
-				</form>
+
 			</div>
 
 			<div class="modal-footer"></div>
@@ -543,18 +546,20 @@ int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
 				<div class="modal-body">
 					<ul>
 						Totale Attrezzi =
-						<%= numeroAttrezzi %></ul>
+						<%=numeroAttrezzi%></ul>
 					<ul class="list-group">
-						<% for(int i=0; i<la.size(); i++) { %>
+						<%
+							for (int i = 0; i < la.size(); i++) {
+							%>
 
 						<li class="list-group-item" style="font-size: 14px !important">
-							<b>Nome: </b> <%= la.elementAt(i).getNome().toString() %> | <b>Gruppo
-								Muscolare: </b><%= la.elementAt(i).getGruppo_muscolare().toString() %>
+							<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
+								Muscolare: </b><%=la.elementAt(i).getGruppo_muscolare().toString()%>
 						</li>
 
-						<%   
-           }
-        	   %>
+						<%
+							}
+							%>
 					</ul>
 					<!--  
                 <div class="custom-control custom-checkbox">
