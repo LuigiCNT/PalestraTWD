@@ -495,8 +495,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 				<div class="modal-body">
 					<ul class="list-group">
 						<%
-								for (int i = 0; i < v.size(); i++) {
-								%>
+						for (int i = 0; i < v.size(); i++) {
+						%>
 
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
@@ -506,8 +506,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</li>
 
 						<%
-								}
-								%>
+						}
+						%>
 					</ul>
 					<!--  
                 <div class="custom-control custom-checkbox">
@@ -549,8 +549,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						<%=numeroAttrezzi%></ul>
 					<ul class="list-group">
 						<%
-							for (int i = 0; i < la.size(); i++) {
-							%>
+						for (int i = 0; i < la.size(); i++) {
+						%>
 
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
@@ -558,8 +558,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</li>
 
 						<%
-							}
-							%>
+						}
+						%>
 					</ul>
 					<!--  
                 <div class="custom-control custom-checkbox">
