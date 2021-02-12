@@ -399,17 +399,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Username: </b> <%=v.elementAt(j).getUsername().toString()%> |
 						</li>
-
-						<%
-						}
-						%>
+						<%}%>
 					</ul>	
-						<option>  </option>
-						 
-						<option>	 </option>
-						 
-						<option> </option>
+					<%
+						for (int j = 0; j < v.size(); j++) {
+						%>
+						<option> <%=v.elementAt(j).getUsername().toString()%></option>
 						
+						<%}%>
 						</select>
 						</div>
 						</div>
