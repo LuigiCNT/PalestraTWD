@@ -220,8 +220,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<div class="class-thumb">
 
 						<div class="class-info">
-							<h3 class="mb-1">Storico Pagamenti</h3>
+							<h3 class="mb-1">Pagamenti</h3>
 							<ul class="list-group list-group-flush">
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#addPagamentiForm"
+									style="background-color: transparent; color: black !important">Registra Pagamento</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Da
 										pagare</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Già
@@ -485,6 +488,60 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 	</div>
 
+	<div class="modal fade" id="addPagamentiForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Registra 
+						Pagamento</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="RegistraPagamento"
+						action="RegistraPagamento" onsubmit="document.required()" method="post"
+						role="form"></form>
+					<input type="text" class="form-control" name="username"
+						placeholder="Username" required> 
+					<input type="text"
+						class="form-control" name="data"
+						placeholder="00-GEN-00" required>
+						
+					<input type="text"
+						class="form-control" name="metodo"
+						placeholder="Metodo di pagamento" required>
+							
+					<input type="text"
+						class="form-control" name="importo"
+						placeholder="Importo" required>
+
+					<button type="submit" class="form-control" id="submit-button"
+						name="Accedi"
+						style="background-color: #343a40 !important; color: white !important">Registra</button>
+
+					
+
+					<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+				</div>
+
+			</div>
+
+			<div class="modal-footer"></div>
+
+		</div>
+	</div>
 
 
 	<!-- Modal -->

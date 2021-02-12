@@ -11,7 +11,7 @@ public class PagamentoDAO {
 	private static Connection conn = null;
 
 	public Pagamento getPagamento(Pagamento p) {
-		String query = "Select * FROM Pagamento where username = ?";
+		String query = "Select * FROM Pagamento where username = ? and data = ?";
 		Pagamento res = null;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
@@ -32,8 +32,8 @@ public class PagamentoDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	public boolean SalvaPagamento(Pagamento p) {
-		String query = "INSERT INTO Username VALUES (?, ?, ?)";
+	public boolean RegistraPagamento(Pagamento p) {
+		String query = "INSERT INTO pagamento(USERNAME, DATA, METODO, IMPORTO) VALUES (?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
@@ -52,7 +52,7 @@ public class PagamentoDAO {
 		return esito;
 	}
 	public boolean EliminaPagamento(Pagamento p) {
-		String query = "DELETE * FROM Pagamento WHERE Username = ?";
+		String query = "DELETE * FROM Pagamento WHERE Username = ?, data=?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
