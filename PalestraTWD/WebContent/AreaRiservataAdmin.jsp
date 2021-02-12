@@ -356,12 +356,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						name="Accedi"
 						style="background-color: #343a40 !important; color: white !important">Crea</button>
 
-					<div class="alert alert-info" role="alert">
-						<center>
-							Facendo il login accetti automaticamente i <a href="#">Termini
-								&amp; Condizioni</a>
-						</center>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -398,12 +393,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						name="Accedi"
 						style="background-color: #343a40 !important; color: white !important">Aggiorna</button>
 
-					<div class="alert alert-info" role="alert">
-						<center>
-							Facendo il login accetti automaticamente i <a href="#">Termini
-								&amp; Condizioni</a>
-						</center>
-					</div>
+					
 
 					<!--  
                 <div class="custom-control custom-checkbox">
@@ -452,12 +442,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						name="Accedi"
 						style="background-color: #343a40 !important; color: white !important">Crea</button>
 
-					<div class="alert alert-info" role="alert">
-						<center>
-							Facendo il login accetti automaticamente i <a href="#">Termini
-								&amp; Condizioni</a>
-						</center>
-					</div>
+					
 
 					<!--  
                 <div class="custom-control custom-checkbox">
@@ -494,17 +479,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<ul class="list-group">
+						
 						<%
 						for (int i = 0; i < v.size(); i++) {
 						%>
-
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
 							<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
 							<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
 
 						</li>
-
 						<%
 						}
 						%>
