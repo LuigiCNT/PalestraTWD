@@ -381,8 +381,34 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<form class="membership-form webform" name="ModificaUtente"
 						action="ModificaUtente" onsubmit="document.required()"
 						method="post" role="form"></form>
-					<input type="text" class="form-control" name="username"
-						placeholder="Username" required> <input type="text"
+					<!-- <input type="text" class="form-control" name="username"
+						placeholder="Username" required>  -->
+						<div class="container">
+						<div class="select-box">
+						<select>
+						<ul class="list-group">
+						<%
+						for (int j = 0; j < v.size(); j++) {
+						%>
+
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Username: </b> <%=v.elementAt(j).getUsername().toString()%> |
+						</li>
+						<%}%>
+					</ul>	
+					<%
+						for (int j = 0; j < v.size(); j++) {
+						%>
+						<option> <%=v.elementAt(j).getUsername().toString()%></option>
+						
+						<%}%>
+						</select>
+						</div>
+						</div>
+						
+						
+						
+						<input type="text"
 						class="form-control" name="altezza" placeholder="Altezza" required>
 					<input type="text" class="form-control" name="peso"
 						placeholder="Peso" required> <input type="text"
@@ -552,14 +578,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </label>
                     -->
 				</div>
-				</form>
+				
 			</div>
 
 			<div class="modal-footer"></div>
 
 		</div>
 	</div>
-	</div>
+	
 
 
 
