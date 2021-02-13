@@ -231,8 +231,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
 										pagati</a></li>
 
 							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+					data-aos="fade-up" data-aos-delay="600"
+					style="margin-top: 30px !important">
+					<div class="class-thumb">
 
+						<div class="class-info">
+							<h3 class="mb-1">Schede Allenamento</h3>
+							<ul class="list-group list-group-flush">
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#addSchedaForm"
+									style="background-color: transparent; color: black !important">Carica Scheda</a></li>
 
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -271,12 +287,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="mx-auto mt-4 mt-lg-0 mt-md-0 col-lg-5 col-md-6 col-12">
 					<h2 class="mb-4" data-aos="fade-up" data-aos-delay="600">
-						Where you can <span>find us</span>
+						Dove puoi <span>trovarci?</span>
 					</h2>
 
 					<p data-aos="fade-up" data-aos-delay="800">
-						<i class="fa fa-map-marker mr-1"></i> 120-240 Rio de Janeiro -
-						State of Rio de Janeiro, Brazil
+						<i class="fa fa-map-marker mr-1"></i>Palizzi Marina
 					</p>
 					<!-- How to change your own map point
 	1. Go to Google Maps
@@ -286,7 +301,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 -->
 					<div class="google-map" data-aos="fade-up" data-aos-delay="900">
 						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.358998308237!2d15.645384115285838!3d38.108581679700094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13145085e41620c7%3A0x2f7ea858302d53ea!2sVia%20dei%20Filippini%2C%2089125%20Reggio%20Calabria%20RC%2C%20Italia!5e0!3m2!1sit!2sus!4v1611770411115!5m2!1sit!2sus"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.3255007865355!2d15.982051554645677!3d37.91977085395093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x754ccbd34c9040a5!2sSpartan%20Gym%20A.S.D.!5e0!3m2!1sit!2sit!4v1613205408654!5m2!1sit!2sit"
 							width="600" height="450" frameborder="0" style="border: 0;"
 							allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 					</div>
@@ -326,45 +341,56 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 
-	<!-- Modal -->
-	<div class="modal fade" id="membershipForm" tabindex="-1" role="dialog"
-		aria-labelledby="membershipFormLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+	
+     <!-- Modal -->
+    <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
 
-			<div class="modal-content">
-				<div class="modal-header">
+        <div class="modal-content">
+          <div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Nuovo Utente</h2>
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Membro</h2>
 
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-				<div class="modal-body">
-					<form class="membership-form webform" name="CreaUtente"
-						action="CreaUtente" onsubmit="document.required()" method="post"
-						role="form"></form>
-					<input type="text" class="form-control" name="username"
-						placeholder="Username" required> <input type="password"
-						class="form-control" name="password" placeholder="Password"
-						required> <input type="text" class="form-control"
-						name="autorita" placeholder="Cliente/Admin" required> <input
-						type="text" class="form-control" name="nome" placeholder="Nome"
-						required> <input type="text" class="form-control"
-						name="cognome" placeholder="Cognome" required>
+          <div class="modal-body">
+            <form class="membership-form webform" name="CreaUtente" action="CreaUtente" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
 
-					<button type="submit" class="form-control" id="submit-button"
-						name="Accedi"
-						style="background-color: #343a40 !important; color: white !important">Crea</button>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                
+                <input type="text" class="form-control" name="autorita" placeholder="Cliente/Admin" required>
+                
+                <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                
+                <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
 
-					
-				</div>
-			</div>
-		</div>
-	</div>
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	
+</div>
+                
+<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+                </div>
+            </form>
+          </div>
 
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
+
+	
+	
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -442,77 +468,68 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 	<!-- Modal -->
-	<div class="modal fade" id="addAttrezziForm" tabindex="-1"
-		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+    <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
 
-			<div class="modal-content">
-				<div class="modal-header">
+        <div class="modal-content">
+          <div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Nuovo
-						Attrezzo</h2>
+            <h2 class="modal-title" id="membershipFormLabel">Nuovo Attrezzo</h2>
 
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-				<div class="modal-body">
-					<form class="membership-form webform" name="CreaAttrezzo"
-						action="CreaAttrezzo" onsubmit="document.required()" method="post"
-						role="form"></form>
-					<input type="text" class="form-control" name="nome"
+          <div class="modal-body">
+            <form class="membership-form webform" name="CreaAttrezzo" action="CreaAttrezzo" onsubmit="document.required()" method="post" role="form">
+               <input type="text" class="form-control" name="nome"
 						placeholder="Nome Attrezzo" required> <input type="text"
 						class="form-control" name="gruppo_muscolare"
 						placeholder="Gruppo Muscolare" required>
 
-					<button type="submit" class="form-control" id="submit-button"
-						name="Accedi"
-						style="background-color: #343a40 !important; color: white !important">Crea</button>
-
-					
-
-					<!--  
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	
+</div>
+                
+<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-				</div>
+                </div>
+            </form>
+          </div>
 
-			</div>
+          <div class="modal-footer"></div>
 
-			<div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
 
-		</div>
-	</div>
+	     <!-- Modal -->
+    <div class="modal fade" id="addPagamentiForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
 
-	<div class="modal fade" id="addPagamentiForm" tabindex="-1"
-		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
 
-			<div class="modal-content">
-				<div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">Registra Pagamento</h2>
 
-					<h2 class="modal-title" id="membershipFormLabel">Registra 
-						Pagamento</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-body">
-					<form class="membership-form webform" name="RegistraPagamento"
-						action="RegistraPagamento" onsubmit="document.required()" method="post"
-						role="form"></form>
-					<input type="text" class="form-control" name="username"
+          <div class="modal-body">
+            <form class="membership-form webform" name="RegistraPagamento" action="RegistraPagamento" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="username"
 						placeholder="Username" required> 
 					<input type="text"
-						class="form-control" name="data"
-						placeholder="00-GEN-00" required>
+						class="form-control"  name="data"
+						placeholder="00-GEN-0000" required>
 						
 					<input type="text"
 						class="form-control" name="metodo"
@@ -521,27 +538,71 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<input type="text"
 						class="form-control" name="importo"
 						placeholder="Importo" required>
-
-					<button type="submit" class="form-control" id="submit-button"
-						name="Accedi"
-						style="background-color: #343a40 !important; color: white !important">Registra</button>
-
-					
-
-					<!--  
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
+                
+               	
+</div>
+                
+<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-				</div>
+                </div>
+            </form>
+          </div>
 
-			</div>
+          <div class="modal-footer"></div>
 
-			<div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
 
-		</div>
-	</div>
+    <div class="modal fade" id="addSchedaForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Aggiungi Scheda</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="membership-form webform" name="#" action="#" onsubmit="document.required()" method="post" role="form">
+                <input type="text" class="form-control" name="username"
+						placeholder="Username" required> 
+				<input type="text" class="form-control" name="tipologia"
+						placeholder="Tipologia Allenamento" required> 	
+				<input type="date" class="form-control" name="data"
+						placeholder="00-00-0000" required> 			
+					<input type="file"
+						class="form-control" name="scheda" accept=".pdf, .doc, .docx, .txt, .jpg, .png"
+					 required>
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiungi</button>
+                
+               	
+</div>
+                
+<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
 
 
 	<!-- Modal -->

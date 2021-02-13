@@ -33,7 +33,7 @@ public class PagamentoDAO {
 		return res;
 	}
 	public boolean RegistraPagamento(Pagamento p) {
-		String query = "INSERT INTO pagamento(USERNAME, DATA, METODO, IMPORTO) VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO pagamento VALUES (?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {

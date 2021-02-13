@@ -2,6 +2,8 @@ package it.unirc.twd.servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import it.unirc.twd.beans.Pagamento;
 import it.unirc.twd.beans.PagamentoDAO;
-import it.unirc.twd.beans.Utente;
 
 /**
  * Servlet implementation class RegistraPagamento
@@ -30,6 +31,9 @@ public class RegistraPagamento extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,11 +42,23 @@ public class RegistraPagamento extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		Pagamento p = new Pagamento();
-		p.setUsername(request.getParameter("username"));
-		p.setData(Date.valueOf(request.getParameter("data")));
+		String date = request.getParameter("data");
+		Date d = new Date(0, 0, 0);
+		try {
+			d = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		p.setUsername(request.getParameter("username"));	
+		p.setData(d);
 		p.setMetodo(request.getParameter("metodo"));
 		p.setImporto(Integer.valueOf(request.getParameter("importo")));
 		System.out.println(p.toString());
+		
+		
+		
 		if(pDAO.RegistraPagamento(p)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("stato", "aggiunto utente");
