@@ -105,10 +105,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<p data-aos="fade-up" data-aos-delay="200"
 						style="color: #ffffff !important">Sei già un abbonato?</p>
 
+					<a href="#" onclick="javascript: checkCookies()" class="btn custom-btn bg-color mt-3" data-aos="fade-up"
+						data-aos-delay="300" data-toggle="modal"
+						
+						style="background-color: #f13a11 !important; display: none" id="logged">Login</a>
+						
 					<a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up"
 						data-aos-delay="300" data-toggle="modal"
 						data-target="#membershipForm"
-						style="background-color: #f13a11 !important">Login</a>
+						style="background-color: #f13a11 !important; display: block;" id="not_logged">Login</a>	
+						
 				</div>
 
 				<div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
@@ -313,13 +319,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<form class="membership-form webform" name="Login" action="Login"
-						onsubmit="document.required()" method="post" role="form">
+						 method="post" role="form" id="Login">
 						
-						<input type="text" class="form-control" name="username"
+						<input type="text" class="form-control" name="username" id="username"
 							placeholder="Username" required> 
 						
 						<input type="password"
-							class="form-control" name="password" placeholder="Password"
+							class="form-control" name="password" placeholder="Password" id="password"
 							required>
 
 						<button type="submit" class="form-control" id="submit-button"
@@ -351,12 +357,59 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	</div>
 	</div>
 
+
+
 	<!-- SCRIPTS -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/custom.js"></script>
+	
+	<script>
+	
+			function getCookie(cname) {
+			  var name = cname + "=";
+			  var decodedCookie = decodeURIComponent(document.cookie);
+			  var ca = decodedCookie.split(';');
+			  for(var i = 0; i < ca.length; i++) {
+			    var c = ca[i];
+			    while (c.charAt(0) == ' ') {
+			      c = c.substring(1);
+			    }
+			    if (c.indexOf(name) == 0) {
+			      return c.substring(name.length, c.length);
+			    }
+			  }
+			  return "";
+			}
+
+			function checkCookies() {
+			  var user=getCookie("CookieUsername");
+			  var password=getCookie("CookiePassword");
+			  if (user != "" && password != "") {
+			   $('#username').val(user);
+			   $('#password').val(password);
+			   $('#Login').submit();
+			  } else {
+				 document.required();
+			  }
+			}
+			
+			$( document ).ready(function() {
+				  var user=getCookie("CookieUsername");
+				  var password=getCookie("CookiePassword");
+				  if (user != "" && password != "") {
+				   $('#logged').show();
+				   $('#not_logged').hide();
+				  } else {
+					  $('#not_logged').show();
+					  $('#logged').hide();
+				  }
+			});
+			
+			
+	</script>
 
 </body>
 </html>
