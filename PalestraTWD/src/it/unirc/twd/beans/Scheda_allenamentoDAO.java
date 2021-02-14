@@ -35,7 +35,7 @@ public class Scheda_allenamentoDAO {
 		return res;
 	}
 	public boolean SalvaScheda_allenamento(Scheda_allenamento sa) {
-		String query = "INSERT INTO Username VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO Scheda_allenamento VALUES (?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
