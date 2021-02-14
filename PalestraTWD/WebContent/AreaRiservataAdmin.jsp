@@ -71,6 +71,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	username = username.toUpperCase();
 
 	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
+	Vector<Utente> clienti = (Vector<Utente>) session.getAttribute("listaClienti");
 	Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 
 	int numeroClienti = (int) session.getAttribute("numeroClienti");
@@ -390,81 +391,74 @@ https://www.tooplate.com/view/2119-gymso-fitness
     </div>
 
 	
-	
-	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
-		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+	<div class="modal fade" id="updateUtenteForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
 
-			<div class="modal-content">
-				<div class="modal-header">
+        <div class="modal-content">
+          <div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Modifica
-						Valori utente</h2>
+            <h2 class="modal-title" id="membershipFormLabel">Aggiorna Dati Fisici</h2>
 
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form class="membership-form webform" name="ModificaUtente"
-						action="ModificaUtente" onsubmit="document.required()"
-						method="post" role="form"></form>
-					<!-- <input type="text" class="form-control" name="username"
-						placeholder="Username" required>  -->
-						<div class="container">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="membership-form webform" name="ModificaUtente" action="ModificaUtente" onsubmit="document.required()" method="post" role="form">
+               <div class="container">
 						<div class="select-box">
 						<select>
 						<ul class="list-group">
 						<%
-						for (int j = 0; j < v.size(); j++) {
+						for (int j = 0; j < clienti.size(); j++) {
 						%>
 
-						<li class="list-group-item" style="font-size: 14px !important">
-							<b>Username: </b> <%=v.elementAt(j).getUsername().toString()%> |
+					  	<li class="list-group-item" style="font-size: 14px !important">
+							<b>Username: </b> <%=clienti.elementAt(j).getUsername().toString()%> |
 						</li>
 						<%}%>
 					</ul>	
 					<%
-						for (int j = 0; j < v.size(); j++) {
+						for (int j = 0; j < clienti.size(); j++) {
 						%>
-						<option> <%=v.elementAt(j).getUsername().toString()%></option>
+						<option> <%=clienti.elementAt(j).getUsername().toString()%></option>
 						
 						<%}%>
 						</select>
 						</div>
 						</div>
-						
-						
-						
-						<input type="text"
-						class="form-control" name="altezza" placeholder="Altezza" required>
-					<input type="text" class="form-control" name="peso"
-						placeholder="Peso" required> <input type="text"
-						class="form-control" name="plicometria" placeholder="Plicometria"
-						required>
+                <input type="text" class="form-control" name="altezza" placeholder="altezza" required>
+                
+                <input type="text" class="form-control" name="peso" placeholder="peso" required>
+                
+                <input type="text" class="form-control" name="plicometria" placeholder="plico" required>
+             
 
-					<button type="submit" class="form-control" id="submit-button"
-						name="Accedi"
-						style="background-color: #343a40 !important; color: white !important">Aggiorna</button>
-
-					
-
-					<!--  
+                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiorna</button>
+                
+               	
+</div>
+                
+<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
+                </div>
+            </form>
+          </div>
 
+          <div class="modal-footer"></div>
 
-				</div>
+        </div>
+      </div>
+    </div>
 
-				<div class="modal-footer"></div>
-
-			</div>
-		</div>
-	</div>
+	
+	
+	<
 
 
 	<!-- Modal -->

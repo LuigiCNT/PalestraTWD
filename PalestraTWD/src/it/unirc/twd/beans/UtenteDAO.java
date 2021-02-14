@@ -236,6 +236,22 @@ public class UtenteDAO {
 		System.out.println(numero);
 		return numero;
 	}
+	public Vector<Utente> getAllClienti(){
+		String query = "SELECT * FROM Utente WHERE AUTORITÀ = 'Cliente'";
+		Vector<Utente> list = new Vector<Utente>();
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(recordToUtente(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		return list;
+	}
 		
 	
 }
