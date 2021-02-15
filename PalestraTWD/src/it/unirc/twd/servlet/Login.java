@@ -64,25 +64,29 @@ public class Login extends HttpServlet {
 
 			if (request.getParameter("rememberMe") !=null){
 				String remember = request.getParameter("rememberMe");
-				String tempo = request.getParameter("tempo");
-				System.out.println("tempo : " + tempo);
+				//String tempo = request.getParameter("tempo");
+				//System.out.println("tempo : " + tempo);
 				//System.out.println("rememberMe : " + remember);	
-
+				//int ora = 0;
 				Cookie CookieUsername = new Cookie("CookieUsername", username.trim());
 				Cookie CookiePassword = new Cookie("CookiePassword", password.trim());
-
-				if(tempo=="24ore") {
-					CookieUsername.setMaxAge(60*60*24);
-					CookiePassword.setMaxAge(60*60*24);					
+				/*if(tempo=="24ore") {
+					ora=60*60*24;
+					//CookieUsername.setMaxAge(60*60*24);
+					//CookiePassword.setMaxAge(60*60*24);					
 				}
 				else if(tempo=="12ore") {
-					CookieUsername.setMaxAge(60*60*12);
-					CookiePassword.setMaxAge(60*60*12);					
+					ora=60*60*12;
+					//CookieUsername.setMaxAge(60*60*12);
+					//CookiePassword.setMaxAge(60*60*12);					
 				}
 				else if(tempo=="48ore"){
-					CookieUsername.setMaxAge(60*60*24*2);
-					CookiePassword.setMaxAge(60*60*24*2);				
-				}
+					ora=60*60*24*2;
+					//CookieUsername.setMaxAge(60*60*24*2);
+					//CookiePassword.setMaxAge(60*60*24*2);				
+				}*/
+				CookieUsername.setMaxAge(60*60*24*2);
+				CookiePassword.setMaxAge(60*60*24*2);	
 				response.addCookie(CookieUsername);
 				response.addCookie(CookiePassword);
 				System.out.println("Cookie:" + CookieUsername.getMaxAge());

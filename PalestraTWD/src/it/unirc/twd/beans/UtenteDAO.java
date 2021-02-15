@@ -94,6 +94,25 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
+	public boolean AggiornaPassword(Utente u) {
+		String query = "UPDATE Utente SET Password = ? WHERE Username = ?";
+		boolean esito = false;
+		conn = DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, u.getPassword());
+			ps.setString(2, u.getUsername());
+			int tmp = ps.executeUpdate();
+			if(tmp==1) {
+				esito = true;
+			}
+		}
+		catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return esito;
+	}
 
 	public Vector<Utente> getAll(){
 		String query = "SELECT * FROM Utente";
@@ -252,6 +271,4 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return list;
 	}
-		
-	
 }
