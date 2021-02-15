@@ -51,6 +51,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 					<li class="nav-item"><a href="#contact"
 						class="nav-link smoothScroll">Contatti</a></li>
+						
+						     
+                   <form action="Logout" method="post">
+      <input type="submit" value="Logout">
+   </form>
 				</ul>
 
 				<ul class="social-icon ml-lg-3">

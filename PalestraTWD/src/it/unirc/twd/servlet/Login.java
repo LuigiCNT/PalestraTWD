@@ -58,48 +58,61 @@ public class Login extends HttpServlet {
 		System.out.println(utente.toString());
 		utente = uDAO.completaUtente(utente);
 		System.out.println(utente.toString());
-		
-		if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Cliente")) {
+
+		if (uDAO.LoginUtente(utente)) {
 			HttpSession session = request.getSession();
-			
-			session.setAttribute("username",username);
-			session.setAttribute("successo", false);
-			Dati_fisiciDAO dfDAO = new Dati_fisiciDAO();
-			Dati_fisici df = dfDAO.getDFByString(utente.getUsername());
-			session.setAttribute("dati_fisici", df);
-			session.setAttribute("utente", utente);
+
 			if (request.getParameter("rememberMe") !=null){
 				String remember = request.getParameter("rememberMe");
-				System.out.println("rememberMe : " + remember);	
-				
+				String tempo = request.getParameter("tempo");
+				System.out.println("tempo : " + tempo);
+				//System.out.println("rememberMe : " + remember);	
+
 				Cookie CookieUsername = new Cookie("CookieUsername", username.trim());
-				CookieUsername.setMaxAge(60*60*24*2);
-				response.addCookie(CookieUsername);
-				
 				Cookie CookiePassword = new Cookie("CookiePassword", password.trim());
-				CookiePassword.setMaxAge(60*60*24*2);
+
+				if(tempo=="24ore") {
+					CookieUsername.setMaxAge(60*60*24);
+					CookiePassword.setMaxAge(60*60*24);					
+				}
+				else if(tempo=="12ore") {
+					CookieUsername.setMaxAge(60*60*12);
+					CookiePassword.setMaxAge(60*60*12);					
+				}
+				else if(tempo=="48ore"){
+					CookieUsername.setMaxAge(60*60*24*2);
+					CookiePassword.setMaxAge(60*60*24*2);				
+				}
+				response.addCookie(CookieUsername);
 				response.addCookie(CookiePassword);
-				
+				System.out.println("Cookie:" + CookieUsername.getMaxAge());
 			}
-			response.sendRedirect("AreaRiservataUtente.jsp");
-		}
 
-		else if (uDAO.LoginUtente(utente) && utente.getAutorita().equals("Admin")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
-			Vector<Utente> clienti = uDAO.getAllClienti();
-			Vector<Attrezzi> listaattrezzi = aDAO.getAll();
-			session.setAttribute("numeroClienti", uDAO.ContaClienti());
-			session.setAttribute("numeroAdmin", uDAO.ContaAdmin());
-			session.setAttribute("numeroAttrezzi", aDAO.contaAttrezzi());
-			session.setAttribute("lista_attrezzi", listaattrezzi);
-			session.setAttribute("listautenti", list);
-			session.setAttribute("listaClienti", clienti);
-			session.setAttribute("stato", "login");
-			response.sendRedirect("AreaRiservataAdmin.jsp");
+			if(utente.getAutorita().equals("Cliente")) {
+				session.setAttribute("username",username);
+				session.setAttribute("successo", false);
+				Dati_fisiciDAO dfDAO = new Dati_fisiciDAO();
+				Dati_fisici df = dfDAO.getDFByString(utente.getUsername());
+				session.setAttribute("dati_fisici", df);
+				session.setAttribute("utente", utente);
+				response.sendRedirect("AreaRiservataUtente.jsp");
+			}  
+			else if(utente.getAutorita().equals("Admin")) {
+				//HttpSession session = request.getSession();
+				session.setAttribute("username",username);
+				Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
+				Vector<Utente> clienti = uDAO.getAllClienti();
+				Vector<Attrezzi> listaattrezzi = aDAO.getAll();
+				session.setAttribute("numeroClienti", uDAO.ContaClienti());
+				session.setAttribute("numeroAdmin", uDAO.ContaAdmin());
+				session.setAttribute("numeroAttrezzi", aDAO.contaAttrezzi());
+				session.setAttribute("lista_attrezzi", listaattrezzi);
+				session.setAttribute("listautenti", list);
+				session.setAttribute("listaClienti", clienti);
+				session.setAttribute("stato", "login");
+				response.sendRedirect("AreaRiservataAdmin.jsp");
+			}
 		}
-
 		else {
 			PrintWriter out = response.getWriter();
 			HttpSession session = request.getSession();out.println("<script type=\"text/javascript\">");
@@ -108,24 +121,25 @@ public class Login extends HttpServlet {
 			out.println("</script>"); 
 		}
 	}
-	
-	private Utente checkCookie(HttpServletRequest request) {
-	Cookie[] cookies=request.getCookies();
-    Utente utente = null;
-    if (cookies != null) {
-    	String username = "", password="";
-         for (Cookie cookie : cookies) {
-           if(cookie.getName().equals("CookieUsername")) {
-             username = cookie.getValue();
-           }
-           if(cookie.getName().equals("CookiePassword")){
-             password = cookie.getValue();
-           }   
-        }
-         if(!username.isEmpty() && !password.isEmpty())
-        	 utente = new Utente(username, password,"", "", "" );
-    }
-    return utente;
 
-}
+
+	private Utente checkCookie(HttpServletRequest request) {
+		Cookie[] cookies=request.getCookies();
+		Utente utente = null;
+		if (cookies != null) {
+			String username = "", password="";
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("CookieUsername")) {
+					username = cookie.getValue();
+				}
+				if(cookie.getName().equals("CookiePassword")){
+					password = cookie.getValue();
+				}   
+			}
+			if(!username.isEmpty() && !password.isEmpty())
+				utente = new Utente(username, password,"", "", "" );
+		}
+		return utente;
+
+	}
 }
