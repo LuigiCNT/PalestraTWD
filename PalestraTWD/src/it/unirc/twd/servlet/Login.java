@@ -16,6 +16,10 @@ import it.unirc.twd.beans.Attrezzi;
 import it.unirc.twd.beans.AttrezziDAO;
 import it.unirc.twd.beans.Dati_fisici;
 import it.unirc.twd.beans.Dati_fisiciDAO;
+import it.unirc.twd.beans.Pagamento;
+import it.unirc.twd.beans.PagamentoDAO;
+import it.unirc.twd.beans.Scheda_allenamento;
+import it.unirc.twd.beans.Scheda_allenamentoDAO;
 import it.unirc.twd.beans.Utente;
 import it.unirc.twd.beans.UtenteDAO;
 
@@ -97,8 +101,15 @@ public class Login extends HttpServlet {
 				session.setAttribute("successo", false);
 				Dati_fisiciDAO dfDAO = new Dati_fisiciDAO();
 				Dati_fisici df = dfDAO.getDFByString(utente.getUsername());
+				PagamentoDAO pDAO = new PagamentoDAO(); 
+				Pagamento p = pDAO.getPagamentoByString(utente.getUsername());
+				Scheda_allenamentoDAO sDAO = new Scheda_allenamentoDAO();
+				Scheda_allenamento s = sDAO.getSchedaByString(utente.getUsername());
 				session.setAttribute("dati_fisici", df);
 				session.setAttribute("utente", utente);
+				session.setAttribute("pagamento", p);
+				session.setAttribute("scheda", s);
+				System.out.println("Data: " + s.getData());
 				response.sendRedirect("AreaRiservataUtente.jsp");
 			}  
 			else if(utente.getAutorita().equals("Admin")) {

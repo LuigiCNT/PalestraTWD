@@ -73,7 +73,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	<%
 Utente u = (Utente) session.getAttribute("utente");
 Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
+Pagamento p = (Pagamento) session.getAttribute("pagamento");
+Scheda_allenamento s = (Scheda_allenamento) session.getAttribute("scheda");
 String username = u.getUsername().toUpperCase();
+
      %>
 
 
@@ -158,7 +161,11 @@ String username = u.getUsername().toUpperCase();
 
 
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item"><a href="#" target="_blank">Visualizza
+								<li class="list-group-item">Tipologia= <%= s.getTipologia() %>
+								</li>
+								<li class="list-group-item">Data= <%= s.getData() %>
+								</li>
+								<li class="list-group-item"><a href="https://www.dropbox.com/s/lvdzputz19cohi8/Scheda.txt?dl=0" target="_blank">Visualizza
 										scheda allenamento</a></li>
 							</ul>
 
@@ -174,10 +181,17 @@ String username = u.getUsername().toUpperCase();
 						<div class="class-info">
 							<h3 class="mb-1">Storico Pagamenti</h3>
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item"><a href="#" target="_blank">Da
-										pagare</a></li>
-								<li class="list-group-item"><a href="#" target="_blank">Già
-										pagati</a></li>
+								
+								
+								<li class="list-group-item">Data= <%= p.getData() %>
+									
+								</li>
+								<li class="list-group-item">Importo= <%= p.getImporto() %>$
+								</li>
+								<li class="list-group-item">Metodo= <%= p.getMetodo() %>
+								
+								</li>
+							
 							</ul>
 
 

@@ -113,5 +113,28 @@ public class PagamentoDAO {
 		DBManager.closeConnection();
 		return list;
 	}
+	
+	public Pagamento getPagamentoByString(String p) {
+		String query = "Select * FROM Pagamento where username = ?";
+		Pagamento res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, p);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				res=new Pagamento();
+				res.setUsername(rs.getString("username"));
+				res.setData(rs.getDate("Data"));
+				res.setMetodo(rs.getString("Metodo"));
+				res.setImporto(rs.getInt("Importo"));
+			}
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return res;
+	}
 
 }

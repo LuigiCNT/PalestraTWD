@@ -26,7 +26,7 @@ public class Scheda_allenamentoDAO {
 				res.setUsername(rs.getString("username"));
 				res.setTipologia(rs.getString("Tipologia"));
 				res.setData(rs.getDate("Data"));
-				res.setScheda(rs.getBlob("Scheda"));
+				//res.setScheda(rs.getBlob("Scheda"));
 			}
 		}catch(Exception e) {
 			e.getStackTrace();
@@ -35,7 +35,7 @@ public class Scheda_allenamentoDAO {
 		return res;
 	}
 	public boolean SalvaScheda_allenamento(Scheda_allenamento sa) {
-		String query = "INSERT INTO Scheda_allenamento VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO Scheda_allenamento VALUES (?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
@@ -43,7 +43,7 @@ public class Scheda_allenamentoDAO {
 			ps.setString(1, sa.getUsername());
 			ps.setString(2, sa.getTipologia());
 			ps.setDate(3, sa.getData());
-			ps.setBlob(4, sa.getScheda());
+			//ps.setBlob(4, sa.getScheda());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -80,7 +80,7 @@ public class Scheda_allenamentoDAO {
 			ps.setString(1, sa.getTipologia());
 			ps.setDate(2, sa.getData());
 			ps.setString(3, sa.getUsername());
-			ps.setBlob(4, sa.getScheda());
+			//ps.setBlob(4, sa.getScheda());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -126,6 +126,28 @@ public class Scheda_allenamentoDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
+	
+	public Scheda_allenamento getSchedaByString(String s) {
+		String query = "Select * FROM Scheda_allenamento where username = ?";
+		Scheda_allenamento res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, s);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				res=new Scheda_allenamento();
+				res.setUsername(rs.getString("username"));
+				res.setTipologia(rs.getString("Tipologia"));
+				res.setData(rs.getDate("Data"));
+			}
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return res;
+	}
 
 
 	protected Scheda_allenamento recordToScheda_allenamento(ResultSet rs) throws SQLException {
@@ -133,7 +155,7 @@ public class Scheda_allenamentoDAO {
 		res.setUsername(rs.getString("Username"));
 		res.setTipologia(rs.getString("Tipologia"));
 		res.setData(rs.getDate("Data"));
-		res.setScheda(rs.getBlob("Scheda"));
+		//res.setScheda(rs.getBlob("Scheda"));
 		return res;
 
 	}
