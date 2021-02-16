@@ -43,16 +43,16 @@ public class RegistraPagamento extends HttpServlet {
 		doGet(request, response);
 		Pagamento p = new Pagamento();
 		String date = request.getParameter("data");
-		Date d = new Date(0, 0, 0);
+		Date date1 = new Date(0, 0, 0);
 		try {
-			d = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(date);
+		   date1=(Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);  
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		finally {
 		p.setUsername(request.getParameter("username"));	
-		p.setData(d);
+		p.setData(date1);
 		p.setMetodo(request.getParameter("metodo"));
 		p.setImporto(Integer.valueOf(request.getParameter("importo")));
 		System.out.println(p.toString());
@@ -71,5 +71,5 @@ public class RegistraPagamento extends HttpServlet {
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
-
+	}
 }

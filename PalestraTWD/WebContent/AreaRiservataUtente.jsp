@@ -76,7 +76,8 @@ Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
 Pagamento p = (Pagamento) session.getAttribute("pagamento");
 Scheda_allenamento s = (Scheda_allenamento) session.getAttribute("scheda");
 String username = u.getUsername().toUpperCase();
-
+System.out.println(s.toString());
+System.out.println(p.toString());
      %>
 
 
@@ -122,13 +123,23 @@ String username = u.getUsername().toUpperCase();
 			<div class="row">
 
 				<div class="col-lg-12 col-12 text-center mb-5">
+				
+				
+				
+				<br><br>
 						
 					<h4 data-aos="fade-up" data-aos-delay="200" > Ricordati di cambiare la password la prima volta che ti colleghi </h4>
 
 					<h2 data-aos="fade-up" data-aos-delay="200">I tuoi Dati
 						Personali</h2>
+						
+		
+						
 				</div>
-
+				
+				
+				
+	
 				<div class="col-lg-4 col-md-6 col-12" data-aos="fade-up"
 					data-aos-delay="400">
 					<div class="class-thumb">
@@ -165,7 +176,7 @@ String username = u.getUsername().toUpperCase();
 								</li>
 								<li class="list-group-item">Data= <%= s.getData() %>
 								</li>
-								<li class="list-group-item"><a href="https://www.dropbox.com/s/lvdzputz19cohi8/Scheda.txt?dl=0" target="_blank">Visualizza
+								<li class="list-group-item"><a href="<%= s.getLink() %>" target="_blank">Visualizza
 										scheda allenamento</a></li>
 							</ul>
 

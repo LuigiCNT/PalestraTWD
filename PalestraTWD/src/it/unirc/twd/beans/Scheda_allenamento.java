@@ -7,6 +7,7 @@ public class Scheda_allenamento {
 	private String Username;
 	private String tipologia;
 	private Date   data;
+	private String link;
 	//private Blob Scheda;
 	public String getUsername() {
 		return Username;
@@ -26,17 +27,17 @@ public class Scheda_allenamento {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	/*public Blob getScheda() {
-		return Scheda;
+	public String getLink() {
+		return link;
 	}
-	public void setScheda(Blob scheda) {
-		Scheda = scheda;
-	}*/
+	public void setLink(String link) {
+		this.link = link;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		//result = prime * result + ((Scheda == null) ? 0 : Scheda.hashCode());
+		result = prime * result + ((link == null) ? 0 : link.hashCode());
 		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((tipologia == null) ? 0 : tipologia.hashCode());
@@ -51,11 +52,11 @@ public class Scheda_allenamento {
 		if (getClass() != obj.getClass())
 			return false;
 		Scheda_allenamento other = (Scheda_allenamento) obj;
-		/*if (Scheda == null) {
-			if (other.Scheda != null)
+		if (link == null) {
+			if (other.link != null)
 				return false;
-		} else if (!Scheda.equals(other.Scheda))
-			return false;*/
+		} else if (!link.equals(other.link))
+			return false;
 		if (Username == null) {
 			if (other.Username != null)
 				return false;
@@ -73,17 +74,20 @@ public class Scheda_allenamento {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Scheda_allenamento [Username=" + Username + ", tipologia=" + tipologia + ", data=" + data + "]"; //, Scheda="
-				//+ Scheda + "]";
-	}
-	public Scheda_allenamento(String username, String tipologia, Date data, Blob scheda) {
+	
+	public Scheda_allenamento(String username, String tipologia, Date data, String link) {
 		super();
 		Username = username;
 		this.tipologia = tipologia;
 		this.data = data;
-		//Scheda = scheda;
+		this.link = link;
+	}
+	@Override
+	public String toString() {
+		return "Scheda_allenamento [Username=" + Username + ", tipologia=" + tipologia + ", data=" + data + ", link="
+				+ link + ", getUsername()=" + getUsername() + ", getTipologia()=" + getTipologia() + ", getData()="
+				+ getData() + ", getLink()=" + getLink() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
+				+ ", toString()=" + super.toString() + "]";
 	}
 	public Scheda_allenamento() {
 		super();

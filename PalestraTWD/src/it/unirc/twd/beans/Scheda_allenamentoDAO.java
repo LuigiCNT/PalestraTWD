@@ -26,7 +26,7 @@ public class Scheda_allenamentoDAO {
 				res.setUsername(rs.getString("username"));
 				res.setTipologia(rs.getString("Tipologia"));
 				res.setData(rs.getDate("Data"));
-				//res.setScheda(rs.getBlob("Scheda"));
+				res.setLink(rs.getString("link"));
 			}
 		}catch(Exception e) {
 			e.getStackTrace();
@@ -43,7 +43,7 @@ public class Scheda_allenamentoDAO {
 			ps.setString(1, sa.getUsername());
 			ps.setString(2, sa.getTipologia());
 			ps.setDate(3, sa.getData());
-			//ps.setBlob(4, sa.getScheda());
+			ps.setString(4, sa.getLink());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -80,7 +80,7 @@ public class Scheda_allenamentoDAO {
 			ps.setString(1, sa.getTipologia());
 			ps.setDate(2, sa.getData());
 			ps.setString(3, sa.getUsername());
-			//ps.setBlob(4, sa.getScheda());
+			ps.setString(4, sa.getLink());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -140,7 +140,8 @@ public class Scheda_allenamentoDAO {
 				res=new Scheda_allenamento();
 				res.setUsername(rs.getString("username"));
 				res.setTipologia(rs.getString("Tipologia"));
-				res.setData(rs.getDate("Data"));
+				res.setData(rs.getDate("Data_inizio"));
+				res.setLink(rs.getString("link"));
 			}
 		}catch(Exception e) {
 			e.getStackTrace();
@@ -155,7 +156,7 @@ public class Scheda_allenamentoDAO {
 		res.setUsername(rs.getString("Username"));
 		res.setTipologia(rs.getString("Tipologia"));
 		res.setData(rs.getDate("Data"));
-		//res.setScheda(rs.getBlob("Scheda"));
+		res.setLink(rs.getString("link"));
 		return res;
 
 	}
