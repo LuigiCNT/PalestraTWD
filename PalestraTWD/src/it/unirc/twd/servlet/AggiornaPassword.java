@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,6 @@ public class AggiornaPassword extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -42,28 +42,46 @@ public class AggiornaPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String username = request.getParameter("username");
+		HttpSession session = request.getSession();	
 		String passwordVecchia = request.getParameter("vecchia");
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
 		Utente utente = new Utente();
-		utente.setUsername(username);
-		if(passwordVecchia == utente.getPassword() && password1 == password2) {
+		Utente comp = new Utente();
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+		 for (Cookie cookie : cookies) {
+		   if (cookie.getName().equals("CookieUsername")) {
+		     utente.setUsername(cookie.getValue());
+		     comp.setUsername(cookie.getValue());
+		    }
+		  }
+		}
+		comp = uDAO.getUtenteByString(comp.getUsername());
+		if(passwordVecchia.equals(comp.getPassword()) && password1.equals(password2)) {
 			utente.setPassword(password2);
+			System.out.println("dopo set password (if) = " + utente.toString() );
 			if(uDAO.AggiornaPassword(utente)) {
-				HttpSession session = request.getSession();	
-				session.setAttribute("stato", "aggiunto utente");
-			    response.sendRedirect("AreaRiservataUtente.jsp");
+				PrintWriter out = response.getWriter();
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("CookiePassword")) {
+						cookie.setValue(utente.getPassword().trim());
+					}
+				}
+			    session = request.getSession();
+			    out.println("<script type=\"text/javascript\">");
+				out.println("alert('Password cambiata con successo, rieffettua il login');");
+				out.println("location='index.html';");
+				out.println("</script>"); 
 			}
 			else {
-				HttpSession session = request.getSession();
 				session.setAttribute("stato", "errore aggiunta utente");
 				response.sendRedirect("AreaRiservataUtente.jsp");
 			}
 		}
 		else {
 			PrintWriter out = response.getWriter();
-			HttpSession session = request.getSession();out.println("<script type=\"text/javascript\">");
+			 session = request.getSession();out.println("<script type=\"text/javascript\">");
 			out.println("location='index.html';");
 			out.println("alert('Ricontrolla le Password');");
 			out.println("</script>"); 

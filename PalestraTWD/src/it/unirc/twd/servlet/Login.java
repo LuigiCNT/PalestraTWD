@@ -66,8 +66,8 @@ public class Login extends HttpServlet {
 		if (uDAO.LoginUtente(utente)) {
 			HttpSession session = request.getSession();
 
-			if (request.getParameter("rememberMe") !=null){
-				String remember = request.getParameter("rememberMe");
+			//if (request.getParameter("rememberMe") !=null){
+				//String remember = request.getParameter("rememberMe");
 				//String tempo = request.getParameter("tempo");
 				//System.out.println("tempo : " + tempo);
 				//System.out.println("rememberMe : " + remember);	
@@ -94,7 +94,7 @@ public class Login extends HttpServlet {
 				response.addCookie(CookieUsername);
 				response.addCookie(CookiePassword);
 				System.out.println("Cookie:" + CookieUsername.getMaxAge());
-			}
+			//}
 
 			if(utente.getAutorita().equals("Cliente")) {
 				session.setAttribute("username",username);
@@ -130,7 +130,8 @@ public class Login extends HttpServlet {
 		}
 		else {
 			PrintWriter out = response.getWriter();
-			HttpSession session = request.getSession();out.println("<script type=\"text/javascript\">");
+			HttpSession session = request.getSession();
+			out.println("<script type=\"text/javascript\">");
 			out.println("location='index.html';");
 			out.println("alert('User or password incorrect');");
 			out.println("</script>"); 

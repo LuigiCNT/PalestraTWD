@@ -35,6 +35,33 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return res;
 	}
+	
+	
+	public Utente getUtenteByString(String u) {
+		String query = "Select * FROM Utente where username = ?";
+		Utente res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, u);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				res=new Utente();
+				res.setUsername(rs.getString("username"));
+				res.setPassword(rs.getString("password"));
+				res.setAutorita(rs.getString("autorità"));
+				res.setNome(rs.getString("nome"));
+				res.setCognome(rs.getString("cognome"));
+			}
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return res;
+	}
+	
+	
 	public boolean SalvaUtente(Utente ut) {
 		String query = "INSERT INTO Utente VALUES (?, ?, ?, ?, ?)";
 		boolean esito=false;

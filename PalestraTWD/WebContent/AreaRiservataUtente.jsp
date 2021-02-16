@@ -332,16 +332,18 @@ System.out.println(p.toString());
           <div class="modal-body">
             <form class="membership-form webform" name="AggiornaPassword" action="AggiornaPassword" onsubmit="document.required()" method="post" role="form">
                 
-                <input type="text" class="form-control" name="username" placeholder="Username" required> 
-                <input type="password" class="form-control" name="vecchia" placeholder="Passowrd Vecchia" required>
+                <input type="text" class="form-control" name="username" value="<%= u.getUsername() %>" disabled required> 
+                <input type="text" class="form-control" name="vecchia" placeholder="Passowrd Vecchia" required>
 
-                <input type="password" class="form-control" name="password1" placeholder="Nuova Password" required>
+                <input type="text" class="form-control" name="password1" placeholder="Nuova Password" required>
                 
-                <input type="password" class="form-control" name="password2" placeholder="Conferma Nuova Password" required>
+                <input type="text" class="form-control" name="password2" placeholder="Conferma Nuova Password" required>
                 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiorna</button>
                 
-               	
+               	<div class="alert alert-warning" role="alert">
+  <strong>Attenzione:</strong> dopo aver cambiato la password, dovrai di nuovo effettuare il Login! 
+</div>
 </div>
                 
 <!--  
