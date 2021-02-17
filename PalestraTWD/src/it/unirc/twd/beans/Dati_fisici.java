@@ -55,7 +55,7 @@ public class Dati_fisici {
 	}
 	@Override
 	public String toString() {
-		return "Dati_fisici [altezza=" + altezza + ", peso=" + peso + ", plicometria=" + plicometria + "]";
+		return "Dati_fisici [username=" + username + ",altezza=" + altezza + ", peso=" + peso + ", plicometria=" + plicometria + "]";
 	}
 	public Dati_fisici() {
 		super();

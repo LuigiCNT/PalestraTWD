@@ -35,8 +35,8 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	
-	
+
+
 	public Utente getUtenteByString(String u) {
 		String query = "Select * FROM Utente where username = ?";
 		Utente res = null;
@@ -60,8 +60,8 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	
-	
+
+
 	public boolean SalvaUtente(Utente ut) {
 		String query = "INSERT INTO Utente VALUES (?, ?, ?, ?, ?)";
 		boolean esito=false;
@@ -168,8 +168,8 @@ public class UtenteDAO {
 		return res;
 
 	}
-	
-	
+
+
 	public Utente completaUtente(Utente u) {
 		String query = "SELECT * FROM hr.Utente WHERE Username = ? AND Password = ?";
 		Utente res = new Utente();
@@ -190,17 +190,17 @@ public class UtenteDAO {
 				System.out.println("res=" + res.toString());
 			}
 		}
-			catch
-			(SQLException e) {
-					e.printStackTrace();
-			}
+		catch
+		(SQLException e) {
+			e.printStackTrace();
+		}
 		DBManager.closeConnection();
 		return res;
-		
+
 	}
-	
-	
-	
+
+
+
 	public boolean login(Utente u) {
 		String query="SELECT * FROM hr.Utente WHERE Username = ? AND Password = ?";
 		boolean esito=false;
@@ -224,7 +224,7 @@ public class UtenteDAO {
 		System.out.println(esito);
 		return esito;
 	}
-	
+
 	public boolean LoginUtente(Utente utente) {
 		boolean esito=false;
 		String query="SELECT * FROM utente where username= ? and password = ?";
@@ -232,21 +232,21 @@ public class UtenteDAO {
 		Connection conn=DBManager.startConnection();
 		System.out.println(conn);
 		try {
-		ps = conn.prepareStatement(query);
-		
-		ps.setString(1, utente.getUsername() );
-		
-		ps.setString(2, utente.getPassword() );
-		int tmp=ps.executeUpdate();
-		if (tmp==1)
-		esito=true;
+			ps = conn.prepareStatement(query);
+
+			ps.setString(1, utente.getUsername() );
+
+			ps.setString(2, utente.getPassword() );
+			int tmp=ps.executeUpdate();
+			if (tmp==1)
+				esito=true;
 		} catch (SQLException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		DBManager.closeConnection();
 		return esito;
 	}
-	
+
 	public int ContaClienti() {
 		String query = "SELECT COUNT(*) FROM utente WHERE AUTORITÀ='Cliente'";
 		int numero = 0;
@@ -264,7 +264,7 @@ public class UtenteDAO {
 		System.out.println(numero);
 		return numero;
 	}
-	
+
 	public int ContaAdmin() {
 		String query = "SELECT COUNT(*) FROM utente WHERE AUTORITÀ='Admin'";
 		int numero = 0;
@@ -297,5 +297,27 @@ public class UtenteDAO {
 		}
 		DBManager.closeConnection();
 		return list;
+	}
+
+
+	public boolean EsisteCliente(String ut) {
+		String query = "Select * FROM Utente where username = ? and AUTORITÀ='Cliente'";
+		boolean res = false;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, ut);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				//res.setUsername(rs.getString("username"));
+				//res.setAutorita(rs.getString("autorità"));
+				res=true;
+			}
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		DBManager.closeConnection();
+		return res;
 	}
 }

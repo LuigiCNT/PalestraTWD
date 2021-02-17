@@ -41,25 +41,30 @@ public class ModificaUtente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		String username = request.getParameter("username");
-		Dati_fisici da = new Dati_fisici();
-		
-		//da.setUsername(request.getParameter("username"));
-		da.setAltezza( Double.parseDouble(request.getParameter("altezza")));
-		da.setPeso( Double.parseDouble(request.getParameter("peso")));
-		da.setPlicometria( Double.parseDouble(request.getParameter("plicometria")));
-		System.out.println(da.toString());
-		if(daDAO.AggiornaDati_fisici(da)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("stato", "aggiunto utente");
-			response.sendRedirect("AreaRiservataAdmin.jsp");
+		UtenteDAO uDAO= new UtenteDAO();
+		if(uDAO.EsisteCliente(username)) {
+			Dati_fisici da = new Dati_fisici();
 
+			da.setUsername(request.getParameter("username"));
+			da.setAltezza( Double.parseDouble(request.getParameter("altezza")));
+			da.setPeso( Double.parseDouble(request.getParameter("peso")));
+			da.setPlicometria( Double.parseDouble(request.getParameter("plicometria")));
+			System.out.println(da.toString());
+			if(daDAO.AggiornaDati_fisici(da)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("stato", "utente aggiornato");
+				//session.setAttribute("username", );
+				response.sendRedirect("AreaRiservataAdmin.jsp");
+
+			}
 		}
 		else {
 			HttpSession session = request.getSession();
-			session.setAttribute("stato", "errore aggiunta utente");
+			session.setAttribute("stato", "errore utente non aggiornato");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
+
 }
+

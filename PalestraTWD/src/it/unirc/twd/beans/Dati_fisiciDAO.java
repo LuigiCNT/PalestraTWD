@@ -104,6 +104,7 @@ public class Dati_fisiciDAO {
 			ps.setDouble(1, da.getAltezza());
 			ps.setDouble(2, da.getPeso());
 			ps.setDouble(3, da.getPlicometria());
+			ps.setString(4, da.getUsername());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;

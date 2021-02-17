@@ -72,7 +72,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	String username = (String) session.getAttribute("username");
 
 	String stato = (String) session.getAttribute("stato");
-
+ 
 	username = username.toUpperCase();
 
 	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
@@ -375,10 +375,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
-                
+                 </form>
                	
-</div>
-                
+</div>              
 <!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
@@ -386,14 +385,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </label>
                     -->
                 </div>
-            </form>
+          
           </div>
 
           <div class="modal-footer"></div>
 
         </div>
-      </div>
-    </div>
+   
 
 	
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
@@ -410,29 +408,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
 
           <div class="modal-body">
-            <form class="membership-form webform" name="ModificaUtente" action="ModificaUtente" onsubmit="document.required()" method="post" role="form">
+          
+            <form class="membership-form webform" name="ModificaUtente" action="/ModificaUtente"  method="post" role="form">
                <div class="container">
-						<div class="select-box">
-						<select>
-						<ul class="list-group">
-						<%
-						for (int j = 0; j < clienti.size(); j++) {
-						%>
-
-					  	<li class="list-group-item" style="font-size: 14px !important">
-							<b>Username: </b> <%=clienti.elementAt(j).getUsername().toString()%> |
-						</li>
-						<%}%>
-					</ul>	
-					<%
-						for (int j = 0; j < clienti.size(); j++) {
-						%>
-						<option> <%=clienti.elementAt(j).getUsername().toString()%></option>
-						
-						<%}%>
-						</select>
-						</div>
-						</div>
+						</div>	
+					
+					
+				<input type="text" class="form-control" name="username" placeholder="username" required>
                 <input type="text" class="form-control" name="altezza" placeholder="altezza" required>
                 
                 <input type="text" class="form-control" name="peso" placeholder="peso" required>
@@ -441,7 +423,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
              
 
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiorna</button>
-                
+                 </form>
                	
 </div>
                 
@@ -452,19 +434,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </label>
                     -->
                 </div>
-            </form>
+           
           </div>
 
           <div class="modal-footer"></div>
 
-        </div>
-      </div>
-    </div>
-
-	
-	
-	<
-
+    
 
 	<!-- Modal -->
     <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
