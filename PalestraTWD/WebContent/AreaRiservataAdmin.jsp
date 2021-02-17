@@ -189,7 +189,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#updateUtenteForm"
 									style="background-color: transparent; color: black !important">Modifica
-										Valori Membri</a></li>
+										Valori Cliente</a></li>
 							</ul>
 
 
@@ -211,7 +211,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#getAllAttrezziForm"
 									style="background-color: transparent; color: black !important">Mostra
-										tutti</a></li>
+										Attrezzi</a></li>
 							</ul>
 
 

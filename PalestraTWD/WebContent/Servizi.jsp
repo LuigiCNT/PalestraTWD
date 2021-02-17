@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<%@ page import="it.unirc.twd.beans.*"%>
+<%@ page import="java.util.*"%>
 <html lang="en">
 <head>
 
-<title>Gymso Fitness HTML Template</title>
+<title>Servizi</title>
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -43,8 +45,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						class="nav-link smoothScroll">Home</a></li>
 
 
-					<li class="nav-item"><a href="Servizi.jsp"
+					<li class="nav-item"><a href="#class"
 						class="nav-link smoothScroll">Servizi</a></li>
+
+					<li class="nav-item"><a href="#attrezzi"
+						class="nav-link smoothScroll">Attrezzi</a></li>
+
 
 
 					<li class="nav-item"><a href="#contact"
@@ -76,16 +82,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<div class="hero-text mt-5 text-center">
 
 
-						<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Migliora
-							con Spartan Gym!</h1>
-
-						<a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up"
-							data-aos-delay="600" style="color: #ffffff !important;">Inizia</a>
+						<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">I
+							Nostri Servizi</h1>
 
 						<a href="#orario" class="btn custom-btn bordered mt-3"
 							data-aos="fade-up" data-aos-delay="700"
 							style="color: #f13a11 !important; border: 1px solid #f13a11 !important">Scopri
-							di piÃ¹</a>
+							di più</a>
 
 					</div>
 				</div>
@@ -96,30 +99,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 	<section class="feature" id="feature">
-	  <div class="orario" id="orario">
-	  </div>
+		<div class="orario" id="orario"></div>
 		<div class="container">
 			<div class="row">
 
-				<div
-					class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
 
-					<p data-aos="fade-up" data-aos-delay="200"
-						style="color: #ffffff !important">Sei giÃ  un abbonato?</p>
 
-					<a href="#" onclick="javascript: checkCookies()" class="btn custom-btn bg-color mt-3" data-aos="fade-up"
-						data-aos-delay="300" data-toggle="modal"
-						
-						style="background-color: #f13a11 !important; display: none" id="logged">Login</a>
-						
-					<a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up"
-						data-aos-delay="300" data-toggle="modal"
-						data-target="#membershipForm"
-						style="background-color: #f13a11 !important; display: block;" id="not_logged">Login</a>	
-						
-				</div>
-
-				<div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12" >
+				<div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
 					<div class="about-working-hours">
 						<div>
 
@@ -128,7 +114,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 							<strong class="d-block" data-aos="fade-up" data-aos-delay="600">Domenica
 								: Chiuso</strong> <strong class="mt-3 d-block" data-aos="fade-up"
-								data-aos-delay="700">LunedÃ¬ - Venerdi</strong>
+								data-aos-delay="700">Lunedì - Venerdi</strong>
 
 							<p data-aos="fade-up" data-aos-delay="800">7:00 AM - 10:00 PM</p>
 
@@ -223,6 +209,33 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 	<!-- SCHEDULE -->
+
+
+	<section>
+		<div class="attrezzi" id="attrezzi"></div>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-12 col-12 text-center mb-5">
+
+					<h2 data-aos="fade-up" data-aos-delay="200">I nostri Attrezzi</h2>
+
+					<ul class="listaAttrezzi">
+						<li><a href="#">Dolor pulvinar sed etiam.</a></li>
+						<li><a href="#">Etiam vel lorem sed amet.</a></li>
+						<li><a href="#">Felis enim feugiat viverra.</a></li>
+						<li><a href="#">Dolor pulvinar magna etiam.</a></li>
+					</ul>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
 
 
 
@@ -321,19 +334,17 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<form class="membership-form webform" name="Login" action="Login"
-						 method="post" role="form" id="Login">
-						
-						<input type="text" class="form-control" name="username" id="username"
-							placeholder="Username" required> 
-						
-						<input type="password"
-							class="form-control" name="password" placeholder="Password" id="password"
-							required>
+						method="post" role="form" id="Login">
+
+						<input type="text" class="form-control" name="username"
+							id="username" placeholder="Username" required> <input
+							type="password" class="form-control" name="password"
+							placeholder="Password" id="password" required>
 
 						<button type="submit" class="form-control" id="submit-button"
 							name="Accedi"
 							style="background-color: #343a40 !important; color: white !important">Accedi</button>
-					<!--  
+						<!--  
 						<label> Ricorda le mie credenziali per 2 giorni</label>
 							<select value="tempo" name="tempo">
 							<option value="12ore" name="12ore">12h</option>
@@ -342,11 +353,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</select>
 						
 						 <input type="checkbox" name="rememberMe" >
-					-->	
+					-->
 						<div class="alert alert-info" role="alert">
-							<center>
-								Le credenziali verranno ricordate per 48 ore! 
-							</center>
+							<center>Le credenziali verranno ricordate per 48 ore!</center>
 						</div>
 
 						<!--  
@@ -373,51 +382,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	<script src="js/aos.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/custom.js"></script>
-	
-	<script>
-	
-			function getCookie(cname) {
-			  var name = cname + "=";
-			  var decodedCookie = decodeURIComponent(document.cookie);
-			  var ca = decodedCookie.split(';');
-			  for(var i = 0; i < ca.length; i++) {
-			    var c = ca[i];
-			    while (c.charAt(0) == ' ') {
-			      c = c.substring(1);
-			    }
-			    if (c.indexOf(name) == 0) {
-			      return c.substring(name.length, c.length);
-			    }
-			  }
-			  return "";
-			}
 
-			function checkCookies() {
-			  var user=getCookie("CookieUsername");
-			  var password=getCookie("CookiePassword");
-			  if (user != "" && password != "") {
-			   $('#username').val(user);
-			   $('#password').val(password);
-			   $('#Login').submit();
-			  } else {
-				 document.required();
-			  }
-			}
-			
-			$( document ).ready(function() {
-				  var user=getCookie("CookieUsername");
-				  var password=getCookie("CookiePassword");
-				  if (user != "" && password != "") {
-				   $('#logged').show();
-				   $('#not_logged').hide();
-				  } else {
-					  $('#not_logged').show();
-					  $('#logged').hide();
-				  }
-			});
-			
-			
-	</script>
-
-</body>
+	
 </html>
