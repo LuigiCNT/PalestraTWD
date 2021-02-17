@@ -108,9 +108,9 @@ public class UtenteDAO {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, ut.getPassword());
 			ps.setString(2, ut.getAutorita());
-			ps.setString(3, ut.getUsername());
-			ps.setString(4,  ut.getNome());
-			ps.setString(5,  ut.getCognome());
+			ps.setString(5, ut.getUsername());
+			ps.setString(3,  ut.getNome());
+			ps.setString(4,  ut.getCognome());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;

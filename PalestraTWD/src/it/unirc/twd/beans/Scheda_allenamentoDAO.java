@@ -72,15 +72,15 @@ public class Scheda_allenamentoDAO {
 		return esito;
 	}
 	public boolean AggiornaScheda_allenamento(Scheda_allenamento sa) {
-		String query = "UPDATE Scheda_allenamento SET Password = ?, data = ? WHERE Username = ?";
+		String query = "UPDATE Scheda_allenamento SET Tipologia = ?, data = ?, link = ?, WHERE Username = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, sa.getTipologia());
 			ps.setDate(2, sa.getData());
-			ps.setString(3, sa.getUsername());
-			ps.setString(4, sa.getLink());
+			ps.setString(4, sa.getUsername());
+			ps.setString(3, sa.getLink());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
