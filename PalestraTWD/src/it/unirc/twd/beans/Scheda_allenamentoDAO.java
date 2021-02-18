@@ -25,7 +25,7 @@ public class Scheda_allenamentoDAO {
 				res=new Scheda_allenamento();
 				res.setUsername(rs.getString("username"));
 				res.setTipologia(rs.getString("Tipologia"));
-				res.setData(rs.getDate("Data"));
+				res.setDurata(rs.getInt("Durata"));
 				res.setLink(rs.getString("link"));
 			}
 		}catch(Exception e) {
@@ -35,14 +35,14 @@ public class Scheda_allenamentoDAO {
 		return res;
 	}
 	public boolean SalvaScheda_allenamento(Scheda_allenamento sa) {
-		String query = "INSERT INTO Scheda_allenamento VALUES (?, ?, ?)";
+		String query = "INSERT INTO Scheda_allenamento VALUES (?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, sa.getUsername());
 			ps.setString(2, sa.getTipologia());
-			ps.setDate(3, sa.getData());
+			ps.setInt(3, sa.getDurata());
 			ps.setString(4, sa.getLink());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
@@ -72,13 +72,13 @@ public class Scheda_allenamentoDAO {
 		return esito;
 	}
 	public boolean AggiornaScheda_allenamento(Scheda_allenamento sa) {
-		String query = "UPDATE Scheda_allenamento SET Tipologia = ?, data = ?, link = ?, WHERE Username = ?";
+		String query = "UPDATE Scheda_allenamento SET Tipologia = ?, durata = ?, link = ?, WHERE Username = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, sa.getTipologia());
-			ps.setDate(2, sa.getData());
+			ps.setInt(2, sa.getDurata());
 			ps.setString(4, sa.getUsername());
 			ps.setString(3, sa.getLink());
 			int tmp=ps.executeUpdate();
@@ -140,7 +140,7 @@ public class Scheda_allenamentoDAO {
 				res=new Scheda_allenamento();
 				res.setUsername(rs.getString("username"));
 				res.setTipologia(rs.getString("Tipologia"));
-				res.setData(rs.getDate("Data_inizio"));
+				res.setDurata(rs.getInt("Durata"));
 				res.setLink(rs.getString("link"));
 			}
 		}catch(Exception e) {
@@ -155,7 +155,7 @@ public class Scheda_allenamentoDAO {
 		Scheda_allenamento res=new Scheda_allenamento();
 		res.setUsername(rs.getString("Username"));
 		res.setTipologia(rs.getString("Tipologia"));
-		res.setData(rs.getDate("Data"));
+		res.setDurata(rs.getInt("Durata"));
 		res.setLink(rs.getString("link"));
 		return res;
 

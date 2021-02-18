@@ -28,8 +28,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
 
-<%
+	<%
 Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
+Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 
 %>
 
@@ -52,12 +53,14 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 						class="nav-link smoothScroll">Home</a></li>
 
 
-					<li class="nav-item"><a href="#class"
-						class="nav-link smoothScroll">Servizi</a></li>
+					<!--<li class="nav-item"><a href="#class"
+						class="nav-link smoothScroll">Servizi</a></li>  -->
 
 					<li class="nav-item"><a href="#attrezzi"
 						class="nav-link smoothScroll">Attrezzi</a></li>
-
+					
+					<li class="nav-item"><a href="#corsi"
+						class="nav-link smoothScroll">Corsi</a></li>
 
 
 					<li class="nav-item"><a href="#contact"
@@ -88,9 +91,8 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 				<div class="col-lg-8 col-md-10 mx-auto col-12">
 					<div class="hero-text mt-5 text-center">
 
-						
-						<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">I
-							Nostri Servizi</h1>
+
+						<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Attrezzatura & Corsi</h1>
 
 						<a href="#orario" class="btn custom-btn bordered mt-3"
 							data-aos="fade-up" data-aos-delay="700"
@@ -146,7 +148,7 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 	<section class="class section" id="class">
 		<div class="container">
 			<div class="row">
-
+<!-- 
 				<div class="col-lg-12 col-12 text-center mb-5">
 					<h6 data-aos="fade-up">Migliora il tuo corpo</h6>
 
@@ -209,7 +211,7 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 						</div>
 					</div>
 				</div>
-
+-->
 			</div>
 		</div>
 	</section>
@@ -225,15 +227,17 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 
 				<div class="col-lg-12 col-12 text-center mb-5">
 
-					<h2 data-aos="fade-up" data-aos-delay="200">I nostri Attrezzi</h2>
-					<br><br>
+					<h2 data-aos="fade-up" data-aos-delay="200">La nostra attrezzatura</h2>
+					<br>
+					<br>
 					<ul class="list-group" data-aos="fade-up" data-aos-delay="200">
-					
-					<%for(Attrezzi a : aa){ %>	
-					
-  <li class="list-group-item"><strong>&#x2022;</strong>&nbsp;<%=a.getNome()%>&nbsp;&nbsp;&nbsp;<strong>Gruppo Muscolare:</strong>&nbsp; <%=a.getGruppo_muscolare() %> </li>
-  <%} %>
-</ul>
+
+						<%for(Attrezzi a : aa){ %>
+
+						<li class="list-group-item"><strong>&#x2022;</strong>&nbsp;<%=a.getNome()%>&nbsp;&nbsp;&nbsp;<strong>Gruppo
+								Muscolare:</strong>&nbsp; <%=a.getGruppo_muscolare() %></li>
+						<%} %>
+					</ul>
 
 
 
@@ -243,6 +247,24 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 		</div>
 	</section>
 
+	<section>
+		<div class="corsi" id="corsi"></div>
+		<div class="container">
+			<div class="eow"> 
+					<div class="col-lg-12 col-12 text-center mb-5">
+					
+						<h2 data-aos="fade-up" data-aos-delay="200">I nostri corsi</h2>
+						<br>
+						<br>
+						<ul class="list-group" data-aos="fade-up" data-aos-delay="200">
+							<% for(Corsi c : corsi){ %>
+							<li class="list-group-item"><strong>&#x2022;</strong>&nbsp;<%=c.getTipologia()%>&nbsp;&nbsp;&nbsp;<strong>Coach
+								:</strong>&nbsp; <%=c.getCoach() %> &nbsp;&nbsp;&nbsp;<strong> Durata: </strong> <%=c.getDurata() %> giorni</li>
+						<%} %>
+						</ul>
+			</div>
+		</div>
+	</section>
 
 
 
@@ -390,6 +412,4 @@ Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
 	<script src="js/aos.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/custom.js"></script>
-
-	
 </html>

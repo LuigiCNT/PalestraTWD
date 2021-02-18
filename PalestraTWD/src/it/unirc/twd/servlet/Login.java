@@ -109,7 +109,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("utente", utente);
 				session.setAttribute("pagamento", p);
 				session.setAttribute("scheda", s);
-				System.out.println("Data: " + s.getData());
+				System.out.println("Data: " + s.getDurata());
 				response.sendRedirect("AreaRiservataUtente.jsp");
 			}  
 			else if(utente.getAutorita().equals("Admin")) {

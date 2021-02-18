@@ -5,10 +5,9 @@ import java.sql.Date;
 
 public class Scheda_allenamento {
 	private String Username;
-	private String tipologia;
-	private Date   data;
-	private String link;
-	//private Blob Scheda;
+	private String Tipologia;
+	private int   Durata;
+	private String Link;
 	public String getUsername() {
 		return Username;
 	}
@@ -16,31 +15,31 @@ public class Scheda_allenamento {
 		Username = username;
 	}
 	public String getTipologia() {
-		return tipologia;
+		return Tipologia;
 	}
 	public void setTipologia(String tipologia) {
-		this.tipologia = tipologia;
+		Tipologia = tipologia;
 	}
-	public Date getData() {
-		return data;
+	public int getDurata() {
+		return Durata;
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setDurata(int durata) {
+		Durata = durata;
 	}
 	public String getLink() {
-		return link;
+		return Link;
 	}
 	public void setLink(String link) {
-		this.link = link;
+		Link = link;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((link == null) ? 0 : link.hashCode());
+		result = prime * result + Durata;
+		result = prime * result + ((Link == null) ? 0 : Link.hashCode());
+		result = prime * result + ((Tipologia == null) ? 0 : Tipologia.hashCode());
 		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
-		result = prime * result + ((data == null) ? 0 : data.hashCode());
-		result = prime * result + ((tipologia == null) ? 0 : tipologia.hashCode());
 		return result;
 	}
 	@Override
@@ -52,48 +51,41 @@ public class Scheda_allenamento {
 		if (getClass() != obj.getClass())
 			return false;
 		Scheda_allenamento other = (Scheda_allenamento) obj;
-		if (link == null) {
-			if (other.link != null)
+		if (Durata != other.Durata)
+			return false;
+		if (Link == null) {
+			if (other.Link != null)
 				return false;
-		} else if (!link.equals(other.link))
+		} else if (!Link.equals(other.Link))
+			return false;
+		if (Tipologia == null) {
+			if (other.Tipologia != null)
+				return false;
+		} else if (!Tipologia.equals(other.Tipologia))
 			return false;
 		if (Username == null) {
 			if (other.Username != null)
 				return false;
 		} else if (!Username.equals(other.Username))
 			return false;
-		if (data == null) {
-			if (other.data != null)
-				return false;
-		} else if (!data.equals(other.data))
-			return false;
-		if (tipologia == null) {
-			if (other.tipologia != null)
-				return false;
-		} else if (!tipologia.equals(other.tipologia))
-			return false;
 		return true;
-	}
-	
-	public Scheda_allenamento(String username, String tipologia, Date data, String link) {
-		super();
-		Username = username;
-		this.tipologia = tipologia;
-		this.data = data;
-		this.link = link;
 	}
 	@Override
 	public String toString() {
-		return "Scheda_allenamento [Username=" + Username + ", tipologia=" + tipologia + ", data=" + data + ", link="
-				+ link + ", getUsername()=" + getUsername() + ", getTipologia()=" + getTipologia() + ", getData()="
-				+ getData() + ", getLink()=" + getLink() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
-				+ ", toString()=" + super.toString() + "]";
+		return "Scheda_allenamento [Username=" + Username + ", Tipologia=" + Tipologia + ", Durata=" + Durata
+				+ ", Link=" + Link + "]";
 	}
 	public Scheda_allenamento() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Scheda_allenamento(String username, String tipologia, int durata, String link) {
+		super();
+		Username = username;
+		Tipologia = tipologia;
+		Durata = durata;
+		Link = link;
+	}
 	
 	
-
 }

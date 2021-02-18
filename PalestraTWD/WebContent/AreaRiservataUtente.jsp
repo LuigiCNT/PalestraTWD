@@ -174,7 +174,7 @@ System.out.println(p.toString());
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">Tipologia= <%= s.getTipologia() %>
 								</li>
-								<li class="list-group-item">Data= <%= s.getData() %>
+								<li class="list-group-item">Durata= <%= s.getDurata() %> giorni
 								</li>
 								<li class="list-group-item"><a href="<%= s.getLink() %>" target="_blank">Visualizza
 										scheda allenamento</a></li>
