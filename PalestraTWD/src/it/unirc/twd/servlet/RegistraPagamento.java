@@ -42,17 +42,19 @@ public class RegistraPagamento extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		Pagamento p = new Pagamento();
-		String date = request.getParameter("data");
-		Date date1 = new Date(0, 0, 0);
+		String startDateStr = request.getParameter("data");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		java.util.Date startDate = null;
 		try {
-		   date1=(Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);  
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			startDate = sdf.parse(startDateStr);
+		} catch(ParseException e) {
 			e.printStackTrace();
 		}
-		finally {
+		java.sql.Date sqlDate = new java.sql.Date(startDate.getTime());
+		
 		p.setUsername(request.getParameter("username"));	
-		p.setData(date1);
+		p.setData(sqlDate);
 		p.setMetodo(request.getParameter("metodo"));
 		p.setImporto(Integer.valueOf(request.getParameter("importo")));
 		System.out.println(p.toString());
@@ -72,4 +74,4 @@ public class RegistraPagamento extends HttpServlet {
 		}
 	}
 	}
-}
+

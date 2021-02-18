@@ -716,57 +716,57 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 		<!-- Modal -->
-		<div class="modal fade" id="addPagamentiForm" tabindex="-1"
-			role="dialog" aria-labelledby="membershipFormLabel"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
+		
 
-				<div class="modal-content">
-					<div class="modal-header">
 
-						<h2 class="modal-title" id="membershipFormLabel">Registra
-							Pagamento</h2>
+<div class="modal fade" id="addPagamentiForm" tabindex="-1" role="dialog"
+		aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
 
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
+			<div class="modal-content">
+				<div class="modal-header">
 
-					<div class="modal-body">
-						<form class="membership-form webform" name="RegistraPagamento"
-							action="RegistraPagamento" onsubmit="document.required()"
-							method="post" role="form">
-							<input type="text" class="form-control" name="username"
-								placeholder="Username" required> <input type="text"
-								class="form-control" name="data" placeholder="00-GEN-0000"
-								required> <input type="text" class="form-control"
-								name="metodo" placeholder="Metodo di pagamento" required>
+					<h2 class="modal-title" id="membershipFormLabel">Registra Pagamento
+						</h2>
 
-							<input type="text" class="form-control" name="importo"
-								placeholder="Importo" required>
-							<button type="submit" class="form-control" id="submit-button"
-								name="Accedi"
-								style="background-color: #343a40 !important; color: white !important">Crea</button>
-						</form>
-					</div>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 
-					<!--  
+				<div class="modal-body">
+					<form class="membership-form webform" name="RegistraPagamento"
+						action="RegistraPagamento" onsubmit="document.required()"
+						method="post" role="form">
+						<input type="text" class="form-control" name="username"
+							placeholder="username" required> 
+						<input type="data"
+							class="form-control" name="data" placeholder="data" required>
+						<input type="text" class="form-control" name="importo"
+							placeholder="importo" required>
+						<input type="text" class="form-control" name="metodo"
+							placeholder="metodo" required>
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Registra</button>
+					</form>
+
+				</div>
+				<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-				</div>
-
 			</div>
 
 			<div class="modal-footer"></div>
-
 		</div>
 
 
 
+	</div>
 
 
 		<!-- Modal -->
