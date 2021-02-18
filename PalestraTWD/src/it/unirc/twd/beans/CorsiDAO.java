@@ -13,7 +13,7 @@ public class CorsiDAO {
 	private static Connection conn = null;
 
 	public Corsi getCorsi(Corsi c) {
-		String query = "Select * FROM corso where tipologia = ?";
+		String query = "Select * FROM Corsi where tipologia = ?";
 		Corsi res = null;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
