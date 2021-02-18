@@ -27,6 +27,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
+
+<%
+Vector<Attrezzi> aa = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
+
+%>
+
+
 	<!-- MENU BAR -->
 	<nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
@@ -81,7 +88,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 				<div class="col-lg-8 col-md-10 mx-auto col-12">
 					<div class="hero-text mt-5 text-center">
 
-
+						
 						<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">I
 							Nostri Servizi</h1>
 
@@ -219,13 +226,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
 				<div class="col-lg-12 col-12 text-center mb-5">
 
 					<h2 data-aos="fade-up" data-aos-delay="200">I nostri Attrezzi</h2>
-
-					<ul class="listaAttrezzi">
-						<li><a href="#">Dolor pulvinar sed etiam.</a></li>
-						<li><a href="#">Etiam vel lorem sed amet.</a></li>
-						<li><a href="#">Felis enim feugiat viverra.</a></li>
-						<li><a href="#">Dolor pulvinar magna etiam.</a></li>
-					</ul>
+					<br><br>
+					<ul class="list-group" data-aos="fade-up" data-aos-delay="200">
+					
+					<%for(Attrezzi a : aa){ %>	
+					
+  <li class="list-group-item"><strong>&#x2022;</strong>&nbsp;<%=a.getNome()%>&nbsp;&nbsp;&nbsp;<strong>Gruppo Muscolare:</strong>&nbsp; <%=a.getGruppo_muscolare() %> </li>
+  <%} %>
+</ul>
 
 
 
