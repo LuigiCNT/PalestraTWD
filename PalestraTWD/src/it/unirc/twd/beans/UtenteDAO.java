@@ -1,5 +1,6 @@
 package it.unirc.twd.beans;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import java.util.Vector;
 
 
 import it.unirc.twd.utils.DBManager;
+import oracle.jdbc.internal.OracleTypes;
 
 public class UtenteDAO {
 	private static Connection conn = null;
@@ -28,6 +30,7 @@ public class UtenteDAO {
 				res.setAutorita(rs.getString("autorità"));
 				res.setNome(rs.getString("nome"));
 				res.setCognome(rs.getString("cognome"));
+				res.setAnno(rs.getInt("anno"));
 			}
 		}catch(Exception e) {
 			e.getStackTrace();
@@ -53,6 +56,7 @@ public class UtenteDAO {
 				res.setAutorita(rs.getString("autorità"));
 				res.setNome(rs.getString("nome"));
 				res.setCognome(rs.getString("cognome"));
+				res.setAnno(rs.getInt("anno"));
 			}
 		}catch(Exception e) {
 			e.getStackTrace();
@@ -63,7 +67,7 @@ public class UtenteDAO {
 
 
 	public boolean SalvaUtente(Utente ut) {
-		String query = "INSERT INTO Utente VALUES (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO Utente VALUES (?, ?, ?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
@@ -73,6 +77,7 @@ public class UtenteDAO {
 			ps.setString(3, ut.getAutorita());
 			ps.setString(4, ut.getNome());
 			ps.setString(5,  ut.getCognome());
+			ps.setInt(6, ut.getAnno());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -101,7 +106,7 @@ public class UtenteDAO {
 		return esito;
 	}
 	public boolean AggiornaUtente(Utente ut) {
-		String query = "UPDATE Utente SET Password = ?, autorità = ?, nome = ?, cognome = ?  WHERE Username = ?";
+		String query = "UPDATE Utente SET Password = ?, autorità = ?, nome = ?, cognome = ?, anno = ?  WHERE Username = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
@@ -111,6 +116,7 @@ public class UtenteDAO {
 			ps.setString(5, ut.getUsername());
 			ps.setString(3,  ut.getNome());
 			ps.setString(4,  ut.getCognome());
+			ps.setInt(6,  ut.getAnno());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -165,6 +171,7 @@ public class UtenteDAO {
 		res.setAutorita(rs.getString("Autorità"));
 		res.setNome(rs.getString("Nome"));
 		res.setCognome(rs.getString("Cognome"));
+		res.setAnno(rs.getInt("anno"));
 		return res;
 
 	}
@@ -319,5 +326,22 @@ public class UtenteDAO {
 		}
 		DBManager.closeConnection();
 		return res;
+	}
+	public double AumentoIscrizioni(int anno) {
+		String query = "{  ? = call AUMENTOISCRIZIONI(?) }";
+		double risultato = 0;
+		conn = DBManager.startConnection();
+		try {
+			CallableStatement cs = conn.prepareCall(query);
+			cs.setInt(2,  anno);
+			cs.registerOutParameter(1, OracleTypes.INTEGER);
+			cs.execute();
+			risultato = cs.getDouble(1);
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		return risultato;
 	}
 }

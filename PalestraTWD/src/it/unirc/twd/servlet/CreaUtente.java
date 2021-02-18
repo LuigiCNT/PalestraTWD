@@ -47,6 +47,7 @@ public class CreaUtente extends HttpServlet {
 		u.setAutorita(request.getParameter("autorita"));
 		u.setNome(request.getParameter("nome"));
 		u.setCognome(request.getParameter("cognome"));
+		u.setAnno(Integer.valueOf(request.getParameter("anno")));
 		System.out.println(u.toString());
 		if(uDAO.SalvaUtente(u)) {
 			HttpSession session = request.getSession();

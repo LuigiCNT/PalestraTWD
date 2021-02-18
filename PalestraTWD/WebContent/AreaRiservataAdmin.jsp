@@ -374,6 +374,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 
                 <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
 
+				<input type=text" class="form-control" name="anno" placeholder="Anno iscrizione" required>
+ 				
                 <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
                  </form>
                	

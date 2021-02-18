@@ -6,14 +6,16 @@ public class Utente {
 	private String Autorita;
 	private String Nome;
 	private String Cognome;
+	private int Anno;
 
-	public Utente(String username, String password, String autorita, String nome, String cognome) {
+	public Utente(String username, String password, String autorita, String nome, String cognome, int anno) {
 		super();
 		Username = username;
 		Password = password;
 		Autorita = autorita;
 		Nome = nome;
 		Cognome = cognome;
+		Anno = anno;
 	}
 	public String getUsername() {
 		return Username;
@@ -47,10 +49,19 @@ public class Utente {
 	public void setCognome(String cognome) {
 		Cognome = cognome;
 	}
+	
+	public int getAnno() {
+		return Anno;
+	}
+	public void setAnno(int anno) {
+		Anno = anno;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + Anno;
 		result = prime * result + ((Autorita == null) ? 0 : Autorita.hashCode());
 		result = prime * result + ((Cognome == null) ? 0 : Cognome.hashCode());
 		result = prime * result + ((Nome == null) ? 0 : Nome.hashCode());
@@ -58,7 +69,6 @@ public class Utente {
 		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -68,6 +78,8 @@ public class Utente {
 		if (getClass() != obj.getClass())
 			return false;
 		Utente other = (Utente) obj;
+		if (Anno != other.Anno)
+			return false;
 		if (Autorita == null) {
 			if (other.Autorita != null)
 				return false;
@@ -95,6 +107,7 @@ public class Utente {
 			return false;
 		return true;
 	}
+
 	public Utente() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -102,6 +115,6 @@ public class Utente {
 	@Override
 	public String toString() {
 		return "Utente [Username=" + Username + ", Password=" + Password + ", Autorita=" + Autorita + ", Nome=" + Nome
-				+ ", Cognome=" + Cognome + "]";
+				+ ", Cognome=" + Cognome + ", Anno=" + Anno + "]";
 	}	
 }

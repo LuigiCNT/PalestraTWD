@@ -153,7 +153,7 @@ public class Login extends HttpServlet {
 				}   
 			}
 			if(!username.isEmpty() && !password.isEmpty())
-				utente = new Utente(username, password,"", "", "" );
+				utente = new Utente(username, password,"", "", "", 0 );
 		}
 		return utente;
 
