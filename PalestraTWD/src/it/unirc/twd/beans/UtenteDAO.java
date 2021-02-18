@@ -327,16 +327,16 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	public double AumentoIscrizioni(int anno) {
+	public int AumentoIscrizioni(int anno) {
 		String query = "{  ? = call AUMENTOISCRIZIONI(?) }";
-		double risultato = 0;
+		int risultato = 0;
 		conn = DBManager.startConnection();
 		try {
 			CallableStatement cs = conn.prepareCall(query);
 			cs.setInt(2,  anno);
 			cs.registerOutParameter(1, OracleTypes.INTEGER);
 			cs.execute();
-			risultato = cs.getDouble(1);
+			risultato = cs.getInt(1);
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
