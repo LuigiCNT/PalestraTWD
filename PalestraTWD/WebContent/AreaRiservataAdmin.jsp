@@ -258,7 +258,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</div>
 					</div>
 				</div>
+				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+					data-aos="fade-up" data-aos-delay="600"
+					style="margin-top: 30px !important">
+					<div class="class-thumb">
 
+						<div class="class-info">
+							<h3 class="mb-1">Inc/Dec Iscrizioni</h3>
+							Verfica un aumento o decremento delle iscrizioni rispetto all'anno precedente a quello immesso
+							<form class="membership-form webform" name="AumentoIscrizioni" action="/AumentoIscrizioni"  method="post" role="form">
+							<input type="text" name="anno" placeholder="Anno" required  >
+							<button type="submit" class="form-control" data-toggle="modal" data-target="#AumentoIscrizioni" id="submit-button"  name="Accedi" style="background-color:#343a40 !important;color:white !important">Verifica</button>
+							<ul class="list-group list-group-flush">
+								
+								
+
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -630,6 +648,37 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	</div>
 	</div>
 
+<div class="modal fade" id="AumentoIscrizioni" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					prova
+					<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+
+				</div>
+
+			</div>
+
+			<div class="modal-footer"></div>
+
+		</div>
+	</div>
 
 	<div class="modal fade" id="getAllAttrezziForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
