@@ -1,6 +1,8 @@
 package it.unirc.twd.beans;
 
-public class Attrezzi {
+import java.io.Serializable;
+
+public class Attrezzi implements Serializable{
 	private String  nome;
 	private String gruppo_muscolare;
 	

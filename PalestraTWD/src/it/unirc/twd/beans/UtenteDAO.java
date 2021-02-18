@@ -88,14 +88,16 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
-	public boolean EliminaUtente(Utente ut) {
-		String query = "DELETE * FROM Utente WHERE Username = ?";
+	public boolean EliminaByString(String ut) {
+		String query = "DELETE FROM Utente WHERE Username = ?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, ut.getUsername());
+			ps.setString(1, ut);
+			System.out.println(ps);
 			int tmp=ps.executeUpdate();
+			System.out.println("primaif");
 			if(tmp==1) {
 				esito=true;
 			}
@@ -320,6 +322,7 @@ public class UtenteDAO {
 				//res.setUsername(rs.getString("username"));
 				//res.setAutorita(rs.getString("autorità"));
 				res=true;
+				System.out.println(res);
 			}
 		}catch(Exception e) {
 			e.getStackTrace();

@@ -70,15 +70,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 	<%
 	String username = (String) session.getAttribute("username");
-
 	String stato = (String) session.getAttribute("stato");
-
 	username = username.toUpperCase();
-
 	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
 	Vector<Utente> clienti = (Vector<Utente>) session.getAttribute("listaClienti");
 	Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
-
 	int numeroClienti = (int) session.getAttribute("numeroClienti");
 	int numeroAdmin = (int) session.getAttribute("numeroAdmin");
 	int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
@@ -111,11 +107,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<div class="alert alert-danger" role="alert">C'è stato un
 						errore con l'aggiunta dell'utente!</div>
 					<%
-					} else {
-
-					}
+					} else if (stato.equals("utente elimina")) {
 					%>
+					<div class="alert alert-success" role="alert">Utente eliminato
+						con successo!</div>
+					<%} else if(stato.equals("errore utente non eliminato")){%>
+						<div class="alert alert-danger" role="alert">C'è stato un
+						errore con l'eliminazione dell'utente!</div>
 
+					<%} else if(stato.equals("risultato funzione inc/dec")) {
+					
+					%>
+					<div class="alert alert-success" role="alert">Nell anno precedente a quello immesso c'è stato un incremento/decremento di <%=(int) session.getAttribute("numeroinc")%> iscrizioni</div>
+						
+						<%} else{
+							
+						}
+							%>
+					
 					<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
 						BENTORNATO
 						<%=username%>

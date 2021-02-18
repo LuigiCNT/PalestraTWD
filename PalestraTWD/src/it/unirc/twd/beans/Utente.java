@@ -1,6 +1,8 @@
 package it.unirc.twd.beans;
 
-public class Utente {
+import java.io.Serializable;
+
+public class Utente implements Serializable {
 	private String Username;
 	private String Password;
 	private String Autorita;
