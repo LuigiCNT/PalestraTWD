@@ -109,22 +109,30 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<%
 					} else if (stato.equals("utente elimina")) {
 					%>
-					<div class="alert alert-success" role="alert">Utente eliminato
-						con successo!</div>
-					<%} else if(stato.equals("errore utente non eliminato")){%>
-						<div class="alert alert-danger" role="alert">C'è stato un
+					<div class="alert alert-success" role="alert">Utente
+						eliminato con successo!</div>
+					<%
+					} else if (stato.equals("errore utente non eliminato")) {
+					%>
+					<div class="alert alert-danger" role="alert">C'è stato un
 						errore con l'eliminazione dell'utente!</div>
 
-					<%} else if(stato.equals("risultato funzione inc/dec")) {
-					
+					<%
+					} else if (stato.equals("risultato funzione inc/dec")) {
 					%>
-					<div class="alert alert-success" role="alert">Nell anno precedente a quello immesso c'è stato un incremento/decremento di <%=(int) session.getAttribute("numeroinc")%> iscrizioni</div>
-						
-						<%} else{
-							
-						}
-							%>
-					
+					<div class="alert alert-success" role="alert">
+						Nell anno precedente a quello immesso c'è stato un
+						incremento/decremento di
+						<%=(int) session.getAttribute("numeroinc")%>
+						iscrizioni
+					</div>
+
+					<%
+					} else {
+
+					}
+					%>
+
 					<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
 						BENTORNATO
 						<%=username%>
@@ -235,7 +243,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 				</div>
 
 
-<div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12"
+				<div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12"
 					data-aos="fade-up" data-aos-delay="500">
 					<div class="class-thumb">
 
@@ -315,8 +323,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 							<form class="membership-form webform" name="AumentoIscrizioni"
 								action="/AumentoIscrizioni" method="post" role="form">
 								<input type="text" name="anno" placeholder="Anno" required>
-								<button type="submit" class="form-control" 
-									id="submit-button"
+								<button type="submit" class="form-control" id="submit-button"
 									name="Accedi"
 									style="background-color: #343a40 !important; color: white !important">Verifica</button>
 								<ul class="list-group list-group-flush">
@@ -472,7 +479,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Aggiungi Scheda</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Aggiungi
+						Scheda</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -482,18 +490,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<form class="membership-form webform" name="AggiungiScheda"
-						action="AggiungiScheda" onsubmit="document.required()" method="post"
-						role="form">
+						action="AggiungiScheda" onsubmit="document.required()"
+						method="post" role="form">
 						<input type="text" class="form-control" name="username"
-							placeholder="Username" required> 
-							
-							<input type="text" class="form-control"
-							name="tipologia" placeholder="Tipologia allenamento" required> 
-							<input
-							type="text" class="form-control" name="durata" placeholder="Durata (Giorni)"
-							required> 
-							<input type="text" class="form-control"
-							name="link" placeholder="Link Dropbox/Google Drive" required> 
+							placeholder="Username" required> <input type="text"
+							class="form-control" name="tipologia"
+							placeholder="Tipologia allenamento" required> <input
+							type="text" class="form-control" name="durata"
+							placeholder="Durata (Giorni)" required> <input
+							type="text" class="form-control" name="link"
+							placeholder="Link Dropbox/Google Drive" required>
 
 						<button type="submit" class="form-control" id="submit-button"
 							name="Accedi"
@@ -516,14 +522,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	</div>
 
 
-<div class="modal fade" id="addCorsiForm" tabindex="-1" role="dialog"
+	<div class="modal fade" id="addCorsiForm" tabindex="-1" role="dialog"
 		aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Aggiungi Corso</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Aggiungi
+						Corso</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -533,17 +540,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<form class="membership-form webform" name="AggiungiCorso"
-						action="AggiungiCorso" onsubmit="document.required()" method="post"
-						role="form">
+						action="AggiungiCorso" onsubmit="document.required()"
+						method="post" role="form">
 						<input type="text" class="form-control" name="tipologia"
-							placeholder="Nome" required> 
-							
-							<input type="text" class="form-control"
-							name="coach" placeholder="Coach" required> 
-							<input
-							type="text" class="form-control" name="durata" placeholder="Durata (Giorni)"
-							required> 
-						
+							placeholder="Nome" required> <input type="text"
+							class="form-control" name="coach" placeholder="Coach" required>
+						<input type="text" class="form-control" name="durata"
+							placeholder="Durata (Giorni)" required>
+
 						<button type="submit" class="form-control" id="submit-button"
 							name="Accedi"
 							style="background-color: #343a40 !important; color: white !important">Aggiungi</button>
@@ -558,19 +562,21 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     -->
 			</div>
 
+			<div class="modal-footer"></div>
 		</div>
 
-		<div class="modal-footer"></div>
+
 
 	</div>
-	<div class="modal fade" id="EliminaUtenteForm" tabindex="-1" role="dialog"
-		aria-labelledby="membershipFormLabel" aria-hidden="true">
+	<div class="modal fade" id="EliminaUtenteForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Elimina Membro</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Elimina
+						Membro</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -654,10 +660,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </label>
                     -->
 			</div>
-
+			<div class="modal-footer"></div>
 		</div>
 
-		<div class="modal-footer"></div>
+
 
 
 
@@ -760,7 +766,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 
 
-		
+
 
 
 		<!-- Modal -->
@@ -807,74 +813,73 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				</div>
 
-				<div class="modal-footer"></div>
-
 			</div>
+
+			<div class="modal-footer"></div>
 		</div>
-	</div>
 
-	
 
-	<div class="modal fade" id="getAllAttrezziForm" tabindex="-1"
-		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
 
-			<div class="modal-content">
-				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Lista
-						attrezzi</h2>
+		<div class="modal fade" id="getAllAttrezziForm" tabindex="-1"
+			role="dialog" aria-labelledby="membershipFormLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
 
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+				<div class="modal-content">
+					<div class="modal-header">
 
-				<div class="modal-body">
-					<ul>
-						Totale Attrezzi =
-						<%=numeroAttrezzi%></ul>
-					<ul class="list-group">
-						<%
-						for (int i = 0; i < la.size(); i++) {
-						%>
+						<h2 class="modal-title" id="membershipFormLabel">Lista
+							attrezzi</h2>
 
-						<li class="list-group-item" style="font-size: 14px !important">
-							<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
-								Muscolare: </b><%=la.elementAt(i).getGruppo_muscolare().toString()%>
-						</li>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
 
-						<%
-						}
-						%>
-					</ul>
-					<!--  
+					<div class="modal-body">
+						<ul>
+							Totale Attrezzi =
+							<%=numeroAttrezzi%></ul>
+						<ul class="list-group">
+							<%
+							for (int i = 0; i < la.size(); i++) {
+							%>
+
+							<li class="list-group-item" style="font-size: 14px !important">
+								<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
+									Muscolare: </b><%=la.elementAt(i).getGruppo_muscolare().toString()%>
+							</li>
+
+							<%
+							}
+							%>
+						</ul>
+						<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
+					</div>
+
 				</div>
 
 			</div>
-
 			<div class="modal-footer"></div>
-
 		</div>
-	</div>
 
 
 
 
-	<!-- SCRIPTS -->
-	<script src="js/scripts.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/smoothscroll.js"></script>
-	<script src="js/custom.js"></script>
-
+		<!-- SCRIPTS -->
+		<script src="js/scripts.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/aos.js"></script>
+		<script src="js/smoothscroll.js"></script>
+		<script src="js/custom.js"></script>
 </body>
 
 
