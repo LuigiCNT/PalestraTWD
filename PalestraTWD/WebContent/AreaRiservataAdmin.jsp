@@ -51,11 +51,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 					<li class="nav-item"><a href="#contact"
 						class="nav-link smoothScroll">Contatti</a></li>
-						
-						     
-                   <form action="Logout" method="post">
-      <input type="submit" value="Logout">
-   </form>
+
+
+					<form action="Logout" method="post">
+						<input type="submit" value="Logout">
+					</form>
 				</ul>
 
 				<ul class="social-icon ml-lg-3">
@@ -72,7 +72,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	String username = (String) session.getAttribute("username");
 
 	String stato = (String) session.getAttribute("stato");
- 
+
 	username = username.toUpperCase();
 
 	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
@@ -190,6 +190,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#updateUtenteForm"
 									style="background-color: transparent; color: black !important">Modifica
 										Valori Cliente</a></li>
+
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#EliminaUtenteForm"
+									style="background-color: transparent; color: black !important">Elimina
+										Membro</a></li>
+
 							</ul>
 
 
@@ -230,7 +236,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#addPagamentiForm"
-									style="background-color: transparent; color: black !important">Registra Pagamento</a></li>
+									style="background-color: transparent; color: black !important">Registra
+										Pagamento</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Da
 										pagare</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Già
@@ -240,7 +247,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
 					data-aos="fade-up" data-aos-delay="600"
 					style="margin-top: 30px !important">
@@ -249,10 +256,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						<div class="class-info">
 							<h3 class="mb-1">Schede Allenamento</h3>
 							<ul class="list-group list-group-flush">
-								
+
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#addSchedaForm"
-									style="background-color: transparent; color: black !important">Carica Scheda</a></li>
+									style="background-color: transparent; color: black !important">Carica
+										Scheda</a></li>
 
 							</ul>
 						</div>
@@ -265,15 +273,18 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 						<div class="class-info">
 							<h3 class="mb-1">Inc/Dec Iscrizioni</h3>
-							Verfica un aumento o decremento delle iscrizioni rispetto all'anno precedente a quello immesso
-							<form class="membership-form webform" name="AumentoIscrizioni" action="/AumentoIscrizioni"  method="post" role="form">
-							<input type="text" name="anno" placeholder="Anno" required  >
-							<button type="submit" class="form-control" data-toggle="modal" data-target="#AumentoIscrizioni" id="submit-button"  name="Accedi" style="background-color:#343a40 !important;color:white !important">Verifica</button>
-							<ul class="list-group list-group-flush">
-								
-								
-
-							</ul>
+							Verfica un aumento o decremento delle iscrizioni rispetto
+							all'anno precedente a quello immesso
+							<form class="membership-form webform" name="AumentoIscrizioni"
+								action="/AumentoIscrizioni" method="post" role="form">
+								<input type="text" name="anno" placeholder="Anno" required>
+								<button type="submit" class="form-control" data-toggle="modal"
+									data-target="#AumentoIscrizioni" id="submit-button"
+									name="Accedi"
+									style="background-color: #343a40 !important; color: white !important">Verifica</button>
+								<ul class="list-group list-group-flush">
+								</ul>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -365,249 +376,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 
-	
-     <!-- Modal -->
-    <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h2 class="modal-title" id="membershipFormLabel">Nuovo Membro</h2>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <form class="membership-form webform" name="CreaUtente" action="CreaUtente" onsubmit="document.required()" method="post" role="form">
-                <input type="text" class="form-control" name="username" placeholder="Username" required>
-
-                <input type="password" class="form-control" name="password" placeholder="Password" required>
-                
-                <input type="text" class="form-control" name="autorita" placeholder="Cliente/Admin" required>
-                
-                <input type="text" class="form-control" name="nome" placeholder="Nome" required>
-                
-                <input type="text" class="form-control" name="cognome" placeholder="Cognome" required>
-
-				<input type=text" class="form-control" name="anno" placeholder="Anno iscrizione" required>
- 				
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
-                 </form>
-               	
-</div>              
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-                </div>
-          
-          </div>
-
-          <div class="modal-footer"></div>
-
-        </div>
-   
-
-	
-	<div class="modal fade" id="updateUtenteForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h2 class="modal-title" id="membershipFormLabel">Aggiorna Dati Fisici</h2>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-          
-            <form class="membership-form webform" name="ModificaUtente" action="/ModificaUtente"  method="post" role="form">
-               <div class="container">
-						</div>	
-					
-					
-				<input type="text" class="form-control" name="username" placeholder="username" required>
-                <input type="text" class="form-control" name="altezza" placeholder="altezza" required>
-                
-                <input type="text" class="form-control" name="peso" placeholder="peso" required>
-                
-                <input type="text" class="form-control" name="plicometria" placeholder="plico" required>
-             
-
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiorna</button>
-                 </form>
-               	
-</div>
-                
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-                </div>
-           
-          </div>
-
-          <div class="modal-footer"></div>
-
-    
 
 	<!-- Modal -->
-    <div class="modal fade" id="addAttrezziForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h2 class="modal-title" id="membershipFormLabel">Nuovo Attrezzo</h2>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <form class="membership-form webform" name="CreaAttrezzo" action="CreaAttrezzo" onsubmit="document.required()" method="post" role="form">
-               <input type="text" class="form-control" name="nome"
-						placeholder="Nome Attrezzo" required> <input type="text"
-						class="form-control" name="gruppo_muscolare"
-						placeholder="Gruppo Muscolare" required>
-
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
-                
-               	
-</div>
-                
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-                </div>
-            </form>
-          </div>
-
-          <div class="modal-footer"></div>
-
-        </div>
-      </div>
-    </div>
-
-	     <!-- Modal -->
-    <div class="modal fade" id="addPagamentiForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h2 class="modal-title" id="membershipFormLabel">Registra Pagamento</h2>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <form class="membership-form webform" name="RegistraPagamento" action="RegistraPagamento" onsubmit="document.required()" method="post" role="form">
-                <input type="text" class="form-control" name="username"
-						placeholder="Username" required> 
-					<input type="text"
-						class="form-control"  name="data"
-						placeholder="00-GEN-0000" required>
-						
-					<input type="text"
-						class="form-control" name="metodo"
-						placeholder="Metodo di pagamento" required>
-							
-					<input type="text"
-						class="form-control" name="importo"
-						placeholder="Importo" required>
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Crea</button>
-                
-               	
-</div>
-                
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-                </div>
-            </form>
-          </div>
-
-          <div class="modal-footer"></div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="addSchedaForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h2 class="modal-title" id="membershipFormLabel">Aggiungi Scheda</h2>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <form class="membership-form webform" name="#" action="#" onsubmit="document.required()" method="post" role="form">
-                <input type="text" class="form-control" name="username"
-						placeholder="Username" required> 
-				<input type="text" class="form-control" name="tipologia"
-						placeholder="Tipologia Allenamento" required> 	
-				<input type="date" class="form-control" name="data"
-						placeholder="00-00-0000" required> 			
-					<input type="file"
-						class="form-control" name="scheda" accept=".pdf, .doc, .docx, .txt, .jpg, .png"
-					 required>
-                <button type="submit" class="form-control" id="submit-button" name="Accedi" style="background-color:#343a40 !important;color:white !important">Aggiungi</button>
-                
-               	
-</div>
-                
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-                </div>
-            </form>
-          </div>
-
-          <div class="modal-footer"></div>
-
-        </div>
-      </div>
-    </div>
-
-
-	<!-- Modal -->
-	<div class="modal fade" id="mostraUtentiForm" tabindex="-1"
-		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+	<div class="modal fade" id="membershipForm" tabindex="-1" role="dialog"
+		aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Lista utenti</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Nuovo Membro</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -616,28 +394,178 @@ https://www.tooplate.com/view/2119-gymso-fitness
 				</div>
 
 				<div class="modal-body">
-					<ul class="list-group">
-						
-						<%
-						for (int i = 0; i < v.size(); i++) {
-						%>
-						<li class="list-group-item" style="font-size: 14px !important">
-							<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
-							<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
-							<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
+					<form class="membership-form webform" name="CreaUtente"
+						action="CreaUtente" onsubmit="document.required()" method="post"
+						role="form">
+						<input type="text" class="form-control" name="username"
+							placeholder="Username" required> <input type="password"
+							class="form-control" name="password" placeholder="Password"
+							required> <input type="text" class="form-control"
+							name="autorita" placeholder="Cliente/Admin" required> <input
+							type="text" class="form-control" name="nome" placeholder="Nome"
+							required> <input type="text" class="form-control"
+							name="cognome" placeholder="Cognome" required> <input
+							type="text" class="form-control" name="anno"
+							placeholder="Anno iscrizione" required>
 
-						</li>
-						<%
-						}
-						%>
-					</ul>
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Crea</button>
+					</form>
+
+				</div>
+				<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+			</div>
+
+		</div>
+
+		<div class="modal-footer"></div>
+
+	</div>
+
+
+	<div class="modal fade" id="EliminaUtenteForm" tabindex="-1" role="dialog"
+		aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Elimina Membro</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="EliminaUtente"
+						action="EliminaUtente" onsubmit="document.required()"
+						method="post" role="form">
+						<input type="text" class="form-control" name="username"
+							placeholder="Username" required>
+
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Elimina</button>
+					</form>
+
+				</div>
+				<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+			</div>
+
+		</div>
+
+		<div class="modal-footer"></div>
+
+	</div>
+
+
+
+	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Aggiorna Dati
+						Fisici</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+
+					<form class="membership-form webform" name="ModificaUtente"
+						action="/ModificaUtente" method="post" role="form">
+						<div class="container"></div>
+
+
+						<input type="text" class="form-control" name="username"
+							placeholder="username" required> <input type="text"
+							class="form-control" name="altezza" placeholder="altezza"
+							required> <input type="text" class="form-control"
+							name="peso" placeholder="peso" required> <input
+							type="text" class="form-control" name="plicometria"
+							placeholder="plico" required>
+
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Aggiorna</button>
+					</form>
+
+				</div>
+
+				<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+			</div>
+
+		</div>
+
+		<div class="modal-footer"></div>
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="addAttrezziForm" tabindex="-1"
+			role="dialog" aria-labelledby="membershipFormLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h2 class="modal-title" id="membershipFormLabel">Nuovo
+							Attrezzo</h2>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<form class="membership-form webform" name="CreaAttrezzo"
+							action="CreaAttrezzo" onsubmit="document.required()"
+							method="post" role="form">
+							<input type="text" class="form-control" name="nome"
+								placeholder="Nome Attrezzo" required> <input type="text"
+								class="form-control" name="gruppo_muscolare"
+								placeholder="Gruppo Muscolare" required>
+
+							<button type="submit" class="form-control" id="submit-button"
+								name="Accedi"
+								style="background-color: #343a40 !important; color: white !important">Crea</button>
+						</form>
+					</div>
+
 					<!--  
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="signup-agree">
                     <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
                     </label>
                     -->
-
 				</div>
 
 			</div>
@@ -645,17 +573,165 @@ https://www.tooplate.com/view/2119-gymso-fitness
 			<div class="modal-footer"></div>
 
 		</div>
-	</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="addPagamentiForm" tabindex="-1"
+			role="dialog" aria-labelledby="membershipFormLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h2 class="modal-title" id="membershipFormLabel">Registra
+							Pagamento</h2>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<form class="membership-form webform" name="RegistraPagamento"
+							action="RegistraPagamento" onsubmit="document.required()"
+							method="post" role="form">
+							<input type="text" class="form-control" name="username"
+								placeholder="Username" required> <input type="text"
+								class="form-control" name="data" placeholder="00-GEN-0000"
+								required> <input type="text" class="form-control"
+								name="metodo" placeholder="Metodo di pagamento" required>
+
+							<input type="text" class="form-control" name="importo"
+								placeholder="Importo" required>
+							<button type="submit" class="form-control" id="submit-button"
+								name="Accedi"
+								style="background-color: #343a40 !important; color: white !important">Crea</button>
+						</form>
+					</div>
+
+					<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+				</div>
+
+			</div>
+
+			<div class="modal-footer"></div>
+
+		</div>
+
+
+		<div class="modal fade" id="addSchedaForm" tabindex="-1" role="dialog"
+			aria-labelledby="membershipFormLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h2 class="modal-title" id="membershipFormLabel">Aggiungi
+							Scheda</h2>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<form class="membership-form webform" name="#" action="#"
+							onsubmit="document.required()" method="post" role="form">
+							<input type="text" class="form-control" name="username"
+								placeholder="Username" required> <input type="text"
+								class="form-control" name="tipologia"
+								placeholder="Tipologia Allenamento" required> <input
+								type="date" class="form-control" name="data"
+								placeholder="00-00-0000" required> <input type="file"
+								class="form-control" name="scheda"
+								accept=".pdf, .doc, .docx, .txt, .jpg, .png" required>
+							<button type="submit" class="form-control" id="submit-button"
+								name="Accedi"
+								style="background-color: #343a40 !important; color: white !important">Aggiungi</button>
+						</form>
+					</div>
+
+					<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+				</div>
+
+			</div>
+
+			<div class="modal-footer"></div>
+
+		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="mostraUtentiForm" tabindex="-1"
+			role="dialog" aria-labelledby="membershipFormLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h2 class="modal-title" id="membershipFormLabel">Lista utenti</h2>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<ul class="list-group">
+
+							<%
+							for (int i = 0; i < v.size(); i++) {
+							%>
+							<li class="list-group-item" style="font-size: 14px !important">
+								<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
+								<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
+								<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
+
+							</li>
+							<%
+							}
+							%>
+						</ul>
+						<!--  
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
+                    </label>
+                    -->
+
+					</div>
+
+				</div>
+
+				<div class="modal-footer"></div>
+
+			</div>
+		</div>
 	</div>
 
-<div class="modal fade" id="AumentoIscrizioni" tabindex="-1"
+	<div class="modal fade" id="AumentoIscrizioni" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					
+
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -721,14 +797,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </label>
                     -->
 				</div>
-				
+
 			</div>
 
 			<div class="modal-footer"></div>
 
 		</div>
 	</div>
-	
+
 
 
 
