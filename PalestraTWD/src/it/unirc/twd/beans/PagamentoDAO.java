@@ -80,6 +80,7 @@ public class PagamentoDAO {
 			ps.setDate(1, p.getData());
 			ps.setString(2, p.getMetodo());
 			ps.setInt(3, p.getImporto());
+			ps.setString(4, p.getUsername());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;

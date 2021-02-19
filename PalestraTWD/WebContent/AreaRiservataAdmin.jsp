@@ -263,8 +263,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#"
 									style="background-color: transparent; color: black !important">Lista
 										Corsi</a></li>
-								
-								
+
+
 
 
 							</ul>
@@ -273,19 +273,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</div>
 					</div>
 				</div>
-<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
 					data-aos="fade-up" data-aos-delay="600">
 					<div class="class-thumb">
 
 						<div class="class-info">
 							<h3 class="mb-1">Iscrizioni ai Corsi</h3>
 							<ul class="list-group list-group-flush">
-								
+
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#mostraIscrizioni"
 									style="background-color: transparent; color: black !important">Mostra
 										Iscrizioni ai corsi</a></li>
-								
+
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#EliminaIscrizioneForm"
 									style="background-color: transparent; color: black !important">Cancella
@@ -307,6 +307,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#addPagamentiForm"
 									style="background-color: transparent; color: black !important">Registra
+										Pagamento</a></li>
+										<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#AggiornaPagamentoForm"
+									style="background-color: transparent; color: black !important">Aggiorna
 										Pagamento</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Già
 										pagati</a></li>
@@ -606,7 +610,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		<div class="modal-footer"></div>
 	</div>
 	<!-- FINE ELIMINA MEMBRO -->
-	
+
 	<!-- INIZIO ELIMINA ISCRIZIONE -->
 	<div class="modal fade" id="EliminaIscrizioneForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
@@ -628,11 +632,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<form class="membership-form webform" name="EliminaIscrizione"
 						action="EliminaIscrizione" onsubmit="document.required()"
 						method="post" role="form">
-						
+
 						<input type="text" class="form-control" name="username"
-							placeholder="Username Cliente" required>
-						
-						<input type="text" class="form-control" name="nomeCorso"
+							placeholder="Username Cliente" required> <input
+							type="text" class="form-control" name="nomeCorso"
 							placeholder="Nome del corso" required>
 
 						<button type="submit" class="form-control" id="submit-button"
@@ -645,7 +648,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 		<div class="modal-footer"></div>
 	</div>
-<!-- FINE ELIMINA ISCRIZIONE -->
+	<!-- FINE ELIMINA ISCRIZIONE -->
 
 	<!-- MODIFICA VALORI CLIENTE -->
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
@@ -754,38 +757,75 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						action="RegistraPagamento" onsubmit="document.required()"
 						method="post" role="form">
 						<input type="text" class="form-control" name="username"
-							placeholder="username" required> 
-							<input type="date"
+							placeholder="username" required> <input type="date"
 							class="form-control" name="data" placeholder="data" required>
 						<input type="text" class="form-control" name="importo"
-							placeholder="importo" required> 
-							<input type="text"
+							placeholder="importo" required> <input type="text"
 							class="form-control" name="metodo" placeholder="metodo" required>
 						<button type="submit" class="form-control" id="submit-button"
 							name="Accedi"
 							style="background-color: #343a40 !important; color: white !important">Registra</button>
 					</form>
 
-				</div>		
+				</div>
 			</div>
 			<div class="modal-footer"></div>
 		</div>
 	</div>
 	<!-- FINE NUOVO PAGAMENTO -->
-	
-	
-	
-	
 
-<!-- INIZIO FORM ISCRIZIONI -->
-<div class="modal fade" id="mostraIscrizioni" tabindex="-1"
+	<!-- INIZIO AGGIORNA PAGAMENTO -->
+	<div class="modal fade" id="AggiornaPagamentoForm"
+		tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Aggiorna
+						Pagamento</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="AggiornaPagamento"
+						action="AggiornaPagamento" onsubmit="document.required()"
+						method="post" role="form">
+						<input type="text" class="form-control" name="username"
+							placeholder="username" required> <input type="date"
+							class="form-control" name="data" placeholder="data" required>
+						<input type="text" class="form-control" name="importo"
+							placeholder="importo" required> <input type="text"
+							class="form-control" name="metodo" placeholder="metodo" required>
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Aggiorna</button>
+					</form>
+
+				</div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+	<!-- FINE AGGIORNA PAGAMENTO -->
+
+
+
+	<!-- INIZIO FORM ISCRIZIONI -->
+	<div class="modal fade" id="mostraIscrizioni" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Lista Iscrizioni ai Corsi</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Lista
+						Iscrizioni ai Corsi</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -801,8 +841,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 							%>
 						<li class="list-group-item" style="font-size: 14px !important">
 							<b>Cliente: </b> <%=Isc.elementAt(i).getUsername().toString()%> |
-							<b>Nome corso: </b><%=Isc.elementAt(i).getNomeCorso().toString()%> 
-							
+							<b>Nome corso: </b><%=Isc.elementAt(i).getNomeCorso().toString()%>
+
 						</li>
 						<%
 							}
@@ -813,7 +853,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 		<div class="modal-footer"></div>
 	</div>
-<!-- FINE FORM ISCRIZIONI -->
+	<!-- FINE FORM ISCRIZIONI -->
 
 	<!-- INIZIO LISTA UTENTI -->
 	<div class="modal fade" id="mostraUtentiForm" tabindex="-1"
