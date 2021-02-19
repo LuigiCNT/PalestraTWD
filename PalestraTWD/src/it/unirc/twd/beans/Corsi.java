@@ -1,6 +1,8 @@
 package it.unirc.twd.beans;
 
-public class Corsi {
+import java.io.Serializable;
+
+public class Corsi implements Serializable{
 	private String tipologia;
 	private String coach;
 	private int durata;

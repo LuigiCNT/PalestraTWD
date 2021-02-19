@@ -75,6 +75,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	Vector<Utente> v = (Vector<Utente>) session.getAttribute("listautenti");
 	Vector<Utente> clienti = (Vector<Utente>) session.getAttribute("listaClienti");
 	Vector<Attrezzi> la = (Vector<Attrezzi>) session.getAttribute("lista_attrezzi");
+	Vector<Iscrizioni> Isc = (Vector<Iscrizioni>) session.getAttribute("lista_iscrizioni");
 	int numeroClienti = (int) session.getAttribute("numeroClienti");
 	int numeroAdmin = (int) session.getAttribute("numeroAdmin");
 	int numeroAttrezzi = (int) session.getAttribute("numeroAttrezzi");
@@ -174,9 +175,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
 							<h3 class="mb-1">Dati Palestra</h3>
 							<ul class="list-group list-group-flush">
 
-								<li class="list-group-item">Numero Clienti = <%=numeroClienti%>
+								<li class="list-group-item">Numero Clienti = <%= numeroClienti%>
 								</li>
-								<li class="list-group-item">Numero Amministratori = <%=numeroAdmin%></li>
+								<li class="list-group-item">Numero Amministratori = <%= numeroAdmin%></li>
 							</ul>
 
 						</div>
@@ -189,7 +190,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 						<div class="class-info">
-							<h3 class="mb-1">Iscrizioni</h3>
+							<h3 class="mb-1">Utenti</h3>
 
 
 							<ul class="list-group list-group-flush">
@@ -262,6 +263,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#"
 									style="background-color: transparent; color: black !important">Lista
 										Corsi</a></li>
+								
+								
 
 
 							</ul>
@@ -270,7 +273,29 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</div>
 					</div>
 				</div>
+<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+					data-aos="fade-up" data-aos-delay="600">
+					<div class="class-thumb">
 
+						<div class="class-info">
+							<h3 class="mb-1">Iscrizioni ai Corsi</h3>
+							<ul class="list-group list-group-flush">
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#mostraIscrizioni"
+									style="background-color: transparent; color: black !important">Mostra
+										Iscrizioni ai corsi</a></li>
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#EliminaIscrizioneForm"
+									style="background-color: transparent; color: black !important">Cancella
+										Iscrizione</a></li>
+							</ul>
+
+
+						</div>
+					</div>
+				</div>
 				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
 					data-aos="fade-up" data-aos-delay="600"
 					style="margin-top: 30px !important">
@@ -581,6 +606,46 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		<div class="modal-footer"></div>
 	</div>
 	<!-- FINE ELIMINA MEMBRO -->
+	
+	<!-- INIZIO ELIMINA ISCRIZIONE -->
+	<div class="modal fade" id="EliminaIscrizioneForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Cancella
+						Iscrizione</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="EliminaIscrizione"
+						action="EliminaIscrizione" onsubmit="document.required()"
+						method="post" role="form">
+						
+						<input type="text" class="form-control" name="username"
+							placeholder="Username Cliente" required>
+						
+						<input type="text" class="form-control" name="nomeCorso"
+							placeholder="Nome del corso" required>
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Elimina</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+<!-- FINE ELIMINA ISCRIZIONE -->
 
 	<!-- MODIFICA VALORI CLIENTE -->
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
@@ -707,6 +772,44 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 	</div>
 	<!-- FINE NUOVO PAGAMENTO -->
+
+<!-- INIZIO FORM ISCRIZIONI -->
+<div class="modal fade" id="mostraIscrizioni" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Lista Iscrizioni ai Corsi</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<ul class="list-group">
+
+						<%
+							for (int i = 0; i < Isc.size(); i++) {
+							%>
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Cliente: </b> <%=Isc.elementAt(i).getUsername().toString()%> |
+							<b>Nome corso: </b><%=Isc.elementAt(i).getNomeCorso().toString()%> 
+							
+						</li>
+						<%
+							}
+							%>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+<!-- FINE FORM ISCRIZIONI -->
 
 	<!-- INIZIO LISTA UTENTI -->
 	<div class="modal fade" id="mostraUtentiForm" tabindex="-1"

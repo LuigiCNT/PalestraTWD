@@ -330,6 +330,7 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return res;
 	}
+	
 	public int AumentoIscrizioni(int anno) {
 		String query = "{  ? = call AUMENTOISCRIZIONI(?) }";
 		int risultato = 0;

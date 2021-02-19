@@ -78,6 +78,7 @@ Scheda_allenamento s = (Scheda_allenamento) session.getAttribute("scheda");
 String username = u.getUsername().toUpperCase();
 System.out.println(s.toString());
 System.out.println(p.toString());
+Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
      %>
 
 
@@ -181,6 +182,28 @@ System.out.println(p.toString());
 							</ul>
 
 
+						</div>
+					</div>
+				</div>
+
+<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+					data-aos="fade-up" data-aos-delay="600"
+					style="margin-top: 30px !important">
+					<div class="class-thumb">
+
+						<div class="class-info">
+							<h3 class="mb-1">Iscriviti ad un Corso</h3>
+							<ul class="list-group list-group-flush">
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#addIscrizioneForm"
+									style="background-color: transparent; color: black !important">Iscriviti</a></li>
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#visualizzaCorsi"
+									style="background-color: transparent; color: black !important">Visualizza corsi esistenti
+										</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -316,6 +339,8 @@ System.out.println(p.toString());
 	</footer>
 	
 	   <!-- Modal -->
+	   
+	   <!-- FORM AGGIORNA PASSWORD -->
     <div class="modal fade" id="AggiornaPassword" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
@@ -346,22 +371,92 @@ System.out.println(p.toString());
 </div>
 </div>
                 
-<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
+
                 </div>
-            </form>
+            
           </div>
 
           <div class="modal-footer"></div>
 
         </div>
-      </div>
-    </div>
+        
+        <!-- FINE FORM PASSWORD -->
+    
+<!-- INIZIO FORM NUOVA ISCRIZIONE -->
+<div class="modal fade" id="addIscrizioneForm" tabindex="-1" role="dialog"
+		aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
 
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Iscriviti ad un corso</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="CreaIscrizione"
+						action="CreaIscrizione" onsubmit="document.required()" method="post"
+						role="form">
+						
+						<input type="text"
+							class="form-control" name="nomeCorso" placeholder="Password"
+							required> 
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Iscriviti</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+<!-- FINE FORM ISCRIZIONE -->
+
+<!-- VISUALIZZA TUTTI I CORSI -->
+<div class="modal fade" id="visualizzaCorsi" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Lista Corsi</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<ul class="list-group">
+
+						<%
+							for (int i = 0; i < corsi.size(); i++) {
+							%>
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Nome Corso: </b> <%=corsi.elementAt(i).getTipologia().toString()%> |
+							<b>Coach: </b><%=corsi.elementAt(i).getCoach().toString()%>
+							<b>Durata: </b> <%=corsi.elementAt(i).getDurata()%> Giorni
+
+						</li>
+						<%
+							}
+							%>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+<!--  FINE VISUALIZZA CORSI -->
 	
 
 	<!-- Modal -->
