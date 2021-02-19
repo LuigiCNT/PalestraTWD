@@ -283,8 +283,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#addPagamentiForm"
 									style="background-color: transparent; color: black !important">Registra
 										Pagamento</a></li>
-								<li class="list-group-item"><a href="#" target="_blank">Da
-										pagare</a></li>
 								<li class="list-group-item"><a href="#" target="_blank">Già
 										pagati</a></li>
 
@@ -418,10 +416,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 	</footer>
 
+	<!-- INIZIO DI TUTTI I MODAL BODY -->
 
 
-
-	<!-- Modal -->
+	<!-- FORM NUOVO MEMBRO -->
 	<div class="modal fade" id="membershipForm" tabindex="-1" role="dialog"
 		aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -458,20 +456,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</form>
 
 				</div>
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
 			</div>
-
 		</div>
-
 		<div class="modal-footer"></div>
-
 	</div>
 
+	<!-- FINE FORM NUOVO MEMBRO -->
+
+
+	<!-- INIZIO FORM NUOVA SCHEDA -->
 	<div class="modal fade" id="addSchedaForm" tabindex="-1" role="dialog"
 		aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -507,21 +500,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</form>
 
 				</div>
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
 			</div>
-
 		</div>
-
 		<div class="modal-footer"></div>
-
 	</div>
+	<!-- FINE FORM NUOVA SCHEDA -->
 
-
+	<!-- INIZIO FORM NUOVO CORSO -->
 	<div class="modal fade" id="addCorsiForm" tabindex="-1" role="dialog"
 		aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -554,20 +539,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</form>
 
 				</div>
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
 			</div>
-
 			<div class="modal-footer"></div>
 		</div>
-
-
-
 	</div>
+	<!-- FINE FORM NUOVO CORSO -->
+
+	<!-- ELIMINA MEMBRO -->
 	<div class="modal fade" id="EliminaUtenteForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -598,22 +576,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</form>
 
 				</div>
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
 			</div>
-
 		</div>
-
 		<div class="modal-footer"></div>
-
 	</div>
+	<!-- FINE ELIMINA MEMBRO -->
 
-
-
+	<!-- MODIFICA VALORI CLIENTE -->
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1"
 		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -652,82 +621,62 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</form>
 
 				</div>
-
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
 			</div>
 			<div class="modal-footer"></div>
 		</div>
+	</div>
 
+	<!-- FINE MODIFICA VALORI CLIENTE -->
 
-
-
-
-		<!-- Modal -->
-		<div class="modal fade" id="addAttrezziForm" tabindex="-1"
-			role="dialog" aria-labelledby="membershipFormLabel"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-
-				<div class="modal-content">
-					<div class="modal-header">
-
-						<h2 class="modal-title" id="membershipFormLabel">Nuovo
-							Attrezzo</h2>
-
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-
-					<div class="modal-body">
-						<form class="membership-form webform" name="CreaAttrezzo"
-							action="CreaAttrezzo" onsubmit="document.required()"
-							method="post" role="form">
-							<input type="text" class="form-control" name="nome"
-								placeholder="Nome Attrezzo" required> <input type="text"
-								class="form-control" name="gruppo_muscolare"
-								placeholder="Gruppo Muscolare" required>
-
-							<button type="submit" class="form-control" id="submit-button"
-								name="Accedi"
-								style="background-color: #343a40 !important; color: white !important">Crea</button>
-						</form>
-					</div>
-
-					<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-				</div>
-
-			</div>
-
-			<div class="modal-footer"></div>
-
-		</div>
-
-
-		<!-- Modal -->
-		
-
-
-<div class="modal fade" id="addPagamentiForm" tabindex="-1" role="dialog"
-		aria-labelledby="membershipFormLabel" aria-hidden="true">
+	<!-- INIZIO NUOVO ATTREZZO -->
+	<div class="modal fade" id="addAttrezziForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h2 class="modal-title" id="membershipFormLabel">Registra Pagamento
-						</h2>
+					<h2 class="modal-title" id="membershipFormLabel">Nuovo
+						Attrezzo</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="CreaAttrezzo"
+						action="CreaAttrezzo" onsubmit="document.required()" method="post"
+						role="form">
+						<input type="text" class="form-control" name="nome"
+							placeholder="Nome Attrezzo" required> <input type="text"
+							class="form-control" name="gruppo_muscolare"
+							placeholder="Gruppo Muscolare" required>
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Crea</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+	<!-- FINE NUOVO ATTREZZO -->
+
+
+	<!-- INIZIO NUOVO PAGAMENTO -->
+	<div class="modal fade" id="addPagamentiForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Registra
+						Pagamento</h2>
 
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -741,145 +690,115 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						method="post" role="form">
 						<input type="text" class="form-control" name="username"
 							placeholder="username" required> 
-						<input type="data"
+							<input type="date"
 							class="form-control" name="data" placeholder="data" required>
 						<input type="text" class="form-control" name="importo"
-							placeholder="importo" required>
-						<input type="text" class="form-control" name="metodo"
-							placeholder="metodo" required>
+							placeholder="importo" required> 
+							<input type="text"
+							class="form-control" name="metodo" placeholder="metodo" required>
 						<button type="submit" class="form-control" id="submit-button"
 							name="Accedi"
 							style="background-color: #343a40 !important; color: white !important">Registra</button>
 					</form>
 
-				</div>
-				<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
+				</div>		
 			</div>
-
 			<div class="modal-footer"></div>
 		</div>
-
-
-
 	</div>
+	<!-- FINE NUOVO PAGAMENTO -->
 
+	<!-- INIZIO LISTA UTENTI -->
+	<div class="modal fade" id="mostraUtentiForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
 
-		<!-- Modal -->
-		<div class="modal fade" id="mostraUtentiForm" tabindex="-1"
-			role="dialog" aria-labelledby="membershipFormLabel"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
 
-				<div class="modal-content">
-					<div class="modal-header">
+					<h2 class="modal-title" id="membershipFormLabel">Lista utenti</h2>
 
-						<h2 class="modal-title" id="membershipFormLabel">Lista utenti</h2>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
+				<div class="modal-body">
+					<ul class="list-group">
 
-					<div class="modal-body">
-						<ul class="list-group">
-
-							<%
+						<%
 							for (int i = 0; i < v.size(); i++) {
 							%>
-							<li class="list-group-item" style="font-size: 14px !important">
-								<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
-								<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
-								<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Username: </b> <%=v.elementAt(i).getUsername().toString()%> |
+							<b>Nome: </b><%=v.elementAt(i).getNome().toString()%> <%=v.elementAt(i).getCognome().toString()%>
+							<b>Autorità: </b> <%=v.elementAt(i).getAutorita().toString()%>
 
-							</li>
-							<%
+						</li>
+						<%
 							}
 							%>
-						</ul>
-						<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
 
-					</div>
+	<!-- FINE LISTA UTENTI -->
 
+	<!-- INIZIO LISTA ATTREZZI -->
+	<div class="modal fade" id="getAllAttrezziForm" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Lista
+						attrezzi</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 
-			</div>
-
-			<div class="modal-footer"></div>
-		</div>
-
-
-
-
-		<div class="modal fade" id="getAllAttrezziForm" tabindex="-1"
-			role="dialog" aria-labelledby="membershipFormLabel"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-
-				<div class="modal-content">
-					<div class="modal-header">
-
-						<h2 class="modal-title" id="membershipFormLabel">Lista
-							attrezzi</h2>
-
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-
-					<div class="modal-body">
-						<ul>
-							Totale Attrezzi =
-							<%=numeroAttrezzi%></ul>
-						<ul class="list-group">
-							<%
+				<div class="modal-body">
+					<ul>
+						Totale Attrezzi =
+						<%=numeroAttrezzi%></ul>
+					<ul class="list-group">
+						<%
 							for (int i = 0; i < la.size(); i++) {
 							%>
 
-							<li class="list-group-item" style="font-size: 14px !important">
-								<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
-									Muscolare: </b><%=la.elementAt(i).getGruppo_muscolare().toString()%>
-							</li>
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Nome: </b> <%=la.elementAt(i).getNome().toString()%> | <b>Gruppo
+								Muscolare: </b><%=la.elementAt(i).getGruppo_muscolare().toString()%>
+						</li>
 
-							<%
+						<%
 							}
 							%>
-						</ul>
-						<!--  
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">Accetto i <a href="#">Termini &amp; Condizioni</a>
-                    </label>
-                    -->
-					</div>
-
+					</ul>
 				</div>
-
 			</div>
-			<div class="modal-footer"></div>
 		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+	<!-- FINE LISTA ATTREZZI -->
 
 
-
-
-		<!-- SCRIPTS -->
-		<script src="js/scripts.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/aos.js"></script>
-		<script src="js/smoothscroll.js"></script>
-		<script src="js/custom.js"></script>
+	<!-- SCRIPTS -->
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/custom.js"></script>
 </body>
 
 
