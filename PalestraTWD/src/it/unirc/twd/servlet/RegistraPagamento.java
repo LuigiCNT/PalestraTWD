@@ -22,58 +22,67 @@ import it.unirc.twd.beans.PagamentoDAO;
 public class RegistraPagamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	PagamentoDAO pDAO = new PagamentoDAO();
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistraPagamento() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegistraPagamento() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		Pagamento p = new Pagamento();
-		String data = request.getParameter("data");
-		System.out.println(data);
-		
+		//String data = request.getParameter("data");
+
+
 		/*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		
+
 		java.util.Date startDate = null;
 		try {
 			startDate = sdf.parse(startDateStr);
 		} catch(ParseException e) {
 			e.printStackTrace();
 		}
-		
-		*/
+
+		 */
+
+		Date date;
+		try {
+			
+			date = Date.valueOf((request.getParameter("data")));
+			p.setData(date);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		p.setUsername(request.getParameter("username"));	
-		p.setData(Date.valueOf("data"));
 		p.setMetodo(request.getParameter("metodo"));
 		p.setImporto(Integer.valueOf(request.getParameter("importo")));
 		System.out.println(p.toString());
-		
-		
-		
+
 		if(pDAO.RegistraPagamento(p)) {
+			System.out.println("pago");
 			HttpSession session = request.getSession();
-			session.setAttribute("stato", "aggiunto utente");
-		    response.sendRedirect("AreaRiservataAdmin.jsp");
-		   
+			session.setAttribute("stato", "aggiunto pagamento");
+			response.sendRedirect("AreaRiservataAdmin.jsp");
+
 		}
-		else {
+		else{
 			HttpSession session = request.getSession();
-			session.setAttribute("stato", "errore aggiunta utente");
+			System.out.println("non pago");
+			session.setAttribute("stato", "errore non aggiunta pagamento");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
-	}
+}
 

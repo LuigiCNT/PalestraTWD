@@ -772,6 +772,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		</div>
 	</div>
 	<!-- FINE NUOVO PAGAMENTO -->
+	
+	
+	
+	
 
 <!-- INIZIO FORM ISCRIZIONI -->
 <div class="modal fade" id="mostraIscrizioni" tabindex="-1"

@@ -33,14 +33,16 @@ public class PagamentoDAO {
 		return res;
 	}
 	public boolean RegistraPagamento(Pagamento p) {
-		String query = "INSERT INTO pagamento VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO pagamento (username,data,metodo,importo) VALUES (?, ?, ?, ?)";
 		boolean esito=false;
+		System.out.println("p= "+p);
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setDate(1, p.getData());
-			ps.setString(2, p.getMetodo());
-			ps.setInt(3, p.getImporto());
+			ps.setString(1, p.getUsername());
+			ps.setDate(2, p.getData());
+			ps.setString(3, p.getMetodo());
+			ps.setInt(4, p.getImporto());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -49,6 +51,7 @@ public class PagamentoDAO {
 			e.getStackTrace();
 		}
 		DBManager.closeConnection();
+		System.out.println("esito "+esito);
 		return esito;
 	}
 	public boolean EliminaPagamento(Pagamento p) {
