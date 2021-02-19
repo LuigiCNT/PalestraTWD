@@ -73,14 +73,14 @@ public class AggiornaPagamento extends HttpServlet {
 		if(pDAO.AggiornaPagamento(p)) {
 			System.out.println("pago");
 			HttpSession session = request.getSession();
-			session.setAttribute("stato", "aggiunto pagamento");
+			session.setAttribute("stato", "aggiornato pagamento");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 
 		}
 		else{
 			HttpSession session = request.getSession();
 			System.out.println("non pago");
-			session.setAttribute("stato", "errore non aggiunta pagamento");
+			session.setAttribute("stato", "errore non aggiornato pagamento");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}
