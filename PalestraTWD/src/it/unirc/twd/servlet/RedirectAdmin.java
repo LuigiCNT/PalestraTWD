@@ -56,6 +56,7 @@ public class RedirectAdmin extends HttpServlet {
 		Vector<Utente> clienti = uDAO.getAllClienti();
 		Vector<Attrezzi> listaattrezzi = aDAO.getAll();
 		Vector<Iscrizioni> listaIscrizioni = iDAO.getAll();
+		session.setAttribute("stato", null);
 		session.setAttribute("lista_iscrizioni", listaIscrizioni);
 		session.setAttribute("numeroClienti", uDAO.ContaClienti());
 		session.setAttribute("numeroAdmin", uDAO.ContaAdmin());

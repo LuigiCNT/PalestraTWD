@@ -921,8 +921,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<ul class="list-group">
-
 						<%
+						if(Isc.isEmpty()){
+							
+						%>
+						<div class="alert alert-danger" role="alert">
+  Non ci sono iscrizioni.
+</div>
+						<%} else {
 							for (int i = 0; i < Isc.size(); i++) {
 							%>
 						<li class="list-group-item" style="font-size: 14px !important">
@@ -932,6 +938,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 						</li>
 						<%
 							}
+						}
 							%>
 					</ul>
 				</div>

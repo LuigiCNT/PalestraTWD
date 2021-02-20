@@ -49,7 +49,9 @@ public class EliminaIscrizione extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String nomeCorso = request.getParameter("nomeCorso");
+		System.out.println("username: " + username + " corso: " + nomeCorso);
 		Iscrizioni i = new Iscrizioni();
+		System.out.println("primaif");
 		if(iDAO.EsisteIscrizione(username, nomeCorso)) {
 			boolean res = iDAO.EliminaIscrizioni(username, nomeCorso);
 			System.out.println("Elimina:" + res);
@@ -58,6 +60,8 @@ public class EliminaIscrizione extends HttpServlet {
 				Vector<Utente> list = uDAO.getAll(); //Creo il vettore degli utenti per lo show all nell'are admin
 				Vector<Utente> clienti = uDAO.getAllClienti();
 				Vector<Attrezzi> listaattrezzi = aDAO.getAll();
+				Vector<Iscrizioni> listaIscrizioni = iDAO.getAll();
+				session.setAttribute("lista_iscrizioni", listaIscrizioni);
 				session.setAttribute("numeroClienti", uDAO.ContaClienti());
 				session.setAttribute("numeroAdmin", uDAO.ContaAdmin());
 				session.setAttribute("numeroAttrezzi", aDAO.contaAttrezzi());

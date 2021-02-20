@@ -120,7 +120,6 @@ public class Login extends HttpServlet {
 				session.setAttribute("pagamento", p);
 				session.setAttribute("scheda", s);
 				session.setAttribute("lista_corsi", listacorsi);
-				System.out.println("Data: " + s.getDurata());
 				response.sendRedirect("AreaRiservataUtente.jsp");
 			}  
 			else if(utente.getAutorita().equals("Admin")) {

@@ -128,7 +128,7 @@ public class IscrizioniDAO {
 	
 	
 	public boolean EsisteIscrizione(String username, String nomeCorso) {
-		String query = "Select * FROM Iscrizione where username = ? and nomecorso = ?";
+		String query = "Select * FROM Iscrizioni where username = ? and nomecorso = ?";
 		boolean res = false;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();

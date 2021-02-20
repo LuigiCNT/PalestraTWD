@@ -72,17 +72,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 	<%
 	String stato = (String) session.getAttribute("stato");
+	System.out.println("stato " + stato);
 Utente u = (Utente) session.getAttribute("utente");
+System.out.println("utente: " + u.toString());
 Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
+System.out.println("Dati_fisici: " + df.toString());
 Pagamento p = (Pagamento) session.getAttribute("pagamento");
+System.out.println("pagamento: " + p.toString());
 Scheda_allenamento s = (Scheda_allenamento) session.getAttribute("scheda");
+System.out.println("scheda: " + s.toString());
 String username = u.getUsername().toUpperCase();
+System.out.println(username.toString());
 String nome = u.getNome().toUpperCase();
+System.out.println(nome.toString());
 String cognome = u.getCognome().toUpperCase();
-System.out.println(s.toString());
-System.out.println(p.toString());
+System.out.println(cognome.toString());
 Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
+System.out.println(corsi.toString());
 Vector<Iscrizioni> lista_iscrizioni = (Vector<Iscrizioni>) session.getAttribute("lista_iscrizioni");
+System.out.println(lista_iscrizioni.toString());
      %>
 
 
