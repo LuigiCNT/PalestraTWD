@@ -215,7 +215,7 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 					<div class="class-thumb">
 
 						<div class="class-info">
-							<h3 class="mb-1">Storico Pagamenti</h3>
+							<h3 class="mb-1">Ultimo Pagamento</h3>
 							<ul class="list-group list-group-flush">
 								
 								
