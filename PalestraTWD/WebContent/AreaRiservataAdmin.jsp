@@ -717,7 +717,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 				<div class="modal-body">
 					<form class="membership-form webform" name="VisualizzaDotazione"
-						action="EliminaIscrizione" onsubmit="document.required()"
+						action="VisualizzaDotazione" onsubmit="document.required()"
 						method="post" role="form">
 
 						<input
@@ -725,7 +725,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 							placeholder="Nome del corso" required>
 
 						<button type="submit" class="form-control" id="submit-button"
-							name="Accedi"
+							name="Visualizza"
 							style="background-color: #343a40 !important; color: white !important">Visualizza</button>
 					</form>
 

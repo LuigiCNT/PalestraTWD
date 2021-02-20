@@ -113,6 +113,25 @@ public class DotazioneDAO {
 		DBManager.closeConnection();
 		return list;
 	}
+	
+	public Vector<Dotazione> getByCorso(String s){
+		String query = "SELECT * FROM Dotazione WHERE CORSO = ?";
+		Vector<Dotazione> list = new Vector<Dotazione>();
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, s);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(recordToDotazione(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		return list;
+	}
+	
 
 	public boolean EsisteDotazione(String attrezzo, String nomeCorso) {
 		String query = "Select * FROM Dotazione where attrezzo = ? and nomecorso = ?";
@@ -139,7 +158,7 @@ public class DotazioneDAO {
 	protected Dotazione recordToDotazione(ResultSet rs) throws SQLException {
 		Dotazione res=new Dotazione();
 		res.setAttrezzo(rs.getString("attrezzo"));
-		res.setNomeCorso(rs.getString("nomecorso"));
+		res.setNomeCorso(rs.getString("corso"));
 		return res;
 	}
 }

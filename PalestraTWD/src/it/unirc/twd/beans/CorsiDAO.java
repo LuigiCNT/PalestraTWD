@@ -105,6 +105,7 @@ public class CorsiDAO {
 		DBManager.closeConnection();
 		return list;
 	}
+	
 
 	protected Corsi recordToCorsi(ResultSet rs) throws SQLException {
 		Corsi res=new Corsi();

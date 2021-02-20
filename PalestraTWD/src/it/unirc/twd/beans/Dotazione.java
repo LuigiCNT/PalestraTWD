@@ -1,6 +1,8 @@
 package it.unirc.twd.beans;
 
-public class Dotazione {
+import java.io.Serializable;
+
+public class Dotazione implements Serializable{
 	private String attrezzo;
 	private String nomeCorso;
 	public String getAttrezzo() {
