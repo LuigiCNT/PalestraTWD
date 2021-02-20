@@ -37,6 +37,7 @@ public class Login extends HttpServlet {
 	private AttrezziDAO aDAO = new AttrezziDAO();
 	private IscrizioniDAO iDAO = new IscrizioniDAO();
 	private CorsiDAO cDAO = new CorsiDAO();
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -105,6 +106,7 @@ public class Login extends HttpServlet {
 			if(utente.getAutorita().equals("Cliente")) {
 				session.setAttribute("username",username);
 				session.setAttribute("successo", false);
+				Vector<Iscrizioni> lista_iscrizioni = iDAO.getByUtente(utente.getUsername());
 				Dati_fisiciDAO dfDAO = new Dati_fisiciDAO();
 				Dati_fisici df = dfDAO.getDFByString(utente.getUsername());
 				PagamentoDAO pDAO = new PagamentoDAO(); 
@@ -112,6 +114,7 @@ public class Login extends HttpServlet {
 				Scheda_allenamentoDAO sDAO = new Scheda_allenamentoDAO();
 				Scheda_allenamento s = sDAO.getSchedaByString(utente.getUsername());
 				Vector<Corsi> listacorsi = cDAO.getAll();
+				session.setAttribute("lista_iscrizioni", lista_iscrizioni);
 				session.setAttribute("dati_fisici", df);
 				session.setAttribute("utente", utente);
 				session.setAttribute("pagamento", p);

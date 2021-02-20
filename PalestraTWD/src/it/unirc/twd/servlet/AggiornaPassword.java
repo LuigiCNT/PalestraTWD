@@ -64,8 +64,13 @@ public class AggiornaPassword extends HttpServlet {
 			if(uDAO.AggiornaPassword(utente)) {
 				PrintWriter out = response.getWriter();
 				for (Cookie cookie : cookies) {
+					if(cookie.getName().equals("CookieUsername")) {
+						cookie.setMaxAge(0);
+						response.addCookie(cookie);
+					}
 					if (cookie.getName().equals("CookiePassword")) {
-						cookie.setValue(utente.getPassword().trim());
+						cookie.setMaxAge(0);
+						response.addCookie(cookie);
 					}
 				}
 			    session = request.getSession();
@@ -73,6 +78,7 @@ public class AggiornaPassword extends HttpServlet {
 				out.println("alert('Password cambiata con successo, rieffettua il login');");
 				out.println("location='index.html';");
 				out.println("</script>"); 
+				
 			}
 			else {
 				session.setAttribute("stato", "errore aggiunta utente");

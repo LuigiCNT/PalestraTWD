@@ -108,6 +108,25 @@ public class IscrizioniDAO {
 		return list;
 	}
 	
+	public Vector<Iscrizioni> getByUtente(String s){
+		String query = "SELECT * FROM Iscrizioni WHERE Username = ?";
+		Vector<Iscrizioni> list = new Vector<Iscrizioni>();
+		conn=DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, s);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(recordToIscrizione(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		DBManager.closeConnection();
+		return list;
+	}
+	
+	
 	public boolean EsisteIscrizione(String username, String nomeCorso) {
 		String query = "Select * FROM Iscrizione where username = ? and nomecorso = ?";
 		boolean res = false;

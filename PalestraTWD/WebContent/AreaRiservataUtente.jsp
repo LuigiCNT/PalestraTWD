@@ -71,6 +71,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 	</nav>
 
 	<%
+	String stato = (String) session.getAttribute("stato");
 Utente u = (Utente) session.getAttribute("utente");
 Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
 Pagamento p = (Pagamento) session.getAttribute("pagamento");
@@ -81,6 +82,7 @@ String cognome = u.getCognome().toUpperCase();
 System.out.println(s.toString());
 System.out.println(p.toString());
 Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
+Vector<Iscrizioni> lista_iscrizioni = (Vector<Iscrizioni>) session.getAttribute("lista_iscrizioni");
      %>
 
 
@@ -97,8 +99,21 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 
 			<div class="col-lg-8 col-md-10 mx-auto col-12">
 				<div class="hero-text mt-5 text-center">
-
-
+					<% if(stato == null) {  %>
+					
+					<%} else if(stato.equals("aggiunta iscrizione")) {
+						%>
+					<div class="alert alert-success" role="alert">
+ 	Iscritto con successo!
+</div>
+					<%} else if(stato.equals("errore iscrizione")){ %>
+					<div class="alert alert-danger" role="alert">
+  C'è stato un problema con l'iscrizione, riprova.
+</div>
+					<%} else { }
+						%>
+					
+					
 					<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
 						BENTORNATO
 						<%= nome %> <%= cognome %>
@@ -205,6 +220,10 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 									data-target="#visualizzaCorsi"
 									style="background-color: transparent; color: black !important">Visualizza corsi esistenti
 										</a></li>
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#listaIscrizioni"
+									style="background-color: transparent; color: black !important">Visualizza iscrizioni
+										</a></li>		
 							</ul>
 						</div>
 					</div>
@@ -371,6 +390,7 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
                	<div class="alert alert-warning" role="alert">
   <strong>Attenzione:</strong> dopo aver cambiato la password, dovrai di nuovo effettuare il Login! 
 </div>
+</form>
 </div>
                 
 
@@ -460,6 +480,43 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 	</div>
 <!--  FINE VISUALIZZA CORSI -->
 	
+
+<div class="modal fade" id="listaIscrizioni" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel"><%= username %> - Lista Iscrizioni</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<ul class="list-group">
+
+						<%
+							for (Iscrizioni i : lista_iscrizioni) {
+							%>
+						<li class="list-group-item" style="font-size: 14px !important">
+							<b>Nome Corso: </b> <%=i.getNomeCorso()%> 
+							
+						</li>
+						<%
+							}
+							%>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+
 
 	<!-- Modal -->
 
