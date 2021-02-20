@@ -73,14 +73,14 @@ public class RegistraPagamento extends HttpServlet {
 		if(pDAO.RegistraPagamento(p)) {
 			System.out.println("pago");
 			HttpSession session = request.getSession();
-			session.setAttribute("stato", "aggiunto pagamento");
+			session.setAttribute("stato", "aggiunto utente");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 
 		}
 		else{
 			HttpSession session = request.getSession();
 			System.out.println("non pago");
-			session.setAttribute("stato", "errore non aggiunta pagamento");
+			session.setAttribute("stato", "errore aggiunta utente");
 			response.sendRedirect("AreaRiservataAdmin.jsp");
 		}
 	}

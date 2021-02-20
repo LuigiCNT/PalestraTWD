@@ -213,7 +213,7 @@ System.out.println(lista_iscrizioni.toString());
 
 <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
 					data-aos="fade-up" data-aos-delay="600"
-					style="margin-top: 30px !important">
+					>
 					<div class="class-thumb">
 
 						<div class="class-info">
@@ -238,7 +238,8 @@ System.out.println(lista_iscrizioni.toString());
 				</div>
 
 				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
-					data-aos="fade-up" data-aos-delay="600">
+					data-aos="fade-up" data-aos-delay="600"
+					style="margin-top: 30px !important">
 					<div class="class-thumb">
 
 						<div class="class-info">

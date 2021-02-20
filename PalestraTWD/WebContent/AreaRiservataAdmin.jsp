@@ -97,26 +97,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					<%
 					if (stato == null || stato.equals("login")) {
 
-					} else if (stato.equals("aggiunto utente")) {
+					} else if (stato.equals("aggiunto utente") || stato.equals("aggiornato pagamento")) {
 					%>
-					<div class="alert alert-success" role="alert">Utente aggiunto
-						con successo!</div>
+					<div class="alert alert-success" role="alert">Operazione avvenuta con successo!</div>
 					<%
-					} else if (stato.equals("errore aggiunta utente")) {
+					} else if (stato.equals("errore aggiunta utente") || stato.equals("errore non aggiornato pagamento")) {
 					%>
 
 					<div class="alert alert-danger" role="alert">C'è stato un
-						errore con l'aggiunta dell'utente!</div>
+						errore con l'operazione!</div>
 					<%
 					} else if (stato.equals("utente elimina")) {
 					%>
-					<div class="alert alert-success" role="alert">Utente
-						eliminato con successo!</div>
+					<div class="alert alert-success" role="alert">Operazione
+						avvenuta con successo!</div>
 					<%
 					} else if (stato.equals("errore utente non eliminato")) {
 					%>
 					<div class="alert alert-danger" role="alert">C'è stato un
-						errore con l'eliminazione dell'utente!</div>
+						errore con l'operazione!</div>
 
 					<%
 					} else if (stato.equals("risultato funzione inc/dec")) {
@@ -250,7 +249,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 
 				<div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12"
-					data-aos="fade-up" data-aos-delay="500">
+					data-aos="fade-up" data-aos-delay="500"
+					style="margin-top: 30px !important">
 					<div class="class-thumb">
 
 
@@ -279,7 +279,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 					</div>
 				</div>
 				<div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
-					data-aos="fade-up" data-aos-delay="600">
+					data-aos="fade-up" data-aos-delay="600"
+					style="margin-top: 30px !important">
 					<div class="class-thumb">
 
 						<div class="class-info">
@@ -317,8 +318,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#AggiornaPagamentoForm"
 									style="background-color: transparent; color: black !important">Aggiorna
 										Pagamento</a></li>
-								<li class="list-group-item"><a href="#" target="_blank">Già
-										pagati</a></li>
+		
 
 							</ul>
 						</div>
