@@ -241,7 +241,7 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
   					<li class="list-group-item"><%= dot.getAttrezzo() %></li>
   				<%} %>
 </ul>
-		<%} %>
+		<%} %><!--  sso -->
 		</div>
 		<center>
 	<form action="RedirectAdmin" method="post">
