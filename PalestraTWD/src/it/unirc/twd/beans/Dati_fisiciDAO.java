@@ -60,14 +60,15 @@ public class Dati_fisiciDAO {
 	
 	
 	public boolean SalvaDati_Fisici(Dati_fisici da) {
-		String query = "INSERT INTO Username VALUES (?, ?, ?)";
+		String query = "INSERT INTO Dati_fisici VALUES (?, ?, ?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setDouble(1, da.getAltezza());
-			ps.setDouble(2, da.getPeso());
-			ps.setDouble(3, da.getPlicometria());
+			ps.setString(1, da.getUsername());
+			ps.setDouble(2, da.getAltezza());
+			ps.setDouble(3, da.getPeso());
+			ps.setDouble(4, da.getPlicometria());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;

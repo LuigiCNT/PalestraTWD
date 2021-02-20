@@ -1,5 +1,8 @@
 package it.unirc.twd.beans;
 
+import java.sql.PreparedStatement;
+
+import it.unirc.twd.utils.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,21 +11,22 @@ import java.util.Vector;
 
 import it.unirc.twd.utils.DBManager;
 
-public class IscrizioniDAO {
+
+public class DotazioneDAO {
 	private static Connection conn = null;
 	
-	public Iscrizioni getIscrizioniByUtente(Iscrizioni i) {
-		String query = "SELECT nomecorso FROM Iscrizioni WHERE username=?";
-		Iscrizioni res = null;
+	public Dotazione getDotazioneByAttrezzo(Dotazione d) {
+		String query = "select*from dotazione where attrezzo = ?";
+		Dotazione res = null;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps.setString(1, i.getUsername());
+			ps.setString(1, d.getAttrezzo());
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				res=new Iscrizioni();
-				res.setUsername(rs.getString("username"));
+				res=new Dotazione();
+				res.setAttrezzo(rs.getString("attrezzo"));
 				res.setNomeCorso(rs.getString("nomecorso"));
 			}
 		}catch(Exception e) {
@@ -31,18 +35,18 @@ public class IscrizioniDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	public Iscrizioni getIscrizioniByCorso(Iscrizioni i) {
-		String query = "SELECT username FROM Iscrizioni WHERE nomecorso=?";
-		Iscrizioni res = null;
+	public Dotazione getDotazioneByCorso(Dotazione d) {
+		String query = "select*from dotazione where nomecorso = ?";
+		Dotazione res = null;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps.setString(1, i.getNomeCorso());
+			ps.setString(1, d.getNomeCorso());
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				res=new Iscrizioni();
-				res.setUsername(rs.getString("username"));
+				res=new Dotazione();
+				res.setAttrezzo(rs.getString("attrezzo"));
 				res.setNomeCorso(rs.getString("nomecorso"));
 			}
 		}catch(Exception e) {
@@ -52,14 +56,15 @@ public class IscrizioniDAO {
 		return res;
 	}
 	
-	public boolean SalvaIscrizione(Iscrizioni i) {
-		String query = "INSERT INTO Iscrizioni VALUES (?, ?)";
+
+	public boolean SalvaDotazione(Dotazione d) {
+		String query = "INSERT INTO Dotazione VALUES (?, ?)";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, i.getUsername());
-			ps.setString(2, i.getNomeCorso());
+			ps.setString(1, d.getAttrezzo());
+			ps.setString(2, d.getNomeCorso());
 			int tmp=ps.executeUpdate();
 			if(tmp==1) {
 				esito=true;
@@ -71,13 +76,13 @@ public class IscrizioniDAO {
 		return esito;
 	}
 	
-	public boolean EliminaIscrizioni(String username, String corso) {
-		String query = "DELETE FROM Iscrizioni WHERE Username = ? and nomecorso=?";
+	public boolean EliminaDotazione(String attrezzo, String corso) {
+		String query = "DELETE FROM Dotazione WHERE attrezzo = ? and nomecorso=?";
 		boolean esito=false;
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, username);
+			ps.setString(1, attrezzo);
 			ps.setString(2, corso);
 			System.out.println(ps);
 			int tmp=ps.executeUpdate();
@@ -91,15 +96,16 @@ public class IscrizioniDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
-	public Vector<Iscrizioni> getAll(){
-		String query = "SELECT * FROM Iscrizioni";
-		Vector<Iscrizioni> list = new Vector<Iscrizioni>();
+	
+	public Vector<Dotazione> getAll(){
+		String query = "SELECT * FROM Dotazione";
+		Vector<Dotazione> list = new Vector<Dotazione>();
 		conn=DBManager.startConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				list.add(recordToIscrizione(rs));
+				list.add(recordToDotazione(rs));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -107,20 +113,19 @@ public class IscrizioniDAO {
 		DBManager.closeConnection();
 		return list;
 	}
-	
-	public boolean EsisteIscrizione(String username, String nomeCorso) {
-		String query = "Select * FROM Iscrizione where username = ? and nomecorso = ?";
+
+	public boolean EsisteDotazione(String attrezzo, String nomeCorso) {
+		String query = "Select * FROM Dotazione where attrezzo = ? and nomecorso = ?";
 		boolean res = false;
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps.setString(1, username);
+			ps.setString(1, attrezzo);
 			ps.setString(2,  nomeCorso);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				//res.setUsername(rs.getString("username"));
-				//res.setAutorita(rs.getString("autorità"));
+				
 				res=true;
 				System.out.println(res);
 			}
@@ -131,11 +136,10 @@ public class IscrizioniDAO {
 		return res;
 	}
 	
-	protected Iscrizioni recordToIscrizione(ResultSet rs) throws SQLException {
-		Iscrizioni res=new Iscrizioni();
-		res.setUsername(rs.getString("Username"));
+	protected Dotazione recordToDotazione(ResultSet rs) throws SQLException {
+		Dotazione res=new Dotazione();
+		res.setAttrezzo(rs.getString("attrezzo"));
 		res.setNomeCorso(rs.getString("nomecorso"));
 		return res;
 	}
-
 }

@@ -129,6 +129,7 @@ public class UtenteDAO {
 		DBManager.closeConnection();
 		return esito;
 	}
+	
 	public boolean AggiornaPassword(Utente u) {
 		String query = "UPDATE Utente SET Password = ? WHERE Username = ?";
 		boolean esito = false;

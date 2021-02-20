@@ -1,14 +1,13 @@
 package it.unirc.twd.beans;
 
-public class Iscrizioni {
-	private String Username;
+public class Dotazione {
+	private String attrezzo;
 	private String nomeCorso;
-	
-	public String getUsername() {
-		return Username;
+	public String getAttrezzo() {
+		return attrezzo;
 	}
-	public void setUsername(String username) {
-		Username = username;
+	public void setAttrezzo(String attrezzo) {
+		this.attrezzo = attrezzo;
 	}
 	public String getNomeCorso() {
 		return nomeCorso;
@@ -20,7 +19,7 @@ public class Iscrizioni {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
+		result = prime * result + ((attrezzo == null) ? 0 : attrezzo.hashCode());
 		result = prime * result + ((nomeCorso == null) ? 0 : nomeCorso.hashCode());
 		return result;
 	}
@@ -32,11 +31,11 @@ public class Iscrizioni {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Iscrizioni other = (Iscrizioni) obj;
-		if (Username == null) {
-			if (other.Username != null)
+		Dotazione other = (Dotazione) obj;
+		if (attrezzo == null) {
+			if (other.attrezzo != null)
 				return false;
-		} else if (!Username.equals(other.Username))
+		} else if (!attrezzo.equals(other.attrezzo))
 			return false;
 		if (nomeCorso == null) {
 			if (other.nomeCorso != null)
@@ -47,15 +46,18 @@ public class Iscrizioni {
 	}
 	@Override
 	public String toString() {
-		return "Iscrizioni [Username=" + Username + ", nomeCorso=" + nomeCorso + "]";
+		return "Dotazione [attrezzo=" + attrezzo + ", nomeCorso=" + nomeCorso + "]";
 	}
-	public Iscrizioni() {
+	public Dotazione(String attrezzo, String nomeCorso) {
+		super();
+		this.attrezzo = attrezzo;
+		this.nomeCorso = nomeCorso;
+	}
+	public Dotazione() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Iscrizioni(String username, String nomeCorso) {
-		super();
-		Username = username;
-		this.nomeCorso = nomeCorso;
-	}
+	
+	
+
 }

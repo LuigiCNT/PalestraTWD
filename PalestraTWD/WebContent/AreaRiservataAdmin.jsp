@@ -208,7 +208,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
 									data-target="#updateUtenteForm"
 									style="background-color: transparent; color: black !important">Modifica
 										Valori Cliente</a></li>
-
+								
+								<li class="list-group-item"><a href="#" data-toggle="modal"
+									data-target="#addDatiFisiciUtente"
+									style="background-color: transparent; color: black !important">Inserisci Dati Fisici
+										</a></li>
+										
 								<li class="list-group-item"><a href="#" data-toggle="modal"
 									data-target="#EliminaUtenteForm"
 									style="background-color: transparent; color: black !important">Elimina
@@ -260,9 +265,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
 										Corso</a></li>
 
 								<li class="list-group-item"><a href="#" data-toggle="modal"
-									data-target="#"
-									style="background-color: transparent; color: black !important">Lista
-										Corsi</a></li>
+									data-target="#VisualizzaDotazione"
+									style="background-color: transparent; color: black !important">Visualizza dotazione in base al corso
+										</a></li>
 
 
 
@@ -492,6 +497,48 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 	<!-- FINE FORM NUOVO MEMBRO -->
 
+<!-- INIZIO INSERISCI DATI FISICI -->
+<div class="modal fade" id="addDatiFisiciUtente" tabindex="-1" role="dialog"
+		aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Inserisci Dati Fisici</h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="InserisciDati"
+						action="InserisciDati" onsubmit="document.required()" method="post"
+						role="form">
+						<input type="text" class="form-control" name="username"
+							placeholder="Username" required> 
+							<input type="text"
+							class="form-control" name="altezza" placeholder="Altezza (cm)"
+							required> 
+							<input type="text" class="form-control"
+							name="peso" placeholder="Peso (kg)" required> 
+							<input
+							type="text" class="form-control" name="plicometria" placeholder="Valore Plicometrico (mm)"
+							required>
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Crea</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+<!-- FINE INSERISCI DATI -->
 
 	<!-- INIZIO FORM NUOVA SCHEDA -->
 	<div class="modal fade" id="addSchedaForm" tabindex="-1" role="dialog"
@@ -649,6 +696,45 @@ https://www.tooplate.com/view/2119-gymso-fitness
 		<div class="modal-footer"></div>
 	</div>
 	<!-- FINE ELIMINA ISCRIZIONE -->
+	
+	<!-- VISUALIZZA DOTAZIONE -->
+	
+	<div class="modal fade" id="VisualizzaDotazione" tabindex="-1"
+		role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="membershipFormLabel">Visualizza dotazione
+						 </h2>
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form class="membership-form webform" name="VisualizzaDotazione"
+						action="EliminaIscrizione" onsubmit="document.required()"
+						method="post" role="form">
+
+						<input
+							type="text" class="form-control" name="nomeCorso"
+							placeholder="Nome del corso" required>
+
+						<button type="submit" class="form-control" id="submit-button"
+							name="Accedi"
+							style="background-color: #343a40 !important; color: white !important">Visualizza</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+	<!-- FINE VISUALIZZA DOTAZIONE -->
 
 	<!-- MODIFICA VALORI CLIENTE -->
 	<div class="modal fade" id="updateUtenteForm" tabindex="-1"

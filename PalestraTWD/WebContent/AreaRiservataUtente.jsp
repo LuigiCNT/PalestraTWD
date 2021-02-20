@@ -76,6 +76,8 @@ Dati_fisici df = (Dati_fisici) session.getAttribute("dati_fisici");
 Pagamento p = (Pagamento) session.getAttribute("pagamento");
 Scheda_allenamento s = (Scheda_allenamento) session.getAttribute("scheda");
 String username = u.getUsername().toUpperCase();
+String nome = u.getNome().toUpperCase();
+String cognome = u.getCognome().toUpperCase();
 System.out.println(s.toString());
 System.out.println(p.toString());
 Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
@@ -99,7 +101,7 @@ Vector<Corsi> corsi = (Vector<Corsi>) session.getAttribute("lista_corsi");
 
 					<h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
 						BENTORNATO
-						<%= username %>
+						<%= nome %> <%= cognome %>
 						!
 					</h1>
 
